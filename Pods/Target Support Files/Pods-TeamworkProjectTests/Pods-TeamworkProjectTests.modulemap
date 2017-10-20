@@ -1,0 +1,6 @@
+framework module Pods_TeamworkProjectTests {
+  umbrella header "Pods-TeamworkProjectTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
