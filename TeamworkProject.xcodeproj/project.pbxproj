@@ -16,6 +16,11 @@
 		ED6D6E6E1F9A543800761D09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED6D6E6C1F9A543800761D09 /* LaunchScreen.storyboard */; };
 		ED6D6E791F9A543800761D09 /* TeamworkProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6D6E781F9A543800761D09 /* TeamworkProjectTests.swift */; };
 		ED6D6E841F9A543800761D09 /* TeamworkProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6D6E831F9A543800761D09 /* TeamworkProjectUITests.swift */; };
+		ED835E4C1F9A587000F6FD8F /* TeamworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED835E4B1F9A587000F6FD8F /* TeamworkAPI.swift */; };
+		ED835E4E1F9A589D00F6FD8F /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED835E4D1F9A589D00F6FD8F /* Project.swift */; };
+		ED835E521F9A6AC200F6FD8F /* ProjectResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED835E511F9A6AC200F6FD8F /* ProjectResult.swift */; };
+		ED835E561F9A6EBF00F6FD8F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED835E551F9A6EBF00F6FD8F /* Task.swift */; };
+		ED835E581F9A6F8900F6FD8F /* TaskResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED835E571F9A6F8900F6FD8F /* TaskResult.swift */; };
 		F1A839D08EB025B940806257 /* Pods_TeamworkProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DDF5D738925A4449D66754 /* Pods_TeamworkProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +63,11 @@
 		ED6D6E7F1F9A543800761D09 /* TeamworkProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamworkProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED6D6E831F9A543800761D09 /* TeamworkProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamworkProjectUITests.swift; sourceTree = "<group>"; };
 		ED6D6E851F9A543800761D09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED835E4B1F9A587000F6FD8F /* TeamworkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamworkAPI.swift; sourceTree = "<group>"; };
+		ED835E4D1F9A589D00F6FD8F /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		ED835E511F9A6AC200F6FD8F /* ProjectResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectResult.swift; sourceTree = "<group>"; };
+		ED835E551F9A6EBF00F6FD8F /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		ED835E571F9A6F8900F6FD8F /* TaskResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResult.swift; sourceTree = "<group>"; };
 		F7DDF5D738925A4449D66754 /* Pods_TeamworkProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamworkProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -137,6 +147,7 @@
 		ED6D6E601F9A543800761D09 /* TeamworkProject */ = {
 			isa = PBXGroup;
 			children = (
+				ED835E4A1F9A585800F6FD8F /* API */,
 				ED835E491F9A56F900F6FD8F /* Models */,
 				ED6D6E611F9A543800761D09 /* AppDelegate.swift */,
 				ED6D6E651F9A543800761D09 /* MainViewController.swift */,
@@ -169,8 +180,20 @@
 		ED835E491F9A56F900F6FD8F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ED835E4D1F9A589D00F6FD8F /* Project.swift */,
+				ED835E511F9A6AC200F6FD8F /* ProjectResult.swift */,
+				ED835E551F9A6EBF00F6FD8F /* Task.swift */,
+				ED835E571F9A6F8900F6FD8F /* TaskResult.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		ED835E4A1F9A585800F6FD8F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				ED835E4B1F9A587000F6FD8F /* TeamworkAPI.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -466,8 +489,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED835E4C1F9A587000F6FD8F /* TeamworkAPI.swift in Sources */,
+				ED835E581F9A6F8900F6FD8F /* TaskResult.swift in Sources */,
 				ED6D6E661F9A543800761D09 /* MainViewController.swift in Sources */,
 				ED6D6E621F9A543800761D09 /* AppDelegate.swift in Sources */,
+				ED835E4E1F9A589D00F6FD8F /* Project.swift in Sources */,
+				ED835E561F9A6EBF00F6FD8F /* Task.swift in Sources */,
+				ED835E521F9A6AC200F6FD8F /* ProjectResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
