@@ -8,4 +8,5 @@
 
 struct Task: Codable {
     let id: Int
+    let content: String
 }

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "46DBCD7FC8F08BDA0BABBA59A3287D7E"
-               BuildableName = "Siesta.framework"
-               BlueprintName = "Siesta"
+               BlueprintIdentifier = "7A5CB366084EEF0666F659BF0EE17331"
+               BuildableName = "Pods_TeamworkKit.framework"
+               BlueprintName = "Pods-TeamworkKit"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "46DBCD7FC8F08BDA0BABBA59A3287D7E"
-            BuildableName = "Siesta.framework"
-            BlueprintName = "Siesta"
+            BlueprintIdentifier = "7A5CB366084EEF0666F659BF0EE17331"
+            BuildableName = "Pods_TeamworkKit.framework"
+            BlueprintName = "Pods-TeamworkKit"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

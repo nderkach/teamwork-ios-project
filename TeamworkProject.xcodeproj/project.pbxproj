@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3DACEDA235A8FFC17E14FC65 /* Pods_TeamworkProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C042D0AF77AFA5B5414167AF /* Pods_TeamworkProjectTests.framework */; };
+		92A2E2DA59B466C20C4552E4 /* Pods_TeamworkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3504A3F7688810762ECF2B8A /* Pods_TeamworkKit.framework */; };
 		AED33E9DCEA71E6EB05CFD73 /* Pods_TeamworkProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68D95439C206724F2209E4DB /* Pods_TeamworkProjectUITests.framework */; };
+		ED663B491FA0BA0100601A42 /* TeamworkKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EDBBA6141FA0A884000E8132 /* TeamworkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ED6D6E621F9A543800761D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6D6E611F9A543800761D09 /* AppDelegate.swift */; };
 		ED6D6E661F9A543800761D09 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6D6E651F9A543800761D09 /* MainViewController.swift */; };
 		ED6D6E691F9A543800761D09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED6D6E671F9A543800761D09 /* Main.storyboard */; };
@@ -16,11 +18,22 @@
 		ED6D6E6E1F9A543800761D09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED6D6E6C1F9A543800761D09 /* LaunchScreen.storyboard */; };
 		ED6D6E791F9A543800761D09 /* TeamworkProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6D6E781F9A543800761D09 /* TeamworkProjectTests.swift */; };
 		ED6D6E841F9A543800761D09 /* TeamworkProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6D6E831F9A543800761D09 /* TeamworkProjectUITests.swift */; };
-		ED835E4C1F9A587000F6FD8F /* TeamworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED835E4B1F9A587000F6FD8F /* TeamworkAPI.swift */; };
-		ED835E4E1F9A589D00F6FD8F /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED835E4D1F9A589D00F6FD8F /* Project.swift */; };
-		ED835E521F9A6AC200F6FD8F /* ProjectResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED835E511F9A6AC200F6FD8F /* ProjectResult.swift */; };
-		ED835E561F9A6EBF00F6FD8F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED835E551F9A6EBF00F6FD8F /* Task.swift */; };
-		ED835E581F9A6F8900F6FD8F /* TaskResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED835E571F9A6F8900F6FD8F /* TaskResult.swift */; };
+		EDBBA5E81F9F9244000E8132 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBBA5E71F9F9244000E8132 /* IntentHandler.swift */; };
+		EDBBA5F01F9F9244000E8132 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBBA5EF1F9F9244000E8132 /* IntentsUI.framework */; };
+		EDBBA5F31F9F9244000E8132 /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBBA5F21F9F9244000E8132 /* IntentViewController.swift */; };
+		EDBBA5F61F9F9244000E8132 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDBBA5F41F9F9244000E8132 /* MainInterface.storyboard */; };
+		EDBBA5FA1F9F9244000E8132 /* TeamworkSiriUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EDBBA5EE1F9F9244000E8132 /* TeamworkSiriUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EDBBA5FD1F9F9244000E8132 /* TeamworkSiri.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EDBBA5E51F9F9244000E8132 /* TeamworkSiri.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EDBBA61D1FA0A885000E8132 /* TeamworkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBBA6141FA0A884000E8132 /* TeamworkKit.framework */; };
+		EDBBA6241FA0A885000E8132 /* TeamworkKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBBA6231FA0A885000E8132 /* TeamworkKitTests.swift */; };
+		EDBBA6261FA0A885000E8132 /* TeamworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = EDBBA6161FA0A884000E8132 /* TeamworkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDBBA6321FA0A966000E8132 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBBA6051FA08F15000E8132 /* TaskManager.swift */; };
+		EDBBA6361FA0A96F000E8132 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED835E4D1F9A589D00F6FD8F /* Project.swift */; };
+		EDBBA6371FA0A96F000E8132 /* ProjectResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED835E511F9A6AC200F6FD8F /* ProjectResult.swift */; };
+		EDBBA6381FA0A96F000E8132 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED835E551F9A6EBF00F6FD8F /* Task.swift */; };
+		EDBBA6391FA0A96F000E8132 /* TaskResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED835E571F9A6F8900F6FD8F /* TaskResult.swift */; };
+		EDBBA63A1FA0A974000E8132 /* TeamworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED835E4B1F9A587000F6FD8F /* TeamworkAPI.swift */; };
+		EDBBA63D1FA0A9CE000E8132 /* TeamworkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBBA6141FA0A884000E8132 /* TeamworkKit.framework */; };
 		F1A839D08EB025B940806257 /* Pods_TeamworkProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DDF5D738925A4449D66754 /* Pods_TeamworkProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,17 +52,82 @@
 			remoteGlobalIDString = ED6D6E5D1F9A543800761D09;
 			remoteInfo = TeamworkProject;
 		};
+		EDBBA5F81F9F9244000E8132 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED6D6E561F9A543800761D09 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDBBA5ED1F9F9244000E8132;
+			remoteInfo = TeamworkSiriUI;
+		};
+		EDBBA5FB1F9F9244000E8132 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED6D6E561F9A543800761D09 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDBBA5E41F9F9244000E8132;
+			remoteInfo = TeamworkSiri;
+		};
+		EDBBA61E1FA0A885000E8132 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED6D6E561F9A543800761D09 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDBBA6131FA0A884000E8132;
+			remoteInfo = TeamworkKit;
+		};
+		EDBBA6201FA0A885000E8132 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED6D6E561F9A543800761D09 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED6D6E5D1F9A543800761D09;
+			remoteInfo = TeamworkProject;
+		};
+		EDBBA63B1FA0A9C9000E8132 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED6D6E561F9A543800761D09 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDBBA6131FA0A884000E8132;
+			remoteInfo = TeamworkKit;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		ED663B481FA0B9E200601A42 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				ED663B491FA0BA0100601A42 /* TeamworkKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDBBA6041F9F9244000E8132 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EDBBA5FA1F9F9244000E8132 /* TeamworkSiriUI.appex in Embed App Extensions */,
+				EDBBA5FD1F9F9244000E8132 /* TeamworkSiri.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		08B46A9F1C0272F6572C77AE /* Pods-TeamworkProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamworkProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeamworkProjectTests/Pods-TeamworkProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0FBFE3CAF7AE14FE0444131B /* Pods-TeamworkProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamworkProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeamworkProject/Pods-TeamworkProject.debug.xcconfig"; sourceTree = "<group>"; };
+		2CDEB3DF071AE7FEE6188F31 /* Pods-TeamworkKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamworkKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeamworkKit/Pods-TeamworkKit.debug.xcconfig"; sourceTree = "<group>"; };
+		3504A3F7688810762ECF2B8A /* Pods_TeamworkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamworkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		441CB423B1D214FFD8B88ECD /* Pods-TeamworkProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamworkProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TeamworkProjectUITests/Pods-TeamworkProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		60302978FB29D7551CD27E79 /* Pods-TeamworkProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamworkProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-TeamworkProject/Pods-TeamworkProject.release.xcconfig"; sourceTree = "<group>"; };
+		651B3713A6888C0BC2B2DCF6 /* Pods_TeamworkSiri.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamworkSiri.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68D95439C206724F2209E4DB /* Pods_TeamworkProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamworkProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B099807A2FF6E61F680D3BEF /* Pods-TeamworkProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamworkProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeamworkProjectUITests/Pods-TeamworkProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BEBD476AC4639A01D68EC1CB /* Pods-TeamworkProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamworkProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TeamworkProjectTests/Pods-TeamworkProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		C042D0AF77AFA5B5414167AF /* Pods_TeamworkProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamworkProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBF1A0841AE61C2D58748FCA /* Pods-TeamworkKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamworkKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-TeamworkKit/Pods-TeamworkKit.release.xcconfig"; sourceTree = "<group>"; };
 		ED6D6E5E1F9A543800761D09 /* TeamworkProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamworkProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED6D6E611F9A543800761D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED6D6E651F9A543800761D09 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +146,23 @@
 		ED835E511F9A6AC200F6FD8F /* ProjectResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectResult.swift; sourceTree = "<group>"; };
 		ED835E551F9A6EBF00F6FD8F /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		ED835E571F9A6F8900F6FD8F /* TaskResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResult.swift; sourceTree = "<group>"; };
+		EDBBA5E01F9F920D000E8132 /* TeamworkProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TeamworkProject.entitlements; sourceTree = "<group>"; };
+		EDBBA5E51F9F9244000E8132 /* TeamworkSiri.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TeamworkSiri.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDBBA5E71F9F9244000E8132 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		EDBBA5E91F9F9244000E8132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDBBA5EE1F9F9244000E8132 /* TeamworkSiriUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TeamworkSiriUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDBBA5EF1F9F9244000E8132 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		EDBBA5F21F9F9244000E8132 /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		EDBBA5F51F9F9244000E8132 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		EDBBA5F71F9F9244000E8132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDBBA6051FA08F15000E8132 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
+		EDBBA60B1FA0A632000E8132 /* Siesta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Siesta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDBBA6141FA0A884000E8132 /* TeamworkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TeamworkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDBBA6161FA0A884000E8132 /* TeamworkKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamworkKit.h; sourceTree = "<group>"; };
+		EDBBA6171FA0A884000E8132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDBBA61C1FA0A885000E8132 /* TeamworkKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamworkKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDBBA6231FA0A885000E8132 /* TeamworkKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamworkKitTests.swift; sourceTree = "<group>"; };
+		EDBBA6251FA0A885000E8132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7DDF5D738925A4449D66754 /* Pods_TeamworkProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamworkProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -96,15 +191,51 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EDBBA5E21F9F9244000E8132 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDBBA63D1FA0A9CE000E8132 /* TeamworkKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDBBA5EB1F9F9244000E8132 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDBBA5F01F9F9244000E8132 /* IntentsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDBBA6101FA0A884000E8132 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92A2E2DA59B466C20C4552E4 /* Pods_TeamworkKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDBBA6191FA0A885000E8132 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDBBA61D1FA0A885000E8132 /* TeamworkKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		59ED93D51F33B96EDDC3C011 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EDBBA60B1FA0A632000E8132 /* Siesta.framework */,
 				F7DDF5D738925A4449D66754 /* Pods_TeamworkProject.framework */,
 				C042D0AF77AFA5B5414167AF /* Pods_TeamworkProjectTests.framework */,
 				68D95439C206724F2209E4DB /* Pods_TeamworkProjectUITests.framework */,
+				EDBBA5EF1F9F9244000E8132 /* IntentsUI.framework */,
+				651B3713A6888C0BC2B2DCF6 /* Pods_TeamworkSiri.framework */,
+				3504A3F7688810762ECF2B8A /* Pods_TeamworkKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -118,6 +249,8 @@
 				BEBD476AC4639A01D68EC1CB /* Pods-TeamworkProjectTests.release.xcconfig */,
 				B099807A2FF6E61F680D3BEF /* Pods-TeamworkProjectUITests.debug.xcconfig */,
 				441CB423B1D214FFD8B88ECD /* Pods-TeamworkProjectUITests.release.xcconfig */,
+				2CDEB3DF071AE7FEE6188F31 /* Pods-TeamworkKit.debug.xcconfig */,
+				CBF1A0841AE61C2D58748FCA /* Pods-TeamworkKit.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -128,6 +261,10 @@
 				ED6D6E601F9A543800761D09 /* TeamworkProject */,
 				ED6D6E771F9A543800761D09 /* TeamworkProjectTests */,
 				ED6D6E821F9A543800761D09 /* TeamworkProjectUITests */,
+				EDBBA5E61F9F9244000E8132 /* TeamworkSiri */,
+				EDBBA5F11F9F9244000E8132 /* TeamworkSiriUI */,
+				EDBBA6151FA0A884000E8132 /* TeamworkKit */,
+				EDBBA6221FA0A885000E8132 /* TeamworkKitTests */,
 				ED6D6E5F1F9A543800761D09 /* Products */,
 				8B72E80B9DBFCCA37ED8F065 /* Pods */,
 				59ED93D51F33B96EDDC3C011 /* Frameworks */,
@@ -140,6 +277,10 @@
 				ED6D6E5E1F9A543800761D09 /* TeamworkProject.app */,
 				ED6D6E741F9A543800761D09 /* TeamworkProjectTests.xctest */,
 				ED6D6E7F1F9A543800761D09 /* TeamworkProjectUITests.xctest */,
+				EDBBA5E51F9F9244000E8132 /* TeamworkSiri.appex */,
+				EDBBA5EE1F9F9244000E8132 /* TeamworkSiriUI.appex */,
+				EDBBA6141FA0A884000E8132 /* TeamworkKit.framework */,
+				EDBBA61C1FA0A885000E8132 /* TeamworkKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,8 +288,7 @@
 		ED6D6E601F9A543800761D09 /* TeamworkProject */ = {
 			isa = PBXGroup;
 			children = (
-				ED835E4A1F9A585800F6FD8F /* API */,
-				ED835E491F9A56F900F6FD8F /* Models */,
+				EDBBA5E01F9F920D000E8132 /* TeamworkProject.entitlements */,
 				ED6D6E611F9A543800761D09 /* AppDelegate.swift */,
 				ED6D6E651F9A543800761D09 /* MainViewController.swift */,
 				ED6D6E671F9A543800761D09 /* Main.storyboard */,
@@ -196,7 +336,66 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		EDBBA5E61F9F9244000E8132 /* TeamworkSiri */ = {
+			isa = PBXGroup;
+			children = (
+				EDBBA5E71F9F9244000E8132 /* IntentHandler.swift */,
+				EDBBA5E91F9F9244000E8132 /* Info.plist */,
+			);
+			path = TeamworkSiri;
+			sourceTree = "<group>";
+		};
+		EDBBA5F11F9F9244000E8132 /* TeamworkSiriUI */ = {
+			isa = PBXGroup;
+			children = (
+				EDBBA5F21F9F9244000E8132 /* IntentViewController.swift */,
+				EDBBA5F41F9F9244000E8132 /* MainInterface.storyboard */,
+				EDBBA5F71F9F9244000E8132 /* Info.plist */,
+			);
+			path = TeamworkSiriUI;
+			sourceTree = "<group>";
+		};
+		EDBBA6081FA09FCC000E8132 /* TeamworkProjectCore */ = {
+			isa = PBXGroup;
+			children = (
+				EDBBA6051FA08F15000E8132 /* TaskManager.swift */,
+				ED835E491F9A56F900F6FD8F /* Models */,
+				ED835E4A1F9A585800F6FD8F /* API */,
+			);
+			path = TeamworkProjectCore;
+			sourceTree = "<group>";
+		};
+		EDBBA6151FA0A884000E8132 /* TeamworkKit */ = {
+			isa = PBXGroup;
+			children = (
+				EDBBA6081FA09FCC000E8132 /* TeamworkProjectCore */,
+				EDBBA6161FA0A884000E8132 /* TeamworkKit.h */,
+				EDBBA6171FA0A884000E8132 /* Info.plist */,
+			);
+			path = TeamworkKit;
+			sourceTree = "<group>";
+		};
+		EDBBA6221FA0A885000E8132 /* TeamworkKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				EDBBA6231FA0A885000E8132 /* TeamworkKitTests.swift */,
+				EDBBA6251FA0A885000E8132 /* Info.plist */,
+			);
+			path = TeamworkKitTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		EDBBA6111FA0A884000E8132 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDBBA6261FA0A885000E8132 /* TeamworkKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		ED6D6E5D1F9A543800761D09 /* TeamworkProject */ = {
@@ -209,10 +408,13 @@
 				ED6D6E5C1F9A543800761D09 /* Resources */,
 				1B4B752A8198C7FC8FA78278 /* [CP] Embed Pods Frameworks */,
 				79FADDFDA363DB03A62DD533 /* [CP] Copy Pods Resources */,
+				EDBBA6041F9F9244000E8132 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EDBBA5F91F9F9244000E8132 /* PBXTargetDependency */,
+				EDBBA5FC1F9F9244000E8132 /* PBXTargetDependency */,
 			);
 			name = TeamworkProject;
 			productName = TeamworkProject;
@@ -261,6 +463,81 @@
 			productReference = ED6D6E7F1F9A543800761D09 /* TeamworkProjectUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		EDBBA5E41F9F9244000E8132 /* TeamworkSiri */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDBBA6011F9F9244000E8132 /* Build configuration list for PBXNativeTarget "TeamworkSiri" */;
+			buildPhases = (
+				EDBBA5E11F9F9244000E8132 /* Sources */,
+				EDBBA5E21F9F9244000E8132 /* Frameworks */,
+				EDBBA5E31F9F9244000E8132 /* Resources */,
+				ED663B481FA0B9E200601A42 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDBBA63C1FA0A9C9000E8132 /* PBXTargetDependency */,
+			);
+			name = TeamworkSiri;
+			productName = TeamworkSiri;
+			productReference = EDBBA5E51F9F9244000E8132 /* TeamworkSiri.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		EDBBA5ED1F9F9244000E8132 /* TeamworkSiriUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDBBA5FE1F9F9244000E8132 /* Build configuration list for PBXNativeTarget "TeamworkSiriUI" */;
+			buildPhases = (
+				EDBBA5EA1F9F9244000E8132 /* Sources */,
+				EDBBA5EB1F9F9244000E8132 /* Frameworks */,
+				EDBBA5EC1F9F9244000E8132 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TeamworkSiriUI;
+			productName = TeamworkSiriUI;
+			productReference = EDBBA5EE1F9F9244000E8132 /* TeamworkSiriUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		EDBBA6131FA0A884000E8132 /* TeamworkKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDBBA62B1FA0A885000E8132 /* Build configuration list for PBXNativeTarget "TeamworkKit" */;
+			buildPhases = (
+				E166B3EC2C5322998A3BFDDF /* [CP] Check Pods Manifest.lock */,
+				EDBBA60F1FA0A884000E8132 /* Sources */,
+				EDBBA6101FA0A884000E8132 /* Frameworks */,
+				EDBBA6111FA0A884000E8132 /* Headers */,
+				EDBBA6121FA0A884000E8132 /* Resources */,
+				A775B72123DB3E4441C37729 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TeamworkKit;
+			productName = TeamworkKit;
+			productReference = EDBBA6141FA0A884000E8132 /* TeamworkKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EDBBA61B1FA0A885000E8132 /* TeamworkKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDBBA62F1FA0A885000E8132 /* Build configuration list for PBXNativeTarget "TeamworkKitTests" */;
+			buildPhases = (
+				EDBBA6181FA0A885000E8132 /* Sources */,
+				EDBBA6191FA0A885000E8132 /* Frameworks */,
+				EDBBA61A1FA0A885000E8132 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDBBA61F1FA0A885000E8132 /* PBXTargetDependency */,
+				EDBBA6211FA0A885000E8132 /* PBXTargetDependency */,
+			);
+			name = TeamworkKitTests;
+			productName = TeamworkKitTests;
+			productReference = EDBBA61C1FA0A885000E8132 /* TeamworkKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -274,6 +551,11 @@
 					ED6D6E5D1F9A543800761D09 = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Siri = {
+								enabled = 1;
+							};
+						};
 					};
 					ED6D6E731F9A543800761D09 = {
 						CreatedOnToolsVersion = 9.0.1;
@@ -281,6 +563,23 @@
 						TestTargetID = ED6D6E5D1F9A543800761D09;
 					};
 					ED6D6E7E1F9A543800761D09 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = ED6D6E5D1F9A543800761D09;
+					};
+					EDBBA5E41F9F9244000E8132 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+					EDBBA5ED1F9F9244000E8132 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+					EDBBA6131FA0A884000E8132 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+					EDBBA61B1FA0A885000E8132 = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
 						TestTargetID = ED6D6E5D1F9A543800761D09;
@@ -303,6 +602,10 @@
 				ED6D6E5D1F9A543800761D09 /* TeamworkProject */,
 				ED6D6E731F9A543800761D09 /* TeamworkProjectTests */,
 				ED6D6E7E1F9A543800761D09 /* TeamworkProjectUITests */,
+				EDBBA5E41F9F9244000E8132 /* TeamworkSiri */,
+				EDBBA5ED1F9F9244000E8132 /* TeamworkSiriUI */,
+				EDBBA6131FA0A884000E8132 /* TeamworkKit */,
+				EDBBA61B1FA0A885000E8132 /* TeamworkKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -326,6 +629,35 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		ED6D6E7D1F9A543800761D09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDBBA5E31F9F9244000E8132 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDBBA5EC1F9F9244000E8132 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDBBA5F61F9F9244000E8132 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDBBA6121FA0A884000E8132 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDBBA61A1FA0A885000E8132 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -449,6 +781,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A775B72123DB3E4441C37729 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TeamworkKit/Pods-TeamworkKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B0705718A017A3A699C9E709 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -462,6 +809,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TeamworkProjectTests/Pods-TeamworkProjectTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E166B3EC2C5322998A3BFDDF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TeamworkKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E23AEC12E94EF9097F55FE35 /* [CP] Check Pods Manifest.lock */ = {
@@ -489,13 +854,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED835E4C1F9A587000F6FD8F /* TeamworkAPI.swift in Sources */,
-				ED835E581F9A6F8900F6FD8F /* TaskResult.swift in Sources */,
 				ED6D6E661F9A543800761D09 /* MainViewController.swift in Sources */,
 				ED6D6E621F9A543800761D09 /* AppDelegate.swift in Sources */,
-				ED835E4E1F9A589D00F6FD8F /* Project.swift in Sources */,
-				ED835E561F9A6EBF00F6FD8F /* Task.swift in Sources */,
-				ED835E521F9A6AC200F6FD8F /* ProjectResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +875,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EDBBA5E11F9F9244000E8132 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDBBA5E81F9F9244000E8132 /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDBBA5EA1F9F9244000E8132 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDBBA5F31F9F9244000E8132 /* IntentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDBBA60F1FA0A884000E8132 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDBBA63A1FA0A974000E8132 /* TeamworkAPI.swift in Sources */,
+				EDBBA6391FA0A96F000E8132 /* TaskResult.swift in Sources */,
+				EDBBA6381FA0A96F000E8132 /* Task.swift in Sources */,
+				EDBBA6321FA0A966000E8132 /* TaskManager.swift in Sources */,
+				EDBBA6361FA0A96F000E8132 /* Project.swift in Sources */,
+				EDBBA6371FA0A96F000E8132 /* ProjectResult.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDBBA6181FA0A885000E8132 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDBBA6241FA0A885000E8132 /* TeamworkKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -527,6 +924,31 @@
 			isa = PBXTargetDependency;
 			target = ED6D6E5D1F9A543800761D09 /* TeamworkProject */;
 			targetProxy = ED6D6E801F9A543800761D09 /* PBXContainerItemProxy */;
+		};
+		EDBBA5F91F9F9244000E8132 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDBBA5ED1F9F9244000E8132 /* TeamworkSiriUI */;
+			targetProxy = EDBBA5F81F9F9244000E8132 /* PBXContainerItemProxy */;
+		};
+		EDBBA5FC1F9F9244000E8132 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDBBA5E41F9F9244000E8132 /* TeamworkSiri */;
+			targetProxy = EDBBA5FB1F9F9244000E8132 /* PBXContainerItemProxy */;
+		};
+		EDBBA61F1FA0A885000E8132 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDBBA6131FA0A884000E8132 /* TeamworkKit */;
+			targetProxy = EDBBA61E1FA0A885000E8132 /* PBXContainerItemProxy */;
+		};
+		EDBBA6211FA0A885000E8132 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED6D6E5D1F9A543800761D09 /* TeamworkProject */;
+			targetProxy = EDBBA6201FA0A885000E8132 /* PBXContainerItemProxy */;
+		};
+		EDBBA63C1FA0A9C9000E8132 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDBBA6131FA0A884000E8132 /* TeamworkKit */;
+			targetProxy = EDBBA63B1FA0A9C9000E8132 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -545,6 +967,14 @@
 				ED6D6E6D1F9A543800761D09 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EDBBA5F41F9F9244000E8132 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDBBA5F51F9F9244000E8132 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -661,7 +1091,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0FBFE3CAF7AE14FE0444131B /* Pods-TeamworkProject.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TeamworkProject/TeamworkProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9GHXTK3SK7;
 				INFOPLIST_FILE = TeamworkProject/Info.plist;
@@ -677,7 +1109,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 60302978FB29D7551CD27E79 /* Pods-TeamworkProject.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TeamworkProject/TeamworkProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9GHXTK3SK7;
 				INFOPLIST_FILE = TeamworkProject/Info.plist;
@@ -759,6 +1193,152 @@
 			};
 			name = Release;
 		};
+		EDBBA5FF1F9F9244000E8132 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9GHXTK3SK7;
+				INFOPLIST_FILE = TeamworkSiriUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.derka.TeamworkProject.TeamworkSiriUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EDBBA6001F9F9244000E8132 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9GHXTK3SK7;
+				INFOPLIST_FILE = TeamworkSiriUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.derka.TeamworkProject.TeamworkSiriUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EDBBA6021F9F9244000E8132 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9GHXTK3SK7;
+				INFOPLIST_FILE = TeamworkSiri/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.derka.TeamworkProject.TeamworkSiri;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EDBBA6031F9F9244000E8132 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9GHXTK3SK7;
+				INFOPLIST_FILE = TeamworkSiri/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.derka.TeamworkProject.TeamworkSiri;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EDBBA62C1FA0A885000E8132 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CDEB3DF071AE7FEE6188F31 /* Pods-TeamworkKit.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9GHXTK3SK7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TeamworkKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.derka.TeamworkKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EDBBA62D1FA0A885000E8132 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBF1A0841AE61C2D58748FCA /* Pods-TeamworkKit.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9GHXTK3SK7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TeamworkKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.derka.TeamworkKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EDBBA6301FA0A885000E8132 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9GHXTK3SK7;
+				INFOPLIST_FILE = TeamworkKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.derka.TeamworkKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TeamworkProject.app/TeamworkProject";
+			};
+			name = Debug;
+		};
+		EDBBA6311FA0A885000E8132 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9GHXTK3SK7;
+				INFOPLIST_FILE = TeamworkKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.derka.TeamworkKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TeamworkProject.app/TeamworkProject";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -794,6 +1374,42 @@
 			buildConfigurations = (
 				ED6D6E8F1F9A543800761D09 /* Debug */,
 				ED6D6E901F9A543800761D09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDBBA5FE1F9F9244000E8132 /* Build configuration list for PBXNativeTarget "TeamworkSiriUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDBBA5FF1F9F9244000E8132 /* Debug */,
+				EDBBA6001F9F9244000E8132 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDBBA6011F9F9244000E8132 /* Build configuration list for PBXNativeTarget "TeamworkSiri" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDBBA6021F9F9244000E8132 /* Debug */,
+				EDBBA6031F9F9244000E8132 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDBBA62B1FA0A885000E8132 /* Build configuration list for PBXNativeTarget "TeamworkKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDBBA62C1FA0A885000E8132 /* Debug */,
+				EDBBA62D1FA0A885000E8132 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDBBA62F1FA0A885000E8132 /* Build configuration list for PBXNativeTarget "TeamworkKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDBBA6301FA0A885000E8132 /* Debug */,
+				EDBBA6311FA0A885000E8132 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
