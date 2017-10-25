@@ -58,15 +58,21 @@ class _TeamworkAPI {
             .resource("/tasklists/\(id)/tasks.json")
     }
     
-    func addTaskToTaskList(withId taskListid: Int, content taskContent: String) {
+    func addTaskToTaskList(withId taskListId: Int, content taskContent: String) {
         let json = [
             "todo-item": [
                 "content": taskContent
             ]
         ]
-        service.resource("/tasklists/\(taskListid)/tasks.json").request(.post, json: json).onSuccess() {_ in 
+        service.resource("/tasklists/\(taskListId)/tasks.json").request(.post, json: json).onSuccess() { _ in
             
-            
+            //
+        }
+    }
+
+    func finishTask(withId taskId: Int) {
+        service.resource("/tasks/\(taskId)/complete.json").request(.put).onSuccess() {_ in
+
         }
     }
 

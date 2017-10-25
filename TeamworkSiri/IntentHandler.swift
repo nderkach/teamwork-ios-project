@@ -48,15 +48,33 @@ extension IntentHandler : INAddTasksIntentHandling {
             }
             tasks = createTasks(fromTitles: taskTitlesStrings)
             for task in tasks {
-                TaskManager.sharedInstance.addTask(task.title.spokenPhrase)
+                TaskManager.sharedInstance.addTask(withName: task.title.spokenPhrase)
             }
         }
 
         let response = INAddTasksIntentResponse(code: .success, userActivity: nil)
-        response.modifiedTaskList = intent.targetTaskList
         response.addedTasks = tasks
         completion(response)
     }
-
 }
 
+extension IntentHandler : INSetTaskAttributeIntentHandling {
+
+    public func handle(intent: INSetTaskAttributeIntent,
+                       completion: @escaping (INSetTaskAttributeIntentResponse) -> Swift.Void) {
+
+        guard let title = intent.targetTask?.title else {
+            completion(INSetTaskAttributeIntentResponse(code: .failure, userActivity: nil))
+            return
+        }
+
+        let status = intent.status
+
+        if status == .completed {
+            TaskManager.sharedInstance.finishTask(withName: title.spokenPhrase)
+        }
+        let response = INSetTaskAttributeIntentResponse(code: .success, userActivity: nil)
+        response.modifiedTask = intent.targetTask
+        completion(response)
+    }
+}
