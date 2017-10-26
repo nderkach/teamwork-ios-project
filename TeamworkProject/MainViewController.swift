@@ -11,8 +11,9 @@ import Intents
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var mainLabel: UILabel!
+    @IBOutlet weak var hintsLabel: UILabel!
+    @IBOutlet weak var authorizeButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +22,13 @@ class MainViewController: UIViewController {
     }
 
     fileprivate func updateUI(_ status: INSiriAuthorizationStatus) {
-        label.isHidden = !(status == .authorized)
-        button.isHidden = (status == .authorized)
+        mainLabel.isHidden = !(status == .authorized)
+        authorizeButton.isHidden = (status == .authorized)
+        hintsLabel.isHidden = !(status == .authorized)
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
     // MARK: - Outlets
@@ -31,9 +37,13 @@ class MainViewController: UIViewController {
         INPreferences.requestSiriAuthorization { status in
             switch status {
             case .authorized:
-                print("Siri: Authorized")
+                #if DEBUG
+                    print("Siri: Authorized")
+                #endif
             default:
-                print("Siri: Not authorized")
+                #if DEBUG
+                    print("Siri: Not authorized")
+                #endif
             }
             self.updateUI(status)
         }

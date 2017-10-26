@@ -8,14 +8,12 @@
 
 import Siesta
 
-let projectId = "339988"
-
 public class TaskManager {
 
     public static let sharedInstance = TaskManager()
     var taskResource: Resource?
 
-    public func addTask(withName taskName: String, completion: @escaping (Bool) -> Swift.Void) {
+    public func addTask(withName taskName: String, completion: @escaping (Bool, Int?) -> Swift.Void) {
         DispatchQueue.main.async {
             TeamworkAPI.addTaskToTaskList(withId: taskListId, content: taskName, completion: completion)
         }
@@ -24,6 +22,12 @@ public class TaskManager {
     public func finishTask(withName taskName: String, completion: @escaping (Bool, String?) -> Swift.Void) {
         DispatchQueue.main.async {
             TeamworkAPI.finishTask(withName: taskName, completion: completion)
+        }
+    }
+
+    public func removeTask(withId taskId: Int, completion: @escaping (Bool) -> Swift.Void) {
+        DispatchQueue.main.async {
+            TeamworkAPI.removeTask(withId: taskId, completion: completion)
         }
     }
 }

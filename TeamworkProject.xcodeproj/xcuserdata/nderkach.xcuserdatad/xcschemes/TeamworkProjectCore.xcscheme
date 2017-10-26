@@ -29,7 +29,26 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "EDBFDC291FA255C900FEFFA9"
+               BuildableName = "TeamworkProjectCoreTests.xctest"
+               BlueprintName = "TeamworkProjectCoreTests"
+               ReferencedContainer = "container:TeamworkProject.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "EDE173481FA1ED4D0026E796"
+            BuildableName = "TeamworkProjectCore.framework"
+            BlueprintName = "TeamworkProjectCore"
+            ReferencedContainer = "container:TeamworkProject.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

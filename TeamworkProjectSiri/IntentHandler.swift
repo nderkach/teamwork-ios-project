@@ -53,7 +53,7 @@ extension IntentHandler : INAddTasksIntentHandling {
             tasks = createTasks(fromTitles: taskTitlesStrings)
             for task in tasks {
                 dispatchGroup.enter()
-                TaskManager.sharedInstance.addTask (withName: task.title.spokenPhrase) { (success) in
+                TaskManager.sharedInstance.addTask (withName: task.title.spokenPhrase) { (success, taskId) in
                     if success {
                         addedTasks.append(task)
                     }

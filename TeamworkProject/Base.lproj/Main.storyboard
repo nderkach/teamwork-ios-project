@@ -17,36 +17,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Launch Siri by holding down the Home button" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcV-Wd-ntX" userLabel="Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Launch Siri by holding down the Home button" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcV-Wd-ntX" userLabel="Main Label">
                                 <rect key="frame" x="20" y="314" width="335" height="60"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMd-j7-j9G">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMd-j7-j9G" userLabel="Autorize Button">
                                 <rect key="frame" x="129.5" y="384" width="116" height="39"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="22"/>
                                 <state key="normal" title="Authorize Siri">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="authorizeSiriKit" destination="BV1-FR-VrT" eventType="touchUpInside" id="Bye-Ah-qhC"/>
+                                    <action selector="authorizeSiriKit" destination="BV1-FR-VrT" eventType="touchUpInside" id="HDe-5i-f2Z"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try saying the following: &quot;Add apples and oranges in TeamworkProject&quot; or &quot;Mark apples as completed in TeamworkProject&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7v-gs-TfU" userLabel="Hints Label">
+                                <rect key="frame" x="20" y="384" width="335" height="50.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="PD3-4a-HPW" firstAttribute="leading" secondItem="j7v-gs-TfU" secondAttribute="leading" constant="-20" id="1gY-XR-26Y"/>
                             <constraint firstItem="xMd-j7-j9G" firstAttribute="centerX" secondItem="PD3-4a-HPW" secondAttribute="centerX" id="3ez-Hw-f1g"/>
                             <constraint firstItem="DcV-Wd-ntX" firstAttribute="centerX" secondItem="PD3-4a-HPW" secondAttribute="centerX" id="EbI-3H-MXE"/>
+                            <constraint firstItem="j7v-gs-TfU" firstAttribute="centerX" secondItem="DcV-Wd-ntX" secondAttribute="centerX" id="IZ3-UY-oa6"/>
                             <constraint firstItem="DcV-Wd-ntX" firstAttribute="centerY" secondItem="PD3-4a-HPW" secondAttribute="centerY" id="Pr4-Hr-kTI"/>
                             <constraint firstItem="DcV-Wd-ntX" firstAttribute="leading" secondItem="PD3-4a-HPW" secondAttribute="leading" constant="20" id="Utb-1x-cRV"/>
+                            <constraint firstItem="j7v-gs-TfU" firstAttribute="top" secondItem="DcV-Wd-ntX" secondAttribute="bottom" constant="10" id="fS5-OI-7B5"/>
                             <constraint firstItem="xMd-j7-j9G" firstAttribute="top" secondItem="DcV-Wd-ntX" secondAttribute="bottom" constant="10" id="gos-fN-eYy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PD3-4a-HPW"/>
                     </view>
                     <connections>
-                        <outlet property="button" destination="xMd-j7-j9G" id="5qT-Dy-igA"/>
-                        <outlet property="label" destination="DcV-Wd-ntX" id="TXc-Th-Cwb"/>
+                        <outlet property="authorizeButton" destination="xMd-j7-j9G" id="4Ki-BO-gbn"/>
+                        <outlet property="hintsLabel" destination="j7v-gs-TfU" id="Nrx-Qq-8hP"/>
+                        <outlet property="mainLabel" destination="DcV-Wd-ntX" id="dk1-x7-0WY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>

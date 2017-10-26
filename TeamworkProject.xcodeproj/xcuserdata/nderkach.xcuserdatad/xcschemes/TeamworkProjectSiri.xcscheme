@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EDBBA5E41F9F9244000E8132"
-               BuildableName = "TeamworkSiri.appex"
-               BlueprintName = "TeamworkSiri"
+               BuildableName = "TeamworkProjectSiri.appex"
+               BlueprintName = "TeamworkProjectSiri"
                ReferencedContainer = "container:TeamworkProject.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,23 +44,13 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EDBBA61B1FA0A885000E8132"
-               BuildableName = "TeamworkKitTests.xctest"
-               BlueprintName = "TeamworkKitTests"
-               ReferencedContainer = "container:TeamworkProject.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EDBBA5E41F9F9244000E8132"
-            BuildableName = "TeamworkSiri.appex"
-            BlueprintName = "TeamworkSiri"
+            BuildableName = "TeamworkProjectSiri.appex"
+            BlueprintName = "TeamworkProjectSiri"
             ReferencedContainer = "container:TeamworkProject.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -69,7 +59,7 @@
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
-      intentQueryString = "Add apples and oranges in TeamworkProject"
+      intentQueryString = "Mark apples as completed in TeamworkProject"
       selectedDebuggerIdentifier = ""
       selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       language = ""
@@ -86,8 +76,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EDBBA5E41F9F9244000E8132"
-            BuildableName = "TeamworkSiri.appex"
-            BlueprintName = "TeamworkSiri"
+            BuildableName = "TeamworkProjectSiri.appex"
+            BlueprintName = "TeamworkProjectSiri"
             ReferencedContainer = "container:TeamworkProject.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>
@@ -95,8 +85,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EDBBA5E41F9F9244000E8132"
-            BuildableName = "TeamworkSiri.appex"
-            BlueprintName = "TeamworkSiri"
+            BuildableName = "TeamworkProjectSiri.appex"
+            BlueprintName = "TeamworkProjectSiri"
             ReferencedContainer = "container:TeamworkProject.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -105,7 +95,7 @@
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
-      intentQueryString = "Add apples and oranges in TeamworkProject"
+      intentQueryString = "Mark apples as completed in TeamworkProject"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,7 +30,7 @@
 		663EECC7FA5498D9F00B7F37E98023BF /* ARC+Siesta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA22CE3FA41040905E1ADE487ADEFF /* ARC+Siesta.swift */; };
 		763F09681D7C3F4EC3A2935BB2201CB9 /* FuseUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E977B7291C833CD806469A4B1F16F109 /* FuseUtilities.swift */; };
 		7B89E9F0ED875BC9577DCD9DAF1171BD /* ConfigurationPatternConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313B37996126C68B35DBF824C41D773 /* ConfigurationPatternConvertible.swift */; };
-		7C264ADD2D43A3F3808DFF427ED30ABE /* Pods-TeamworkProjectCore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E959A5AC786E4E182A70185844B6B998 /* Pods-TeamworkProjectCore-dummy.m */; };
+		7C264ADD2D43A3F3808DFF427ED30ABE /* Pods-TeamworkProjectCore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FEEE41798455F9761D39EDDB7499E3B /* Pods-TeamworkProjectCore-dummy.m */; };
 		7DFF67FF82B869DB62042FD88FF0C7A8 /* StandardTransformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314E5BCDCA9A30F73DAA9AFC79F50A95 /* StandardTransformers.swift */; };
 		81400260419FD9857100CC183BEFB9FD /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6DBD7DC5D4818FBF0BCE7EF5F86D46 /* Configuration.swift */; };
 		84AD03C483BAD442D19571DDE2B22AE3 /* PipelineProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F027752F5D956C55E67DE7B7481401A /* PipelineProcessing.swift */; };
@@ -38,21 +38,21 @@
 		8B2779A9D0D3ECE8431A45AE8D8E6D0D /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BBF5DB5FD77EF3692058361C702C53 /* NetworkRequest.swift */; };
 		8B66824BD520B3BB94610920A95F7FB5 /* Fuse-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 352BF7F9D8E69703994DFCA010EAB011 /* Fuse-dummy.m */; };
 		902B02843DADE540E1A2E4EDDD13F92A /* OpenEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53ACCC6E3A83BB60171A3E549005DAB /* OpenEnum.swift */; };
-		916753348AE59693A3111FD054239A4B /* Pods-TeamworkProjectTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAB89CBD8139AE467FD6EFCA7750312 /* Pods-TeamworkProjectTests-dummy.m */; };
 		A039DFFD328CF9CE138B7E4193A25D9B /* Networking-URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B3E0B9E9163503E933D8732DC8AFC1 /* Networking-URLSession.swift */; };
 		A2C39440DD24C687D4FC9595A0EF65FD /* Fuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D039E7F69137D977DC14657F5DD7B451 /* Fuse.swift */; };
 		A2C633FD1B2CF8D1AD1C545ABED2A26A /* RequestCallbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB198D7E2D23805E598E23DD4ACC334 /* RequestCallbacks.swift */; };
+		A56F22559E2F1F0E45737CFC46ECAFF2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		A5F85E9B5BCF9B15C7726C8CD881A20D /* Siesta.h in Headers */ = {isa = PBXBuildFile; fileRef = E7FAD4FB99AEDBB111947216CE88E395 /* Siesta.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A9AB992070E026D1B3BE2F430978E200 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		B287ADC8506A89FD53F6538EAAE82035 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097070E12F93D1D5EAB566BD03E2C1F /* Progress.swift */; };
-		B676E1C05517C059ADAAC4340FB68418 /* Pods-TeamworkProject-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C8638411F4C93A606A17CB04C718EA64 /* Pods-TeamworkProject-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B9B97A3132A36F6D1410FCA76D0DEB7C /* Pods-TeamworkProjectTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B92B33C10C3A804A5629959DD989AB21 /* Pods-TeamworkProjectTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B676E1C05517C059ADAAC4340FB68418 /* Pods-TeamworkProject-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AD2773853F2B87B681870AE103B37A83 /* Pods-TeamworkProject-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA2862C7DD52509097809F361BFBF95E /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB9E9768689480061C86F1D04C119E6 /* Logging.swift */; };
+		BB2E0FED7BE4A7F0A60F149ADE4CC7A1 /* Pods-TeamworkProjectCoreTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 673621DC4BA73B2100CBAF18B4F3132D /* Pods-TeamworkProjectCoreTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BBD8462913601B52DAC877C7F3EAF1C6 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368B3E74BCAF518407E56FEE2FA4C80C /* RequestError.swift */; };
 		BC0CB57331D802858005376932D45683 /* String+Siesta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BCFE04B6DCBF7E1EF4538CCA6190DF /* String+Siesta.swift */; };
 		C03D39C5F2C2837922E8B283CAE38BD4 /* Siesta-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BE50C8269C56C747801EF23C1A65349 /* Siesta-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C3E3B56D77934A90F97848A5B6356210 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2B0A6C6595916D23603259B9EEBA5 /* Resource.swift */; };
-		C5EE5FEBE320D9588B50E62457F0EB14 /* Pods-TeamworkProject-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E526F92D90CFEB09CE0C641CEE292C /* Pods-TeamworkProject-dummy.m */; };
+		C5EE5FEBE320D9588B50E62457F0EB14 /* Pods-TeamworkProject-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E85B29CCFC07359712BBF7A14147CD /* Pods-TeamworkProject-dummy.m */; };
+		D1D2CCC8F0F29E5607DC6041D53697F6 /* Pods-TeamworkProjectCoreTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0FCCAE89F923922AE5CCD15377D8F6 /* Pods-TeamworkProjectCoreTests-dummy.m */; };
 		D28CC617EBFD7C805DD802A3EC79423A /* DebugFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D1D83A141CD70869465D023EA19690 /* DebugFormatting.swift */; };
 		D4A604C5E5B1FCDE51FC61E84CE470C3 /* RequestCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1453FED2316E6707B63365423A10FBA0 /* RequestCreation.swift */; };
 		E0482ABB47405386D1B13273F08200A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
@@ -60,11 +60,18 @@
 		E5022CC0EF2211D8C970671147CD3FBB /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AA0DC270556E534E8E6702939DDE28 /* Service.swift */; };
 		E9EF571508B529A8F3750496F1C7C30D /* Siesta-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CADD62E4998025377EED4F81A966B924 /* Siesta-dummy.m */; };
 		EA150C33060647298BD50697CC32D0A2 /* SiestaUI.h in Headers */ = {isa = PBXBuildFile; fileRef = DD12490F6B42032B9B83344335C1472C /* SiestaUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FABB53818F7E18F153CE2287FC67F753 /* Pods-TeamworkProjectCore-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F3FC810945B4F0F6AE7F10B36EE4C33 /* Pods-TeamworkProjectCore-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FABB53818F7E18F153CE2287FC67F753 /* Pods-TeamworkProjectCore-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D523F619EC32C3B9BE7C2A96CEADED6 /* Pods-TeamworkProjectCore-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		0B421FD27CE0EAF3AF6307E007C5466C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8CD3B3EDB42EEABB2D487F8706AF6BB;
+			remoteInfo = Fuse;
+		};
+		26B31D16600D906486271D63221A5EFA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -77,6 +84,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = B8CD3B3EDB42EEABB2D487F8706AF6BB;
 			remoteInfo = Fuse;
+		};
+		B335106BAD6051A585486478C2A6A73A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 61D793F991FBDFDD8A8B65977353289E;
+			remoteInfo = Siesta;
 		};
 		DA3FBFAD82C102263F610C82088FECC6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -96,92 +110,92 @@
 
 /* Begin PBXFileReference section */
 		00883595A0CDD22B7DC22E09EA0D769A /* GCD+Siesta.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "GCD+Siesta.swift"; path = "Source/Siesta/Support/GCD+Siesta.swift"; sourceTree = "<group>"; };
-		0D44B89CCEE9F66AD22250E7A58A3B35 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01DD4158E8D6B5A424F45E0887AD4C65 /* Pods-TeamworkProjectCoreTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TeamworkProjectCoreTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		092C69D9C7B939A6D21CDED77532F497 /* Pods-TeamworkProject-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TeamworkProject-frameworks.sh"; sourceTree = "<group>"; };
+		0FEEE41798455F9761D39EDDB7499E3B /* Pods-TeamworkProjectCore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TeamworkProjectCore-dummy.m"; sourceTree = "<group>"; };
 		10BBF5DB5FD77EF3692058361C702C53 /* NetworkRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkRequest.swift; path = Source/Siesta/Request/NetworkRequest.swift; sourceTree = "<group>"; };
 		1453FED2316E6707B63365423A10FBA0 /* RequestCreation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestCreation.swift; path = Source/Siesta/Request/RequestCreation.swift; sourceTree = "<group>"; };
-		1686F54F951275781DA45F545CB55E78 /* Pods-TeamworkProjectCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeamworkProjectCore.release.xcconfig"; sourceTree = "<group>"; };
 		16D1D83A141CD70869465D023EA19690 /* DebugFormatting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DebugFormatting.swift; path = Source/Siesta/Support/DebugFormatting.swift; sourceTree = "<group>"; };
 		1734E82C816C5BA6E8294E05F50FE706 /* ResponseTransformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseTransformer.swift; path = Source/Siesta/Pipeline/ResponseTransformer.swift; sourceTree = "<group>"; };
-		18ADEB6DC45250E58BE08CE1D4DFC135 /* Pods_TeamworkProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamworkProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C22C84EED7F2B3DFAC103D948E26CB3 /* Pods-TeamworkProjectCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeamworkProjectCore.debug.xcconfig"; sourceTree = "<group>"; };
-		1CD9BED8A350567B67DDE618CE3FDDFC /* Pods-TeamworkProject-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TeamworkProject-acknowledgements.markdown"; sourceTree = "<group>"; };
-		1F602DEC8142C7DA20314A5DE9DE6D32 /* Pods-TeamworkProject-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TeamworkProject-acknowledgements.plist"; sourceTree = "<group>"; };
+		1767BABD03658B0EBFB66AD7AF8B42B7 /* Pods-TeamworkProjectCore-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TeamworkProjectCore-resources.sh"; sourceTree = "<group>"; };
 		1FB0EC55C343FE3E1BC9DF4308D6B41F /* ResourceObserver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResourceObserver.swift; path = Source/Siesta/Resource/ResourceObserver.swift; sourceTree = "<group>"; };
 		26380FBB67DDDA72E7DC3939EC04C2F4 /* Ω_Deprecations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Ω_Deprecations.swift"; path = "Source/Siesta/Support/Ω_Deprecations.swift"; sourceTree = "<group>"; };
 		26AA0DC270556E534E8E6702939DDE28 /* Service.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Service.swift; path = Source/Siesta/Service.swift; sourceTree = "<group>"; };
-		27FAB48930DC22DBAAD7A67C3C59272F /* Pods-TeamworkProjectCore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TeamworkProjectCore.modulemap"; sourceTree = "<group>"; };
-		28CD10CAC00AE781599B39E607BD8DFB /* Pods-TeamworkProjectTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TeamworkProjectTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		27839F3AD9DF78C0CDD88579DE69F855 /* Pods-TeamworkProjectCore-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TeamworkProjectCore-acknowledgements.plist"; sourceTree = "<group>"; };
 		2ECA22CE3FA41040905E1ADE487ADEFF /* ARC+Siesta.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ARC+Siesta.swift"; path = "Source/Siesta/Support/ARC+Siesta.swift"; sourceTree = "<group>"; };
-		302AEB529DBB0D144BC395B90BFB2620 /* Pods_TeamworkProjectCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamworkProjectCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FA0D0A98B77DBB3670B7E88DAA63414 /* Pods-TeamworkProjectCoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeamworkProjectCoreTests.release.xcconfig"; sourceTree = "<group>"; };
 		314E5BCDCA9A30F73DAA9AFC79F50A95 /* StandardTransformers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StandardTransformers.swift; path = Source/Siesta/Pipeline/StandardTransformers.swift; sourceTree = "<group>"; };
 		3231B20DE952CDE76D59661A648EE087 /* Fuse-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Fuse-umbrella.h"; sourceTree = "<group>"; };
 		352BF7F9D8E69703994DFCA010EAB011 /* Fuse-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Fuse-dummy.m"; sourceTree = "<group>"; };
 		368B3E74BCAF518407E56FEE2FA4C80C /* RequestError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestError.swift; path = Source/Siesta/RequestError.swift; sourceTree = "<group>"; };
+		37411E51BAD549117F69D1E312F5059E /* Pods-TeamworkProject-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TeamworkProject-acknowledgements.markdown"; sourceTree = "<group>"; };
 		37C1A644D4B59250D55814682A5A6ABD /* Collection+Siesta.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Collection+Siesta.swift"; path = "Source/Siesta/Support/Collection+Siesta.swift"; sourceTree = "<group>"; };
 		3BE50C8269C56C747801EF23C1A65349 /* Siesta-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Siesta-umbrella.h"; sourceTree = "<group>"; };
 		3CD6A5686761DEB3E1B5A5628B17E90D /* PipelineConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PipelineConfiguration.swift; path = Source/Siesta/Pipeline/PipelineConfiguration.swift; sourceTree = "<group>"; };
-		427D6FED5F6590CFE01E91174ED018FC /* Pods-TeamworkProjectTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TeamworkProjectTests.modulemap"; sourceTree = "<group>"; };
+		4371612E0BD7520413378F6A704763CF /* Pods_TeamworkProjectCoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TeamworkProjectCoreTests.framework; path = "Pods-TeamworkProjectCoreTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D523F619EC32C3B9BE7C2A96CEADED6 /* Pods-TeamworkProjectCore-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TeamworkProjectCore-umbrella.h"; sourceTree = "<group>"; };
+		53DA79A2B93C21FC06BCAF7DB870AEE8 /* Pods_TeamworkProjectCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TeamworkProjectCore.framework; path = "Pods-TeamworkProjectCore.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61CFA10061C7181C0AECE5A199594985 /* Fuse-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Fuse-prefix.pch"; sourceTree = "<group>"; };
+		6268A496A708956C05E74B59199C128A /* Pods-TeamworkProjectCoreTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TeamworkProjectCoreTests-frameworks.sh"; sourceTree = "<group>"; };
+		64A60828241DD90C58E38B0261921304 /* Pods-TeamworkProjectCoreTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-TeamworkProjectCoreTests.modulemap"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		673621DC4BA73B2100CBAF18B4F3132D /* Pods-TeamworkProjectCoreTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TeamworkProjectCoreTests-umbrella.h"; sourceTree = "<group>"; };
 		67A2B0A6C6595916D23603259B9EEBA5 /* Resource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Source/Siesta/Resource/Resource.swift; sourceTree = "<group>"; };
+		685B565E52A1AAAD56E3BDDB71E15FBE /* Pods-TeamworkProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeamworkProject.release.xcconfig"; sourceTree = "<group>"; };
 		68E7FCC68DAB4E8EDF82FECB12F6973D /* RequestChaining.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestChaining.swift; path = Source/Siesta/Request/RequestChaining.swift; sourceTree = "<group>"; };
 		6F027752F5D956C55E67DE7B7481401A /* PipelineProcessing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PipelineProcessing.swift; path = Source/Siesta/Pipeline/PipelineProcessing.swift; sourceTree = "<group>"; };
 		7184235C8A1D1F1AECE6B9908BDE3C0C /* String+Fuse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Fuse.swift"; path = "Fuse/Classes/String+Fuse.swift"; sourceTree = "<group>"; };
 		7B13866C99E9A4BBEF15994E260C4202 /* Regex+Siesta.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Regex+Siesta.swift"; path = "Source/Siesta/Support/Regex+Siesta.swift"; sourceTree = "<group>"; };
-		7F3FC810945B4F0F6AE7F10B36EE4C33 /* Pods-TeamworkProjectCore-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TeamworkProjectCore-umbrella.h"; sourceTree = "<group>"; };
+		7DC31462ACAD3F34C51420082ECB2ECF /* Pods-TeamworkProjectCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeamworkProjectCore.debug.xcconfig"; sourceTree = "<group>"; };
+		85741963F195D9D3FCC749CAF9512B2B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85E85B29CCFC07359712BBF7A14147CD /* Pods-TeamworkProject-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TeamworkProject-dummy.m"; sourceTree = "<group>"; };
+		86437010076DB57EBB76E46FD334ED65 /* Fuse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Fuse.framework; path = Fuse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0FF05846D7496756A28DD26163CD76 /* ResourceNavigation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResourceNavigation.swift; path = Source/Siesta/Resource/ResourceNavigation.swift; sourceTree = "<group>"; };
-		8E1A37E893BB5F6EB22D00142F128CE5 /* Pods_TeamworkProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamworkProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B4786B2241FF120A4C37B1F2408A7F4 /* Pods-TeamworkProject-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TeamworkProject-acknowledgements.plist"; sourceTree = "<group>"; };
+		8E46B13CEE60F83836C3C1E99472DD89 /* Pods-TeamworkProject.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-TeamworkProject.modulemap"; sourceTree = "<group>"; };
 		91B3E0B9E9163503E933D8732DC8AFC1 /* Networking-URLSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Networking-URLSession.swift"; path = "Source/Siesta/Networking-URLSession.swift"; sourceTree = "<group>"; };
-		91B7DE68FF601939C3726CFE7AFEE037 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		949A5FCAEC0322FEB4770C581EDBA969 /* Pods-TeamworkProjectTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TeamworkProjectTests-frameworks.sh"; sourceTree = "<group>"; };
-		94BAD6434B7009A3B0A1ACCE71CC9195 /* Fuse.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Fuse.modulemap; sourceTree = "<group>"; };
-		965C957F2E0C4FF34EB3248D6126F647 /* Siesta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Siesta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		98E526F92D90CFEB09CE0C641CEE292C /* Pods-TeamworkProject-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TeamworkProject-dummy.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94BAD6434B7009A3B0A1ACCE71CC9195 /* Fuse.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Fuse.modulemap; sourceTree = "<group>"; };
+		964CD2E8F71ECADE3C916B509276E56A /* Pods-TeamworkProject-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TeamworkProject-resources.sh"; sourceTree = "<group>"; };
 		99BCFE04B6DCBF7E1EF4538CCA6190DF /* String+Siesta.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Siesta.swift"; path = "Source/Siesta/Support/String+Siesta.swift"; sourceTree = "<group>"; };
-		A077A26DCE23B11EBA30940FAA952976 /* Fuse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fuse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1D86A7AAAE25423B7AF53179170784C /* Entity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Entity.swift; path = Source/Siesta/Entity.swift; sourceTree = "<group>"; };
-		A4FCDAF9206950CEB008B784F92FD48B /* Pods-TeamworkProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeamworkProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A521A2E8D9191AB6CF41EC0C3406A226 /* Networking.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Networking.swift; path = Source/Siesta/Networking.swift; sourceTree = "<group>"; };
-		B1BA9E3B7DFCE33F534A363D991B253C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B1CF664A1B7CED59822093C1035442F4 /* Pods-TeamworkProject.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TeamworkProject.modulemap"; sourceTree = "<group>"; };
-		B2FFE205402B0A78B067AF70FDC42BED /* Pods-TeamworkProjectCore-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TeamworkProjectCore-acknowledgements.plist"; sourceTree = "<group>"; };
+		AC0AFA57266363AB13B0C188F3A7C160 /* Pods-TeamworkProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeamworkProject.debug.xcconfig"; sourceTree = "<group>"; };
+		AD2773853F2B87B681870AE103B37A83 /* Pods-TeamworkProject-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TeamworkProject-umbrella.h"; sourceTree = "<group>"; };
+		AE60EAE4577107C07CA21EAD5C96784F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B313B37996126C68B35DBF824C41D773 /* ConfigurationPatternConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConfigurationPatternConvertible.swift; path = Source/Siesta/ConfigurationPatternConvertible.swift; sourceTree = "<group>"; };
-		B91E3DE98D23291392BD03FCC0062810 /* Pods-TeamworkProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeamworkProject.release.xcconfig"; sourceTree = "<group>"; };
-		B92B33C10C3A804A5629959DD989AB21 /* Pods-TeamworkProjectTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TeamworkProjectTests-umbrella.h"; sourceTree = "<group>"; };
+		B4A26C2A84B95F0F83B2D79EC34DFA3F /* Siesta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Siesta.framework; path = Siesta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B62DD980A5E23DA7DC1BA5C8BAA49A20 /* Pods_TeamworkProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TeamworkProject.framework; path = "Pods-TeamworkProject.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8E134247260BDDFD65E4AB151ED51E4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD2F2BAFB7CFFDA888DCA12468BB220D /* Pods-TeamworkProjectCoreTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TeamworkProjectCoreTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		BE6DBD7DC5D4818FBF0BCE7EF5F86D46 /* Configuration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = Source/Siesta/Configuration.swift; sourceTree = "<group>"; };
 		BEEF09A9C0B25E6AC5F98669195D7276 /* Siesta-ObjC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Siesta-ObjC.swift"; path = "Source/Siesta/Support/Siesta-ObjC.swift"; sourceTree = "<group>"; };
 		C26EC3B938978D8108C8A6CD79F91EA2 /* Siesta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Siesta.xcconfig; sourceTree = "<group>"; };
+		C3342C1842352F40D73A42AA07C1F059 /* Pods-TeamworkProjectCore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-TeamworkProjectCore.modulemap"; sourceTree = "<group>"; };
 		C53ACCC6E3A83BB60171A3E549005DAB /* OpenEnum.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OpenEnum.swift; path = Source/Siesta/Support/OpenEnum.swift; sourceTree = "<group>"; };
-		C8638411F4C93A606A17CB04C718EA64 /* Pods-TeamworkProject-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TeamworkProject-umbrella.h"; sourceTree = "<group>"; };
+		C74918E4595AC4CC63C4FD4AE77876C4 /* Pods-TeamworkProjectCoreTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TeamworkProjectCoreTests-resources.sh"; sourceTree = "<group>"; };
 		C8FFC6B342865D0B8C846267F696DD11 /* Fuse.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Fuse.xcconfig; sourceTree = "<group>"; };
 		CADD62E4998025377EED4F81A966B924 /* Siesta-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Siesta-dummy.m"; sourceTree = "<group>"; };
 		CC39F556B8334E1A8ED91ECF755F286F /* EntityCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EntityCache.swift; path = Source/Siesta/EntityCache.swift; sourceTree = "<group>"; };
-		CFFF98C1291AA793688EB7D329D81C8A /* Pods-TeamworkProjectTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TeamworkProjectTests-resources.sh"; sourceTree = "<group>"; };
 		D039E7F69137D977DC14657F5DD7B451 /* Fuse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Fuse.swift; path = Fuse/Classes/Fuse.swift; sourceTree = "<group>"; };
 		D097070E12F93D1D5EAB566BD03E2C1F /* Progress.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Progress.swift; path = Source/Siesta/Support/Progress.swift; sourceTree = "<group>"; };
 		D5FEBF77C32C89CEE18FFA271128556C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D62EA05C7A44B3F4364EFFAD3C862273 /* Pods-TeamworkProjectCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeamworkProjectCore.release.xcconfig"; sourceTree = "<group>"; };
 		D63C49B48624A5CEE56BDC149F681C2F /* URL+Siesta.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "URL+Siesta.swift"; path = "Source/Siesta/Support/URL+Siesta.swift"; sourceTree = "<group>"; };
-		D9C8220B8ACAD9973FCEB1615FF6B368 /* Pods-TeamworkProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeamworkProjectTests.release.xcconfig"; sourceTree = "<group>"; };
-		DBB111C7999CA288D23A6B823F5EA797 /* Pods-TeamworkProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeamworkProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DD12490F6B42032B9B83344335C1472C /* SiestaUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SiestaUI.h; path = Source/Siesta/Support/SiestaUI.h; sourceTree = "<group>"; };
-		DF6CBE30DAF4399DD718E1D844F79E12 /* Pods-TeamworkProjectTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TeamworkProjectTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		E03C6F2670662FE422E613C80ED12D79 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6582241C3686C92936EA93FA3D61BE0 /* WeakCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WeakCache.swift; path = Source/Siesta/Support/WeakCache.swift; sourceTree = "<group>"; };
+		E708BCF713E9B709BA5FB79E1E32DEE2 /* Pods-TeamworkProjectCore-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TeamworkProjectCore-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E7FAD4FB99AEDBB111947216CE88E395 /* Siesta.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Siesta.h; path = Source/Siesta/Support/Siesta.h; sourceTree = "<group>"; };
-		E959A5AC786E4E182A70185844B6B998 /* Pods-TeamworkProjectCore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TeamworkProjectCore-dummy.m"; sourceTree = "<group>"; };
 		E977B7291C833CD806469A4B1F16F109 /* FuseUtilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FuseUtilities.swift; path = Fuse/Classes/FuseUtilities.swift; sourceTree = "<group>"; };
 		EAB198D7E2D23805E598E23DD4ACC334 /* RequestCallbacks.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestCallbacks.swift; path = Source/Siesta/Request/RequestCallbacks.swift; sourceTree = "<group>"; };
 		EAB9E9768689480061C86F1D04C119E6 /* Logging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Logging.swift; path = Source/Siesta/Support/Logging.swift; sourceTree = "<group>"; };
 		EAC3F53D8C09B31B051D869E55D742DB /* ProgressTracker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProgressTracker.swift; path = Source/Siesta/Request/ProgressTracker.swift; sourceTree = "<group>"; };
-		EDAB89CBD8139AE467FD6EFCA7750312 /* Pods-TeamworkProjectTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TeamworkProjectTests-dummy.m"; sourceTree = "<group>"; };
 		F27B64DA41F8866A3F4423B8FC04AD5B /* Siesta-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Siesta-prefix.pch"; sourceTree = "<group>"; };
-		F3399794004D364C7FC5CCCF3A9E2B99 /* Siesta.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Siesta.modulemap; sourceTree = "<group>"; };
-		F72113FEF18551B89C0F34B3F777287C /* Pods-TeamworkProject-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TeamworkProject-frameworks.sh"; sourceTree = "<group>"; };
-		FB4B9551F1B81E434FA021239065C8DD /* Pods-TeamworkProjectCore-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TeamworkProjectCore-resources.sh"; sourceTree = "<group>"; };
+		F3399794004D364C7FC5CCCF3A9E2B99 /* Siesta.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Siesta.modulemap; sourceTree = "<group>"; };
+		F5DF08B378B541AA477DA3C077A1EA2E /* Pods-TeamworkProjectCoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TeamworkProjectCoreTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FE77A111E5D1477019C4A7210DEA86D9 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Siesta/Request/Request.swift; sourceTree = "<group>"; };
-		FEC163B462D9DAD6F025B6007195EDFF /* Pods-TeamworkProject-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TeamworkProject-resources.sh"; sourceTree = "<group>"; };
-		FFDFC03425A467A443E8DB09C13D665F /* Pods-TeamworkProjectCore-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TeamworkProjectCore-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FF0FCCAE89F923922AE5CCD15377D8F6 /* Pods-TeamworkProjectCoreTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TeamworkProjectCoreTests-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,11 +207,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1616BE642307312244B1F746EDB401A7 /* Frameworks */ = {
+		2F6C5E10E6CD711E4D53E4EA30A4708C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9AB992070E026D1B3BE2F430978E200 /* Foundation.framework in Frameworks */,
+				A56F22559E2F1F0E45737CFC46ECAFF2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +248,7 @@
 				7B5C445F15419A6F99C16D4DF84FB560 /* Core */,
 				60AA1B6FA7345AC0F327952A93578373 /* Support Files */,
 			);
+			name = Siesta;
 			path = Siesta;
 			sourceTree = "<group>";
 		};
@@ -244,6 +259,46 @@
 				0DE7C8D01BAA97E8CFCCAE2D047968A3 /* Siesta */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		220661458DC4131296C23FFCF54858BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				86437010076DB57EBB76E46FD334ED65 /* Fuse.framework */,
+				B62DD980A5E23DA7DC1BA5C8BAA49A20 /* Pods_TeamworkProject.framework */,
+				53DA79A2B93C21FC06BCAF7DB870AEE8 /* Pods_TeamworkProjectCore.framework */,
+				4371612E0BD7520413378F6A704763CF /* Pods_TeamworkProjectCoreTests.framework */,
+				B4A26C2A84B95F0F83B2D79EC34DFA3F /* Siesta.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3DEE418AF95BA593E5D47DAF07BEA20B /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				56E5FEA705E714D10537584FBD92CF71 /* Pods-TeamworkProject */,
+				820251CE03D6A67C22BAF44C1CA79122 /* Pods-TeamworkProjectCore */,
+				620B8F4401B6C3B1D591731827969374 /* Pods-TeamworkProjectCoreTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		56E5FEA705E714D10537584FBD92CF71 /* Pods-TeamworkProject */ = {
+			isa = PBXGroup;
+			children = (
+				AE60EAE4577107C07CA21EAD5C96784F /* Info.plist */,
+				8E46B13CEE60F83836C3C1E99472DD89 /* Pods-TeamworkProject.modulemap */,
+				37411E51BAD549117F69D1E312F5059E /* Pods-TeamworkProject-acknowledgements.markdown */,
+				8B4786B2241FF120A4C37B1F2408A7F4 /* Pods-TeamworkProject-acknowledgements.plist */,
+				85E85B29CCFC07359712BBF7A14147CD /* Pods-TeamworkProject-dummy.m */,
+				092C69D9C7B939A6D21CDED77532F497 /* Pods-TeamworkProject-frameworks.sh */,
+				964CD2E8F71ECADE3C916B509276E56A /* Pods-TeamworkProject-resources.sh */,
+				AD2773853F2B87B681870AE103B37A83 /* Pods-TeamworkProject-umbrella.h */,
+				AC0AFA57266363AB13B0C188F3A7C160 /* Pods-TeamworkProject.debug.xcconfig */,
+				685B565E52A1AAAD56E3BDDB71E15FBE /* Pods-TeamworkProject.release.xcconfig */,
+			);
+			name = "Pods-TeamworkProject";
+			path = "Target Support Files/Pods-TeamworkProject";
 			sourceTree = "<group>";
 		};
 		60AA1B6FA7345AC0F327952A93578373 /* Support Files */ = {
@@ -260,31 +315,22 @@
 			path = "../Target Support Files/Siesta";
 			sourceTree = "<group>";
 		};
-		6D179EDB4CD77FAB82AF675791ED75B8 /* Targets Support Files */ = {
+		620B8F4401B6C3B1D591731827969374 /* Pods-TeamworkProjectCoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				EE5417893D4202945C9528D44FE7E6B1 /* Pods-TeamworkProject */,
-				6E895AC69CB806C72FABF9C762960163 /* Pods-TeamworkProjectCore */,
-				8685A4DDDC62417BFE976FEFD4888168 /* Pods-TeamworkProjectTests */,
+				85741963F195D9D3FCC749CAF9512B2B /* Info.plist */,
+				64A60828241DD90C58E38B0261921304 /* Pods-TeamworkProjectCoreTests.modulemap */,
+				01DD4158E8D6B5A424F45E0887AD4C65 /* Pods-TeamworkProjectCoreTests-acknowledgements.markdown */,
+				BD2F2BAFB7CFFDA888DCA12468BB220D /* Pods-TeamworkProjectCoreTests-acknowledgements.plist */,
+				FF0FCCAE89F923922AE5CCD15377D8F6 /* Pods-TeamworkProjectCoreTests-dummy.m */,
+				6268A496A708956C05E74B59199C128A /* Pods-TeamworkProjectCoreTests-frameworks.sh */,
+				C74918E4595AC4CC63C4FD4AE77876C4 /* Pods-TeamworkProjectCoreTests-resources.sh */,
+				673621DC4BA73B2100CBAF18B4F3132D /* Pods-TeamworkProjectCoreTests-umbrella.h */,
+				F5DF08B378B541AA477DA3C077A1EA2E /* Pods-TeamworkProjectCoreTests.debug.xcconfig */,
+				2FA0D0A98B77DBB3670B7E88DAA63414 /* Pods-TeamworkProjectCoreTests.release.xcconfig */,
 			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		6E895AC69CB806C72FABF9C762960163 /* Pods-TeamworkProjectCore */ = {
-			isa = PBXGroup;
-			children = (
-				B1BA9E3B7DFCE33F534A363D991B253C /* Info.plist */,
-				27FAB48930DC22DBAAD7A67C3C59272F /* Pods-TeamworkProjectCore.modulemap */,
-				FFDFC03425A467A443E8DB09C13D665F /* Pods-TeamworkProjectCore-acknowledgements.markdown */,
-				B2FFE205402B0A78B067AF70FDC42BED /* Pods-TeamworkProjectCore-acknowledgements.plist */,
-				E959A5AC786E4E182A70185844B6B998 /* Pods-TeamworkProjectCore-dummy.m */,
-				FB4B9551F1B81E434FA021239065C8DD /* Pods-TeamworkProjectCore-resources.sh */,
-				7F3FC810945B4F0F6AE7F10B36EE4C33 /* Pods-TeamworkProjectCore-umbrella.h */,
-				1C22C84EED7F2B3DFAC103D948E26CB3 /* Pods-TeamworkProjectCore.debug.xcconfig */,
-				1686F54F951275781DA45F545CB55E78 /* Pods-TeamworkProjectCore.release.xcconfig */,
-			);
-			name = "Pods-TeamworkProjectCore";
-			path = "Target Support Files/Pods-TeamworkProjectCore";
+			name = "Pods-TeamworkProjectCoreTests";
+			path = "Target Support Files/Pods-TeamworkProjectCoreTests";
 			sourceTree = "<group>";
 		};
 		7B5C445F15419A6F99C16D4DF84FB560 /* Core */ = {
@@ -336,39 +382,26 @@
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				1A29AA94E8BC8EA1035EDD30FC01AC09 /* Pods */,
-				A2805C978FD00B13504B9D09F3EE28C0 /* Products */,
-				6D179EDB4CD77FAB82AF675791ED75B8 /* Targets Support Files */,
+				220661458DC4131296C23FFCF54858BA /* Products */,
+				3DEE418AF95BA593E5D47DAF07BEA20B /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8685A4DDDC62417BFE976FEFD4888168 /* Pods-TeamworkProjectTests */ = {
+		820251CE03D6A67C22BAF44C1CA79122 /* Pods-TeamworkProjectCore */ = {
 			isa = PBXGroup;
 			children = (
-				0D44B89CCEE9F66AD22250E7A58A3B35 /* Info.plist */,
-				427D6FED5F6590CFE01E91174ED018FC /* Pods-TeamworkProjectTests.modulemap */,
-				28CD10CAC00AE781599B39E607BD8DFB /* Pods-TeamworkProjectTests-acknowledgements.markdown */,
-				DF6CBE30DAF4399DD718E1D844F79E12 /* Pods-TeamworkProjectTests-acknowledgements.plist */,
-				EDAB89CBD8139AE467FD6EFCA7750312 /* Pods-TeamworkProjectTests-dummy.m */,
-				949A5FCAEC0322FEB4770C581EDBA969 /* Pods-TeamworkProjectTests-frameworks.sh */,
-				CFFF98C1291AA793688EB7D329D81C8A /* Pods-TeamworkProjectTests-resources.sh */,
-				B92B33C10C3A804A5629959DD989AB21 /* Pods-TeamworkProjectTests-umbrella.h */,
-				DBB111C7999CA288D23A6B823F5EA797 /* Pods-TeamworkProjectTests.debug.xcconfig */,
-				D9C8220B8ACAD9973FCEB1615FF6B368 /* Pods-TeamworkProjectTests.release.xcconfig */,
+				B8E134247260BDDFD65E4AB151ED51E4 /* Info.plist */,
+				C3342C1842352F40D73A42AA07C1F059 /* Pods-TeamworkProjectCore.modulemap */,
+				E708BCF713E9B709BA5FB79E1E32DEE2 /* Pods-TeamworkProjectCore-acknowledgements.markdown */,
+				27839F3AD9DF78C0CDD88579DE69F855 /* Pods-TeamworkProjectCore-acknowledgements.plist */,
+				0FEEE41798455F9761D39EDDB7499E3B /* Pods-TeamworkProjectCore-dummy.m */,
+				1767BABD03658B0EBFB66AD7AF8B42B7 /* Pods-TeamworkProjectCore-resources.sh */,
+				4D523F619EC32C3B9BE7C2A96CEADED6 /* Pods-TeamworkProjectCore-umbrella.h */,
+				7DC31462ACAD3F34C51420082ECB2ECF /* Pods-TeamworkProjectCore.debug.xcconfig */,
+				D62EA05C7A44B3F4364EFFAD3C862273 /* Pods-TeamworkProjectCore.release.xcconfig */,
 			);
-			name = "Pods-TeamworkProjectTests";
-			path = "Target Support Files/Pods-TeamworkProjectTests";
-			sourceTree = "<group>";
-		};
-		A2805C978FD00B13504B9D09F3EE28C0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A077A26DCE23B11EBA30940FAA952976 /* Fuse.framework */,
-				8E1A37E893BB5F6EB22D00142F128CE5 /* Pods_TeamworkProject.framework */,
-				302AEB529DBB0D144BC395B90BFB2620 /* Pods_TeamworkProjectCore.framework */,
-				18ADEB6DC45250E58BE08CE1D4DFC135 /* Pods_TeamworkProjectTests.framework */,
-				965C957F2E0C4FF34EB3248D6126F647 /* Siesta.framework */,
-			);
-			name = Products;
+			name = "Pods-TeamworkProjectCore";
+			path = "Target Support Files/Pods-TeamworkProjectCore";
 			sourceTree = "<group>";
 		};
 		BA57EEBE3DC56256600A0E1D1B149F07 /* Support Files */ = {
@@ -409,35 +442,18 @@
 				7184235C8A1D1F1AECE6B9908BDE3C0C /* String+Fuse.swift */,
 				BA57EEBE3DC56256600A0E1D1B149F07 /* Support Files */,
 			);
+			name = Fuse;
 			path = Fuse;
-			sourceTree = "<group>";
-		};
-		EE5417893D4202945C9528D44FE7E6B1 /* Pods-TeamworkProject */ = {
-			isa = PBXGroup;
-			children = (
-				91B7DE68FF601939C3726CFE7AFEE037 /* Info.plist */,
-				B1CF664A1B7CED59822093C1035442F4 /* Pods-TeamworkProject.modulemap */,
-				1CD9BED8A350567B67DDE618CE3FDDFC /* Pods-TeamworkProject-acknowledgements.markdown */,
-				1F602DEC8142C7DA20314A5DE9DE6D32 /* Pods-TeamworkProject-acknowledgements.plist */,
-				98E526F92D90CFEB09CE0C641CEE292C /* Pods-TeamworkProject-dummy.m */,
-				F72113FEF18551B89C0F34B3F777287C /* Pods-TeamworkProject-frameworks.sh */,
-				FEC163B462D9DAD6F025B6007195EDFF /* Pods-TeamworkProject-resources.sh */,
-				C8638411F4C93A606A17CB04C718EA64 /* Pods-TeamworkProject-umbrella.h */,
-				A4FCDAF9206950CEB008B784F92FD48B /* Pods-TeamworkProject.debug.xcconfig */,
-				B91E3DE98D23291392BD03FCC0062810 /* Pods-TeamworkProject.release.xcconfig */,
-			);
-			name = "Pods-TeamworkProject";
-			path = "Target Support Files/Pods-TeamworkProject";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		636E178D3D72C461A1E5FF47DFF8DF29 /* Headers */ = {
+		2EE9AFDE3FF71543EC94D742F3852A09 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9B97A3132A36F6D1410FCA76D0DEB7C /* Pods-TeamworkProjectTests-umbrella.h in Headers */,
+				BB2E0FED7BE4A7F0A60F149ADE4CC7A1 /* Pods-TeamworkProjectCoreTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,7 +508,7 @@
 			);
 			name = Siesta;
 			productName = Siesta;
-			productReference = 965C957F2E0C4FF34EB3248D6126F647 /* Siesta.framework */;
+			productReference = B4A26C2A84B95F0F83B2D79EC34DFA3F /* Siesta.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		63362990B8BFDFE830912A1E332EB2B6 /* Pods-TeamworkProjectCore */ = {
@@ -511,24 +527,26 @@
 			);
 			name = "Pods-TeamworkProjectCore";
 			productName = "Pods-TeamworkProjectCore";
-			productReference = 302AEB529DBB0D144BC395B90BFB2620 /* Pods_TeamworkProjectCore.framework */;
+			productReference = 53DA79A2B93C21FC06BCAF7DB870AEE8 /* Pods_TeamworkProjectCore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		980D820933E2F766F29AFFAB2435065D /* Pods-TeamworkProjectTests */ = {
+		76AC923E7FD7B1B1260A963923224B27 /* Pods-TeamworkProjectCoreTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EFFD7E8490BF0D23D7694A074DA772B6 /* Build configuration list for PBXNativeTarget "Pods-TeamworkProjectTests" */;
+			buildConfigurationList = 135826191A3E69D0F69FD374E78CB590 /* Build configuration list for PBXNativeTarget "Pods-TeamworkProjectCoreTests" */;
 			buildPhases = (
-				40A56156084D70B6A9A8B89BC5B9A398 /* Sources */,
-				1616BE642307312244B1F746EDB401A7 /* Frameworks */,
-				636E178D3D72C461A1E5FF47DFF8DF29 /* Headers */,
+				AE838BE9EDF615C8769E37FFAC422F6A /* Sources */,
+				2F6C5E10E6CD711E4D53E4EA30A4708C /* Frameworks */,
+				2EE9AFDE3FF71543EC94D742F3852A09 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EF70F91E51DE7248328C948B4423BE1B /* PBXTargetDependency */,
+				A84BF2E1B4E71BA87B04C7D3CF6BB78F /* PBXTargetDependency */,
 			);
-			name = "Pods-TeamworkProjectTests";
-			productName = "Pods-TeamworkProjectTests";
-			productReference = 18ADEB6DC45250E58BE08CE1D4DFC135 /* Pods_TeamworkProjectTests.framework */;
+			name = "Pods-TeamworkProjectCoreTests";
+			productName = "Pods-TeamworkProjectCoreTests";
+			productReference = 4371612E0BD7520413378F6A704763CF /* Pods_TeamworkProjectCoreTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		B8CD3B3EDB42EEABB2D487F8706AF6BB /* Fuse */ = {
@@ -545,7 +563,7 @@
 			);
 			name = Fuse;
 			productName = Fuse;
-			productReference = A077A26DCE23B11EBA30940FAA952976 /* Fuse.framework */;
+			productReference = 86437010076DB57EBB76E46FD334ED65 /* Fuse.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		EB36865FFF7AD5EE457C9806A767E499 /* Pods-TeamworkProject */ = {
@@ -564,7 +582,7 @@
 			);
 			name = "Pods-TeamworkProject";
 			productName = "Pods-TeamworkProject";
-			productReference = 8E1A37E893BB5F6EB22D00142F128CE5 /* Pods_TeamworkProject.framework */;
+			productReference = B62DD980A5E23DA7DC1BA5C8BAA49A20 /* Pods_TeamworkProject.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -574,7 +592,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -584,33 +602,33 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = A2805C978FD00B13504B9D09F3EE28C0 /* Products */;
+			productRefGroup = 220661458DC4131296C23FFCF54858BA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				B8CD3B3EDB42EEABB2D487F8706AF6BB /* Fuse */,
 				EB36865FFF7AD5EE457C9806A767E499 /* Pods-TeamworkProject */,
 				63362990B8BFDFE830912A1E332EB2B6 /* Pods-TeamworkProjectCore */,
-				980D820933E2F766F29AFFAB2435065D /* Pods-TeamworkProjectTests */,
+				76AC923E7FD7B1B1260A963923224B27 /* Pods-TeamworkProjectCoreTests */,
 				61D793F991FBDFDD8A8B65977353289E /* Siesta */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		40A56156084D70B6A9A8B89BC5B9A398 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				916753348AE59693A3111FD054239A4B /* Pods-TeamworkProjectTests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7447857E00A4706155A6C8EDC3EAE605 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7C264ADD2D43A3F3808DFF427ED30ABE /* Pods-TeamworkProjectCore-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE838BE9EDF615C8769E37FFAC422F6A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1D2CCC8F0F29E5607DC6041D53697F6 /* Pods-TeamworkProjectCoreTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,6 +708,12 @@
 			target = B8CD3B3EDB42EEABB2D487F8706AF6BB /* Fuse */;
 			targetProxy = 0B421FD27CE0EAF3AF6307E007C5466C /* PBXContainerItemProxy */;
 		};
+		A84BF2E1B4E71BA87B04C7D3CF6BB78F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Siesta;
+			target = 61D793F991FBDFDD8A8B65977353289E /* Siesta */;
+			targetProxy = B335106BAD6051A585486478C2A6A73A /* PBXContainerItemProxy */;
+		};
 		A9E5171579D8B0E887D165A938766978 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Fuse;
@@ -702,41 +726,15 @@
 			target = 61D793F991FBDFDD8A8B65977353289E /* Siesta */;
 			targetProxy = DA3FBFAD82C102263F610C82088FECC6 /* PBXContainerItemProxy */;
 		};
+		EF70F91E51DE7248328C948B4423BE1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Fuse;
+			target = B8CD3B3EDB42EEABB2D487F8706AF6BB /* Fuse */;
+			targetProxy = 26B31D16600D906486271D63221A5EFA /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0B54828DAE0DD74EFD401D2D498C6799 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DBB111C7999CA288D23A6B823F5EA797 /* Pods-TeamworkProjectTests.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TeamworkProjectTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TeamworkProjectTests/Pods-TeamworkProjectTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_TeamworkProjectTests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		0CC491506D80E093F3CCA84584ABC339 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C26EC3B938978D8108C8A6CD79F91EA2 /* Siesta.xcconfig */;
@@ -771,7 +769,7 @@
 		};
 		0DF9480BE987BC532BAB08E82B73A9DA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B91E3DE98D23291392BD03FCC0062810 /* Pods-TeamworkProject.release.xcconfig */;
+			baseConfigurationReference = 685B565E52A1AAAD56E3BDDB71E15FBE /* Pods-TeamworkProject.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -854,7 +852,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
@@ -892,7 +889,7 @@
 		};
 		3E97B2D43ABEA4C3871A019955E53AB3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1686F54F951275781DA45F545CB55E78 /* Pods-TeamworkProjectCore.release.xcconfig */;
+			baseConfigurationReference = D62EA05C7A44B3F4364EFFAD3C862273 /* Pods-TeamworkProjectCore.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -984,6 +981,40 @@
 			};
 			name = Debug;
 		};
+		5A6749CD3378134FF64955398F7B4E1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5DF08B378B541AA477DA3C077A1EA2E /* Pods-TeamworkProjectCoreTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TeamworkProjectCoreTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TeamworkProjectCoreTests/Pods-TeamworkProjectCoreTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_TeamworkProjectCoreTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		7DE61936D85CB0DE7FCD95EAD9DB6514 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C26EC3B938978D8108C8A6CD79F91EA2 /* Siesta.xcconfig */;
@@ -1017,7 +1048,7 @@
 		};
 		9ACB554194DA65F1F16E8BD24BF43963 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4FCDAF9206950CEB008B784F92FD48B /* Pods-TeamworkProject.debug.xcconfig */;
+			baseConfigurationReference = AC0AFA57266363AB13B0C188F3A7C160 /* Pods-TeamworkProject.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1049,42 +1080,9 @@
 			};
 			name = Debug;
 		};
-		ABCA47B2B6AB13BBEA57639CBDD07C2E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9C8220B8ACAD9973FCEB1615FF6B368 /* Pods-TeamworkProjectTests.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TeamworkProjectTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TeamworkProjectTests/Pods-TeamworkProjectTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_TeamworkProjectTests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		BAEEE8608A6F6E56307450DE8113495F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C22C84EED7F2B3DFAC103D948E26CB3 /* Pods-TeamworkProjectCore.debug.xcconfig */;
+			baseConfigurationReference = 7DC31462ACAD3F34C51420082ECB2ECF /* Pods-TeamworkProjectCore.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1115,6 +1113,40 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		EC4350CCCB6A230CDE6CE37713056477 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FA0D0A98B77DBB3670B7E88DAA63414 /* Pods-TeamworkProjectCoreTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TeamworkProjectCoreTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TeamworkProjectCoreTests/Pods-TeamworkProjectCoreTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_TeamworkProjectCoreTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		FFF3E5FFA7B4FD60D605EA1BC59CD1DD /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1160,6 +1192,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		135826191A3E69D0F69FD374E78CB590 /* Build configuration list for PBXNativeTarget "Pods-TeamworkProjectCoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A6749CD3378134FF64955398F7B4E1B /* Debug */,
+				EC4350CCCB6A230CDE6CE37713056477 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1192,15 +1233,6 @@
 			buildConfigurations = (
 				BAEEE8608A6F6E56307450DE8113495F /* Debug */,
 				3E97B2D43ABEA4C3871A019955E53AB3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EFFD7E8490BF0D23D7694A074DA772B6 /* Build configuration list for PBXNativeTarget "Pods-TeamworkProjectTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0B54828DAE0DD74EFD401D2D498C6799 /* Debug */,
-				ABCA47B2B6AB13BBEA57639CBDD07C2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

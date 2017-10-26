@@ -57,6 +57,10 @@ class _TeamworkAPI {
         service.configureTransformer("/tasklists/*/tasks.json", requestMethods: [.get]) {
             try jsonDecoder.decode(TaskResult.self, from: $0.content)
         }
+
+        service.configureTransformer("/tasklists/*/tasks.json", requestMethods: [.post]) {
+            try jsonDecoder.decode(TaskCreateResponse.self, from: $0.content)
+        }
     }
 
     fileprivate func fuzzyMatchTask(withName name: String) -> String {
@@ -89,15 +93,26 @@ class _TeamworkAPI {
             .resource("/tasklists/\(id)/tasks.json")
     }
     
-    func addTaskToTaskList(withId taskListId: Int, content taskContent: String, completion: @escaping (Bool) -> Swift.Void) {
+    func addTaskToTaskList(withId taskListId: Int, content taskContent: String, completion: @escaping (Bool, Int?) -> Swift.Void) {
         let json = [
             "todo-item": [
                 "content": taskContent
             ]
         ]
 
-        self.service.resource("/tasklists/\(taskListId)/tasks.json").request(.post, json: json).onSuccess() { _ in
-            completion(true)
+        self.service.resource("/tasklists/\(taskListId)/tasks.json").request(.post, json: json).onSuccess() { entity in
+                guard let result: TaskCreateResponse = entity.typedContent() else {
+                    return
+                }
+                completion(true, Int(result.id))
+            }.onFailure({ _ in
+                completion(false, nil)
+            })
+    }
+
+    func removeTask(withId taskId: Int, completion: @escaping (Bool) -> Swift.Void) {
+        self.service.resource("/tasks/\(taskId).json").request(.delete).onSuccess() { _ in
+                completion(true)
             }.onFailure({ _ in
                 completion(false)
             })
