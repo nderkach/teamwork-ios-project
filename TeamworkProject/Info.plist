@@ -50,5 +50,7 @@
 			<string>Teamwork</string>
 		</dict>
 	</array>
+	<key>NSSiriUsageDescription</key>
+	<string>To make magic happen</string>
 </dict>
 </plist>

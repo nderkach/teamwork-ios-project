@@ -5,14 +5,53 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="MainViewController" customModule="TeamworkProject" customModuleProvider="target" sceneMemberID="viewController"/>
+                <viewController id="BV1-FR-VrT" customClass="MainViewController" customModule="TeamworkProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Z2-lP-VQq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Launch Siri by holding down the Home button" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcV-Wd-ntX" userLabel="Label">
+                                <rect key="frame" x="20" y="314" width="335" height="60"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMd-j7-j9G">
+                                <rect key="frame" x="129.5" y="384" width="116" height="39"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="22"/>
+                                <state key="normal" title="Authorize Siri">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="authorizeSiriKit" destination="BV1-FR-VrT" eventType="touchUpInside" id="Bye-Ah-qhC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xMd-j7-j9G" firstAttribute="centerX" secondItem="PD3-4a-HPW" secondAttribute="centerX" id="3ez-Hw-f1g"/>
+                            <constraint firstItem="DcV-Wd-ntX" firstAttribute="centerX" secondItem="PD3-4a-HPW" secondAttribute="centerX" id="EbI-3H-MXE"/>
+                            <constraint firstItem="DcV-Wd-ntX" firstAttribute="centerY" secondItem="PD3-4a-HPW" secondAttribute="centerY" id="Pr4-Hr-kTI"/>
+                            <constraint firstItem="DcV-Wd-ntX" firstAttribute="leading" secondItem="PD3-4a-HPW" secondAttribute="leading" constant="20" id="Utb-1x-cRV"/>
+                            <constraint firstItem="xMd-j7-j9G" firstAttribute="top" secondItem="DcV-Wd-ntX" secondAttribute="bottom" constant="10" id="gos-fN-eYy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PD3-4a-HPW"/>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="xMd-j7-j9G" id="5qT-Dy-igA"/>
+                        <outlet property="label" destination="DcV-Wd-ntX" id="TXc-Th-Cwb"/>
+                    </connections>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138.40000000000001" y="97.601199400299862"/>
         </scene>
     </scenes>
 </document>

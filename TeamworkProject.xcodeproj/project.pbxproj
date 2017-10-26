@@ -10,7 +10,6 @@
 		3DACEDA235A8FFC17E14FC65 /* Pods_TeamworkProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C042D0AF77AFA5B5414167AF /* Pods_TeamworkProjectTests.framework */; };
 		9D5588F43B97555A48BCE3E6 /* Pods_TeamworkProjectCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9687BC2858A001F7C4124CA7 /* Pods_TeamworkProjectCore.framework */; };
 		ED6D6E621F9A543800761D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6D6E611F9A543800761D09 /* AppDelegate.swift */; };
-		ED6D6E661F9A543800761D09 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6D6E651F9A543800761D09 /* MainViewController.swift */; };
 		ED6D6E691F9A543800761D09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED6D6E671F9A543800761D09 /* Main.storyboard */; };
 		ED6D6E6B1F9A543800761D09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED6D6E6A1F9A543800761D09 /* Assets.xcassets */; };
 		ED6D6E6E1F9A543800761D09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED6D6E6C1F9A543800761D09 /* LaunchScreen.storyboard */; };
@@ -26,6 +25,7 @@
 		EDE173661FA1EE440026E796 /* ProjectResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE173621FA1EE440026E796 /* ProjectResult.swift */; };
 		EDE173671FA1EE440026E796 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE173631FA1EE440026E796 /* Task.swift */; };
 		EDE173681FA1EE440026E796 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE173641FA1EE440026E796 /* Project.swift */; };
+		EDE1736C1FA244140026E796 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE1736B1FA244140026E796 /* MainViewController.swift */; };
 		F1A839D08EB025B940806257 /* Pods_TeamworkProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DDF5D738925A4449D66754 /* Pods_TeamworkProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +45,13 @@
 			remoteInfo = TeamworkSiri;
 		};
 		EDE1734E1FA1ED4D0026E796 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED6D6E561F9A543800761D09 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDE173481FA1ED4D0026E796;
+			remoteInfo = TeamworkProjectCore;
+		};
+		EDE173691FA241CB0026E796 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ED6D6E561F9A543800761D09 /* Project object */;
 			proxyType = 1;
@@ -106,7 +113,6 @@
 		CBF1A0841AE61C2D58748FCA /* Pods-TeamworkKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamworkKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-TeamworkKit/Pods-TeamworkKit.release.xcconfig"; sourceTree = "<group>"; };
 		ED6D6E5E1F9A543800761D09 /* TeamworkProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamworkProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED6D6E611F9A543800761D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ED6D6E651F9A543800761D09 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		ED6D6E681F9A543800761D09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED6D6E6A1F9A543800761D09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED6D6E6D1F9A543800761D09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -129,6 +135,7 @@
 		EDE173621FA1EE440026E796 /* ProjectResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectResult.swift; sourceTree = "<group>"; };
 		EDE173631FA1EE440026E796 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		EDE173641FA1EE440026E796 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		EDE1736B1FA244140026E796 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F7DDF5D738925A4449D66754 /* Pods_TeamworkProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamworkProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -229,11 +236,11 @@
 			children = (
 				EDBBA5E01F9F920D000E8132 /* TeamworkProject.entitlements */,
 				ED6D6E611F9A543800761D09 /* AppDelegate.swift */,
-				ED6D6E651F9A543800761D09 /* MainViewController.swift */,
 				ED6D6E671F9A543800761D09 /* Main.storyboard */,
 				ED6D6E6A1F9A543800761D09 /* Assets.xcassets */,
 				ED6D6E6C1F9A543800761D09 /* LaunchScreen.storyboard */,
 				ED6D6E6F1F9A543800761D09 /* Info.plist */,
+				EDE1736B1FA244140026E796 /* MainViewController.swift */,
 			);
 			path = TeamworkProject;
 			sourceTree = "<group>";
@@ -358,6 +365,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				EDE1736A1FA241CB0026E796 /* PBXTargetDependency */,
 			);
 			name = TeamworkSiri;
 			productName = TeamworkSiri;
@@ -616,8 +624,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED6D6E661F9A543800761D09 /* MainViewController.swift in Sources */,
 				ED6D6E621F9A543800761D09 /* AppDelegate.swift in Sources */,
+				EDE1736C1FA244140026E796 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,6 +675,11 @@
 			isa = PBXTargetDependency;
 			target = EDE173481FA1ED4D0026E796 /* TeamworkProjectCore */;
 			targetProxy = EDE1734E1FA1ED4D0026E796 /* PBXContainerItemProxy */;
+		};
+		EDE1736A1FA241CB0026E796 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDE173481FA1ED4D0026E796 /* TeamworkProjectCore */;
+			targetProxy = EDE173691FA241CB0026E796 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
