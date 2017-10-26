@@ -15,8 +15,10 @@ public class TaskManager {
     public static let sharedInstance = TaskManager()
     var taskResource: Resource?
 
-    public func addTask(withName taskName: String) {
-//        TeamworkAPI.addTaskToTaskList(withId: taskListId, content: taskName)
+    public func addTask(withName taskName: String, completion: @escaping (Bool) -> Swift.Void) {
+        DispatchQueue.main.async {
+            TeamworkAPI.addTaskToTaskList(withId: taskListId, content: taskName, completion: completion)
+        }
     }
 
     public func finishTask(withName taskName: String, completion: @escaping (Bool, String?) -> Swift.Void) {

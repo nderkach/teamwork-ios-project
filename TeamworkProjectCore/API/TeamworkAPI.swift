@@ -54,7 +54,7 @@ class _TeamworkAPI {
             try jsonDecoder.decode(ProjectResult.self, from: $0.content)
         }
 
-        service.configureTransformer("/tasklists/*/tasks.json") {
+        service.configureTransformer("/tasklists/*/tasks.json", requestMethods: [.get]) {
             try jsonDecoder.decode(TaskResult.self, from: $0.content)
         }
     }
@@ -89,19 +89,18 @@ class _TeamworkAPI {
             .resource("/tasklists/\(id)/tasks.json")
     }
     
-    func addTaskToTaskList(withId taskListId: Int, content taskContent: String) {
+    func addTaskToTaskList(withId taskListId: Int, content taskContent: String, completion: @escaping (Bool) -> Swift.Void) {
         let json = [
             "todo-item": [
                 "content": taskContent
             ]
         ]
 
-        DispatchQueue.main.async {
-            self.service.resource("/tasklists/\(taskListId)/tasks.json").request(.post, json: json).onSuccess() { _ in
-
-                //
-            }
-        }
+        self.service.resource("/tasklists/\(taskListId)/tasks.json").request(.post, json: json).onSuccess() { _ in
+            completion(true)
+            }.onFailure({ _ in
+                completion(false)
+            })
     }
 
     func finishTask(withName spokenTaskName: String, completion: @escaping (Bool, String?) -> Swift.Void) {

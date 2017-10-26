@@ -40,7 +40,11 @@ extension IntentHandler : INAddTasksIntentHandling {
     public func handle(intent: INAddTasksIntent,
                        completion: @escaping (INAddTasksIntentResponse) -> Swift.Void) {
 
+        let dispatchGroup = DispatchGroup()
+
         var tasks: [INTask] = []
+        var addedTasks: [INTask] = []
+
         if let taskTitles = intent.taskTitles {
             let taskTitlesStrings = taskTitles.map {
                 taskTitle -> String in
@@ -48,13 +52,21 @@ extension IntentHandler : INAddTasksIntentHandling {
             }
             tasks = createTasks(fromTitles: taskTitlesStrings)
             for task in tasks {
-                TaskManager.sharedInstance.addTask(withName: task.title.spokenPhrase)
+                dispatchGroup.enter()
+                TaskManager.sharedInstance.addTask (withName: task.title.spokenPhrase) { (success) in
+                    if success {
+                        addedTasks.append(task)
+                    }
+                    dispatchGroup.leave()
+                }
             }
         }
 
-        let response = INAddTasksIntentResponse(code: .success, userActivity: nil)
-        response.addedTasks = tasks
-        completion(response)
+        dispatchGroup.notify(queue: .main) {
+            let response = INAddTasksIntentResponse(code: addedTasks.isEmpty ? .failure : .success , userActivity: nil)
+            response.addedTasks = addedTasks
+            completion(response)
+        }
     }
 }
 
@@ -73,6 +85,8 @@ extension IntentHandler : INSetTaskAttributeIntentHandling {
         if status == .completed {
             TaskManager.sharedInstance.finishTask(withName: title.spokenPhrase) { (success, taskName) in
                 let response = INSetTaskAttributeIntentResponse(code: success ? .success : .failure, userActivity: nil)
+
+                // display the task name which was recognised with fuzzy matching
                 var taskTitle: String?
                 if let taskName = taskName {
                     taskTitle = taskName
