@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "58F3F23D2926EF6ABDECA6D3A3135AB0"
-               BuildableName = "Pods_TeamworkProjectUITests.framework"
-               BlueprintName = "Pods-TeamworkProjectUITests"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "EDE173481FA1ED4D0026E796"
+               BuildableName = "TeamworkProjectCore.framework"
+               BlueprintName = "TeamworkProjectCore"
+               ReferencedContainer = "container:TeamworkProject.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,10 +47,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "58F3F23D2926EF6ABDECA6D3A3135AB0"
-            BuildableName = "Pods_TeamworkProjectUITests.framework"
-            BlueprintName = "Pods-TeamworkProjectUITests"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "EDE173481FA1ED4D0026E796"
+            BuildableName = "TeamworkProjectCore.framework"
+            BlueprintName = "TeamworkProjectCore"
+            ReferencedContainer = "container:TeamworkProject.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -62,6 +62,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "EDE173481FA1ED4D0026E796"
+            BuildableName = "TeamworkProjectCore.framework"
+            BlueprintName = "TeamworkProjectCore"
+            ReferencedContainer = "container:TeamworkProject.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

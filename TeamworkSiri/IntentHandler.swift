@@ -7,7 +7,7 @@
 //
 
 import Intents
-import TeamworkKit
+import TeamworkProjectCore
 
 class IntentHandler: INExtension {
 
@@ -71,10 +71,11 @@ extension IntentHandler : INSetTaskAttributeIntentHandling {
         let status = intent.status
 
         if status == .completed {
-            TaskManager.sharedInstance.finishTask(withName: title.spokenPhrase)
+            TaskManager.sharedInstance.finishTask(withName: title.spokenPhrase) { success in
+                let response = INSetTaskAttributeIntentResponse(code: success ? .success : .failure, userActivity: nil)
+                response.modifiedTask = intent.targetTask
+                completion(response)
+            }
         }
-        let response = INSetTaskAttributeIntentResponse(code: .success, userActivity: nil)
-        response.modifiedTask = intent.targetTask
-        completion(response)
     }
 }

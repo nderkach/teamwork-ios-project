@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_TeamworkProjectUITestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_TeamworkProjectUITestsVersionString[];
+FOUNDATION_EXPORT double Pods_TeamworkProjectCoreVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_TeamworkProjectCoreVersionString[];
 

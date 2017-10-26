@@ -11,6 +11,9 @@ import Siesta
 let baseURL = "https://yat.teamwork.com"
 let apiKey = "twp_TEbBXGCnvl2HfvXWfkLUlzx92e3T"
 
+// TODO: add option to add task to arbitary task lists
+let taskListId = 1413042
+
 let TeamworkAPI = _TeamworkAPI()
 
 class _TeamworkAPI {
@@ -20,6 +23,15 @@ class _TeamworkAPI {
     private let service = Service(
         baseURL: baseURL,
         standardTransformers: [.text, .image])
+
+    private var taskNameMap: [String: Task] = [:]
+    private var tasks: [Task]? {
+        didSet {
+            tasks?.forEach({ task in
+                taskNameMap[task.content] = task
+            })
+        }
+    }
 
     fileprivate init() {
         #if DEBUG
@@ -64,16 +76,35 @@ class _TeamworkAPI {
                 "content": taskContent
             ]
         ]
-        service.resource("/tasklists/\(taskListId)/tasks.json").request(.post, json: json).onSuccess() { _ in
-            
-            //
+
+        DispatchQueue.main.async {
+            self.service.resource("/tasklists/\(taskListId)/tasks.json").request(.post, json: json).onSuccess() { _ in
+
+                //
+            }
         }
     }
 
-    func finishTask(withId taskId: Int) {
-        service.resource("/tasks/\(taskId)/complete.json").request(.put).onSuccess() {_ in
+    func finishTask(withName taskName: String, completion: @escaping (Bool) -> Swift.Void) {
 
-        }
+            service.resource("/tasklists/\(taskListId)/tasks.json").request(.get).onSuccess() { entity in
+
+                guard let result: TaskResult = entity.typedContent() else {
+                    return
+                }
+
+                self.tasks = result.items
+
+                guard let task = self.taskNameMap[taskName] else {
+                    return completion(false)
+                }
+
+                self.service.resource("/tasks/\(task.id)/complete.json").request(.put).onSuccess() { _ in
+                    completion(true)
+                    }.onFailure { _ in
+                        completion(false)
+                }
+            }
     }
 
 }
