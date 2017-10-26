@@ -19,7 +19,7 @@ public class TaskManager {
 //        TeamworkAPI.addTaskToTaskList(withId: taskListId, content: taskName)
     }
 
-    public func finishTask(withName taskName: String, completion: @escaping (Bool) -> Swift.Void) {
+    public func finishTask(withName taskName: String, completion: @escaping (Bool, String?) -> Swift.Void) {
         DispatchQueue.main.async {
             TeamworkAPI.finishTask(withName: taskName, completion: completion)
         }

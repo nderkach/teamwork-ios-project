@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TeamworkSiri/IntentHandler.swift"
-            timestampString = "530703755.213427"
+            timestampString = "530710131.885454"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TeamworkSiri/IntentHandler.swift"
-            timestampString = "530703755.213505"
+            timestampString = "530710131.885864"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "70"
@@ -154,13 +154,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TeamworkSiri/IntentHandler.swift"
-            timestampString = "530703755.213551"
+            timestampString = "530710131.886141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
             endingLineNumber = "74"
             landmarkName = "handle(intent:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TeamworkSiri.IntentHandler.handle(intent: __ObjC.INSetTaskAttributeIntent, completion: (__ObjC.INSetTaskAttributeIntentResponse) -&gt; ()) -&gt; ()"
+                  moduleName = "TeamworkSiri"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nderkach/Development/TeamworkProject/TeamworkSiri/IntentHandler.swift"
+                  timestampString = "530710138.180106"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "316">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Swift.String&gt;) -&gt; () in TeamworkSiri.IntentHandler.handle(intent: __ObjC.INSetTaskAttributeIntent, completion: (__ObjC.INSetTaskAttributeIntentResponse) -&gt; ()) -&gt; ()"
+                  moduleName = "TeamworkSiri"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nderkach/Development/TeamworkProject/TeamworkSiri/IntentHandler.swift"
+                  timestampString = "530710138.181945"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -186,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TeamworkProjectCore/TaskManager.swift"
-            timestampString = "530706036.239067"
+            timestampString = "530710131.886428"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
@@ -202,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TeamworkProjectCore/TaskManager.swift"
-            timestampString = "530706036.244129"
+            timestampString = "530710131.886475"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
@@ -218,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TeamworkProjectCore/API/TeamworkAPI.swift"
-            timestampString = "530706036.244335"
+            timestampString = "530710131.886523"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "finishTask(withName:completion:)"
             landmarkType = "7">
             <Locations>
@@ -262,15 +294,143 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TeamworkSiri/IntentHandler.swift"
-            timestampString = "530703755.213662"
+            timestampString = "530710131.886575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
             endingLineNumber = "40"
+            landmarkName = "handle(intent:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TeamworkSiri/IntentHandler.swift"
+            timestampString = "530710131.886861"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "handle(intent:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TeamworkProjectCore/API/TeamworkAPI.swift"
+            timestampString = "530710131.887142"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "finishTask(withName:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TeamworkProjectCore/API/TeamworkAPI.swift"
+            timestampString = "530710131.887197"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "finishTask(withName:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TeamworkProjectCore/API/TeamworkAPI.swift"
+            timestampString = "530710131.887249"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "fuzzyMatchTask(withName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TeamworkSiri/IntentHandler.swift"
+            timestampString = "530710131.887298"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "handle(intent:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Swift.String&gt;) -&gt; () in TeamworkSiri.IntentHandler.handle(intent: __ObjC.INSetTaskAttributeIntent, completion: (__ObjC.INSetTaskAttributeIntentResponse) -&gt; ()) -&gt; ()"
+                  moduleName = "TeamworkSiri"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nderkach/Development/TeamworkProject/TeamworkSiri/IntentHandler.swift"
+                  timestampString = "530710131.985158"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "696">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Swift.String&gt;) -&gt; () in TeamworkSiri.IntentHandler.handle(intent: __ObjC.INSetTaskAttributeIntent, completion: (__ObjC.INSetTaskAttributeIntentResponse) -&gt; ()) -&gt; ()"
+                  moduleName = "TeamworkSiri"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nderkach/Development/TeamworkProject/TeamworkSiri/IntentHandler.swift"
+                  timestampString = "530710131.986603"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "2396">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TeamworkSiri/IntentHandler.swift"
+            timestampString = "530710131.887575"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "handle(intent:completion:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -13,5 +13,6 @@ target 'TeamworkProjectCore' do
   use_frameworks!
 
   pod 'Siesta', '~> 1.0'
+  pod 'Fuse', '~> 1.1.0' 
 
 end

@@ -482,10 +482,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TeamworkProject/Pods-TeamworkProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Fuse/Fuse.framework",
 				"${BUILT_PRODUCTS_DIR}/Siesta/Siesta.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fuse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siesta.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

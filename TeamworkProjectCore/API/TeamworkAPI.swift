@@ -7,6 +7,7 @@
 //
 
 import Siesta
+import Fuse
 
 let baseURL = "https://yat.teamwork.com"
 let apiKey = "twp_TEbBXGCnvl2HfvXWfkLUlzx92e3T"
@@ -58,6 +59,24 @@ class _TeamworkAPI {
         }
     }
 
+    fileprivate func fuzzyMatchTask(withName name: String) -> String {
+        let fuse = Fuse()
+
+        var bestScore = 1.0
+        var bestMatch = ""
+        taskNameMap.keys.forEach {
+            if let score = fuse.search(name, in: $0)?.score {
+                print(score, $0)
+                if score < bestScore {
+                    bestScore = score
+                    bestMatch = $0
+                }
+            }
+        }
+
+        return bestMatch
+    }
+
     // MARK: - Endpoint Accessors
 
     func projects() -> Resource {
@@ -85,7 +104,7 @@ class _TeamworkAPI {
         }
     }
 
-    func finishTask(withName taskName: String, completion: @escaping (Bool) -> Swift.Void) {
+    func finishTask(withName spokenTaskName: String, completion: @escaping (Bool, String?) -> Swift.Void) {
 
             service.resource("/tasklists/\(taskListId)/tasks.json").request(.get).onSuccess() { entity in
 
@@ -95,14 +114,17 @@ class _TeamworkAPI {
 
                 self.tasks = result.items
 
+                // fuzzy match the task name
+                let taskName = self.fuzzyMatchTask(withName: spokenTaskName)
+
                 guard let task = self.taskNameMap[taskName] else {
-                    return completion(false)
+                    return completion(false, nil)
                 }
 
                 self.service.resource("/tasks/\(task.id)/complete.json").request(.put).onSuccess() { _ in
-                    completion(true)
+                    completion(true, taskName)
                     }.onFailure { _ in
-                        completion(false)
+                        completion(false, nil)
                 }
             }
     }

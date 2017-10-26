@@ -71,9 +71,18 @@ extension IntentHandler : INSetTaskAttributeIntentHandling {
         let status = intent.status
 
         if status == .completed {
-            TaskManager.sharedInstance.finishTask(withName: title.spokenPhrase) { success in
+            TaskManager.sharedInstance.finishTask(withName: title.spokenPhrase) { (success, taskName) in
                 let response = INSetTaskAttributeIntentResponse(code: success ? .success : .failure, userActivity: nil)
-                response.modifiedTask = intent.targetTask
+                var taskTitle: String?
+                if let taskName = taskName {
+                    taskTitle = taskName
+                } else {
+                    taskTitle = intent.targetTask?.title.spokenPhrase
+                }
+
+                let modifiedTask = INTask(title: INSpeakableString(spokenPhrase: taskTitle!), status: (intent.targetTask?.status)!, taskType: (intent.targetTask?.taskType)!, spatialEventTrigger: intent.targetTask?.spatialEventTrigger, temporalEventTrigger: intent.targetTask?.temporalEventTrigger, createdDateComponents: intent.targetTask?.createdDateComponents, modifiedDateComponents: intent.targetTask?.modifiedDateComponents, identifier: intent.targetTask?.identifier)
+
+                response.modifiedTask = modifiedTask
                 completion(response)
             }
         }
