@@ -8,30 +8,24 @@
 
 import Foundation
 
-internal extension Pipeline
-    {
-    private var stagesInOrder: [PipelineStage]
-        { return order.flatMap { self[$0] } }
+internal extension Pipeline {
+    private var stagesInOrder: [PipelineStage] { return order.flatMap { self[$0] } }
 
     private typealias StageAndEntry = (PipelineStage, CacheEntryProtocol?)
 
-    private func stagesAndEntries(for resource: Resource) -> [StageAndEntry]
-        {
-        return stagesInOrder.map
-            { stage in (stage, stage.cacheBox?.buildEntry(resource)) }
+    private func stagesAndEntries(for resource: Resource) -> [StageAndEntry] {
+        return stagesInOrder.map { stage in (stage, stage.cacheBox?.buildEntry(resource)) }
         }
 
-    internal func makeProcessor(_ rawResponse: Response, resource: Resource) -> () -> Response
-        {
+    internal func makeProcessor(_ rawResponse: Response, resource: Resource) -> () -> Response {
         // Generate cache keys on main thread (because this touches Resource)
         let stagesAndEntries = self.stagesAndEntries(for: resource)
 
         // Return deferred processor to run on background queue
-        return
-            {
+        return {
             let result = Pipeline.processAndCache(rawResponse, using: stagesAndEntries)
 
-            debugLog(.pipeline,       ["  └╴Response after pipeline:", result.summary()])
+            debugLog(.pipeline, ["  └╴Response after pipeline:", result.summary()])
             debugLog(.networkDetails, ["    Details:", result.dump("      ")])
 
             return result
@@ -43,18 +37,15 @@ internal extension Pipeline
             _ rawResponse: Response,
             using stagesAndEntries: StagesAndEntries)
         -> Response
-        where StagesAndEntries.Iterator.Element == StageAndEntry
-        {
-        return stagesAndEntries.reduce(rawResponse)
-            {
+        where StagesAndEntries.Iterator.Element == StageAndEntry {
+        return stagesAndEntries.reduce(rawResponse) {
             let input = $0,
                 (stage, cacheEntry) = $1
 
             let output = stage.process(input)
 
             if case .success(let entity) = output,
-               let cacheEntry = cacheEntry
-                {
+               let cacheEntry = cacheEntry {
                 debugLog(.cache, ["  ├╴Caching entity with", type(of: entity.content), "content in", cacheEntry])
                 cacheEntry.write(entity)
                 }
@@ -63,36 +54,28 @@ internal extension Pipeline
             }
         }
 
-    internal func cachedEntity(for resource: Resource, onHit: @escaping (Entity<Any>) -> ())
-        {
+    internal func cachedEntity(for resource: Resource, onHit: @escaping (Entity<Any>) -> Void) {
         // Extract cache keys on main thread
         let stagesAndEntries = self.stagesAndEntries(for: resource)
 
-        defaultEntityCacheWorkQueue.async
-            {
-            if let entity = Pipeline.cacheLookup(using: stagesAndEntries)
-                {
-                DispatchQueue.main.async
-                    { onHit(entity) }
+        defaultEntityCacheWorkQueue.async {
+            if let entity = Pipeline.cacheLookup(using: stagesAndEntries) {
+                DispatchQueue.main.async { onHit(entity) }
                 }
             }
         }
 
     // Runs on a background queue
-    private static func cacheLookup(using stagesAndEntries: [StageAndEntry]) -> Entity<Any>?
-        {
-        for (index, (_, cacheEntry)) in stagesAndEntries.enumerated().reversed()
-            {
-            if let result = cacheEntry?.read()
-                {
+    private static func cacheLookup(using stagesAndEntries: [StageAndEntry]) -> Entity<Any>? {
+        for (index, (_, cacheEntry)) in stagesAndEntries.enumerated().reversed() {
+            if let result = cacheEntry?.read() {
                 debugLog(.cache, ["Cache hit for", cacheEntry])
 
                 let processed = Pipeline.processAndCache(
                     .success(result),
                     using: stagesAndEntries.suffix(from: index + 1))
 
-                switch processed
-                    {
+                switch processed {
                     case .failure:
                         debugLog(.cache, ["Error processing cached entity; will ignore cached value. Error:", processed])
 
@@ -104,36 +87,29 @@ internal extension Pipeline
         return nil
         }
 
-    internal func updateCacheEntryTimestamps(_ timestamp: TimeInterval, for resource: Resource)
-        {
-        for (_, cacheEntry) in stagesAndEntries(for: resource)
-            { cacheEntry?.updateTimestamp(timestamp) }
+    internal func updateCacheEntryTimestamps(_ timestamp: TimeInterval, for resource: Resource) {
+        for (_, cacheEntry) in stagesAndEntries(for: resource) { cacheEntry?.updateTimestamp(timestamp) }
         }
 
-    internal func removeCacheEntries(for resource: Resource)
-        {
-        for (_, cacheEntry) in stagesAndEntries(for: resource)
-            { cacheEntry?.remove() }
+    internal func removeCacheEntries(for resource: Resource) {
+        for (_, cacheEntry) in stagesAndEntries(for: resource) { cacheEntry?.remove() }
         }
     }
 
 // MARK: Type erasure dance
 
-internal struct CacheBox
-    {
+internal struct CacheBox {
     fileprivate let buildEntry: (Resource) -> (CacheEntryProtocol?)
     internal let description: String
 
-    init?<T: EntityCache>(cache: T?)
-        {
+    init?<T: EntityCache>(cache: T?) {
         guard let cache = cache else { return nil }
         buildEntry = { CacheEntry(cache: cache, resource: $0) }
         description = String(describing: type(of: cache))
         }
     }
 
-private protocol CacheEntryProtocol
-    {
+private protocol CacheEntryProtocol {
     func read() -> Entity<Any>?
     func write(_ entity: Entity<Any>)
     func updateTimestamp(_ timestamp: TimeInterval)
@@ -141,13 +117,11 @@ private protocol CacheEntryProtocol
     }
 
 private struct CacheEntry<Cache, Key>: CacheEntryProtocol
-    where Cache: EntityCache, Cache.Key == Key
-    {
+    where Cache: EntityCache, Cache.Key == Key {
     let cache: Cache
     let key: Key
 
-    init?(cache: Cache, resource: Resource)
-        {
+    init?(cache: Cache, resource: Resource) {
         DispatchQueue.mainThreadPrecondition()
 
         guard let key = cache.key(for: resource) else { return nil }
@@ -156,35 +130,25 @@ private struct CacheEntry<Cache, Key>: CacheEntryProtocol
         self.key = key
         }
 
-    func read() -> Entity<Any>?
-        {
-        return dispatchSyncOnWorkQueue
-            { self.cache.readEntity(forKey: self.key) }
+    func read() -> Entity<Any>? {
+        return dispatchSyncOnWorkQueue { self.cache.readEntity(forKey: self.key) }
         }
 
-    func write(_ entity: Entity<Any>)
-        {
-        cache.workQueue.async
-            { self.cache.writeEntity(entity, forKey: self.key) }
+    func write(_ entity: Entity<Any>) {
+        cache.workQueue.async { self.cache.writeEntity(entity, forKey: self.key) }
         }
 
-    func updateTimestamp(_ timestamp: TimeInterval)
-        {
-        cache.workQueue.async
-            { self.cache.updateEntityTimestamp(timestamp, forKey: self.key) }
+    func updateTimestamp(_ timestamp: TimeInterval) {
+        cache.workQueue.async { self.cache.updateEntityTimestamp(timestamp, forKey: self.key) }
         }
 
-    func remove()
-        {
-        cache.workQueue.async
-            { self.cache.removeEntity(forKey: self.key) }
+    func remove() {
+        cache.workQueue.async { self.cache.removeEntity(forKey: self.key) }
         }
 
-    private func dispatchSyncOnWorkQueue<T>(_ action: () -> T) -> T
-        {
+    private func dispatchSyncOnWorkQueue<T>(_ action: () -> T) -> T {
         var result: T?
-        cache.workQueue.sync
-            { result = action() }
+        cache.workQueue.sync { result = action() }
         return result!
         }
     }

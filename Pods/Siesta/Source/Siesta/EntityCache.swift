@@ -110,25 +110,20 @@ public protocol EntityCache
 internal var defaultEntityCacheWorkQueue: DispatchQueue =
     DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated)
 
-public extension EntityCache
-    {
+public extension EntityCache {
     /// Returns a concurrent queue with priority `QOS_CLASS_USER_INITIATED`.
-    public var workQueue: DispatchQueue
-        { return defaultEntityCacheWorkQueue }
+    public var workQueue: DispatchQueue { return defaultEntityCacheWorkQueue }
     }
 
-extension EntityCache
-    {
+extension EntityCache {
     /**
       Reads the entity from the cache, updates its timestamp, then writes it back.
 
       While this default implementation always gives the correct behavior, cache implementations may choose to override
       it for performance reasons.
     */
-    public func updateEntityTimestamp(_ timestamp: TimeInterval, forKey key: Key)
-        {
-        guard var entity = readEntity(forKey: key) else
-            { return }
+    public func updateEntityTimestamp(_ timestamp: TimeInterval, forKey key: Key) {
+        guard var entity = readEntity(forKey: key) else { return }
         entity.timestamp = timestamp
         writeEntity(entity, forKey: key)
         }

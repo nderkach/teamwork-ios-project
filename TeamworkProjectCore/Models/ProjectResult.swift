@@ -9,4 +9,3 @@
 struct ProjectResult: Decodable {
     let projects: [Project]
 }
-

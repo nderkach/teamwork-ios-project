@@ -13,8 +13,7 @@ import Foundation
 
   See the various `Resource.request(...)` methods.
 */
-public enum RequestMethod: String
-    {
+public enum RequestMethod: String {
     /// OPTIONS
     case options
 
@@ -61,8 +60,7 @@ public enum RequestMethod: String
       **do not need to worry** about where the request is in its lifecycle. Except for how soon it’s called, your hook
       will see the same behavior regardless of whether the request has not started yet, is in progress, or is completed.
 */
-public protocol Request: class
-    {
+public protocol Request: class {
     /**
       Call the closure once when the request finishes for any reason.
     */
@@ -186,8 +184,7 @@ public protocol Request: class
   The outcome of a network request: either success (with an entity representing the resource’s current state), or
   failure (with an error).
 */
-public enum Response: CustomStringConvertible
-    {
+public enum Response: CustomStringConvertible {
     /// The request succeeded, and returned the given entity.
     case success(Entity<Any>)
 
@@ -195,19 +192,13 @@ public enum Response: CustomStringConvertible
     case failure(RequestError)
 
     /// True if this is a cancellation response
-    public var isCancellation: Bool
-        {
-        if case .failure(let error) = self
-            { return error.cause is RequestError.Cause.RequestCancelled }
-        else
-            { return false }
+    public var isCancellation: Bool {
+        if case .failure(let error) = self { return error.cause is RequestError.Cause.RequestCancelled } else { return false }
         }
 
     /// :nodoc:
-    public var description: String
-        {
-        switch self
-            {
+    public var description: String {
+        switch self {
             case .success(let value): return debugStr(value)
             case .failure(let value): return debugStr(value)
             }
@@ -215,8 +206,7 @@ public enum Response: CustomStringConvertible
     }
 
 /// A `Response`, plus metadata about the nature of the response.
-public struct ResponseInfo
-    {
+public struct ResponseInfo {
     /// The result of a `Request`.
     public var response: Response
 
@@ -225,8 +215,7 @@ public struct ResponseInfo
     public var isNew: Bool
 
     /// Creates new responseInfo, with `isNew` true by default.
-    public init(response: Response, isNew: Bool = true)
-        {
+    public init(response: Response, isNew: Bool = true) {
         self.response = response
         self.isNew = isNew
         }

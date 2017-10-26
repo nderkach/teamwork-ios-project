@@ -8,10 +8,8 @@
 
 import Foundation
 
-extension DispatchQueue
-    {
-    internal static func mainThreadPrecondition(caller: String = #function)
-        {
+extension DispatchQueue {
+    internal static func mainThreadPrecondition(caller: String = #function) {
         precondition(
             Thread.isMainThread,
             "Illegal attempt to use Siesta method \"\(caller)\" from a background thread. " +

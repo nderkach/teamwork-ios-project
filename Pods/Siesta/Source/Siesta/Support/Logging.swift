@@ -13,8 +13,7 @@ import Foundation
 
   - SeeAlso: [Logging Guide](https://github.com/bustoutsolutions/siesta/blob/master/Docs/logging.md)
 */
-public enum LogCategory
-    {
+public enum LogCategory {
     /// Summary of network requests: HTTP method, URL, and result code.
     case network
 
@@ -57,16 +56,13 @@ public enum LogCategory
 private let maxCategoryNameLength = LogCategory.all.map { Int(String(describing: $0).characters.count) }.max() ?? 0
 
 /// Inject your custom logger to do something other than print to stdout.
-public var logger: (LogCategory, String) -> Void =
-    {
+public var logger: (LogCategory, String) -> Void = {
     let paddedCategory = String(describing: $0).padding(toLength: maxCategoryNameLength, withPad: " ", startingAt: 0)
     var threadName = ""
-    if !Thread.isMainThread
-        {
+    if !Thread.isMainThread {
         threadName += "[thread "
         var threadID = abs(ObjectIdentifier(Thread.current).hashValue &* 524287)
-        for _ in 0..<4
-            {
+        for _ in 0..<4 {
             threadName.append(Character(UnicodeScalar(threadID % 0x55 + 0x13a0)!))
             threadID /= 0x55
             }
@@ -77,8 +73,6 @@ public var logger: (LogCategory, String) -> Void =
     print(prefix + indentedMessage)
     }
 
-internal func debugLog(_ category: LogCategory, _ messageParts: @autoclosure () -> [Any?])
-    {
-    if LogCategory.enabled.contains(category)
-        { logger(category, debugStr(messageParts())) }
+internal func debugLog(_ category: LogCategory, _ messageParts: @autoclosure () -> [Any?]) {
+    if LogCategory.enabled.contains(category) { logger(category, debugStr(messageParts())) }
     }

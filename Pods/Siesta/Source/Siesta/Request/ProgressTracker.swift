@@ -8,10 +8,8 @@
 
 import Foundation
 
-internal class ProgressTracker
-    {
-    var progress: Double
-        { return progressComputation.fractionDone }
+internal class ProgressTracker {
+    var progress: Double { return progressComputation.fractionDone }
     var callbacks = CallbackGroup<Double>()
 
     private var networking: RequestNetworking?
@@ -20,13 +18,11 @@ internal class ProgressTracker
     private var progressComputation: RequestProgressComputation
     private var progressUpdateTimer: Timer?
 
-    init(isGet: Bool)
-        {
+    init(isGet: Bool) {
         progressComputation = RequestProgressComputation(isGet: isGet)
         }
 
-    func start(_ networking: RequestNetworking, reportingInterval: TimeInterval)
-        {
+    func start(_ networking: RequestNetworking, reportingInterval: TimeInterval) {
         precondition(self.networking == nil, "already started")
 
         self.networking = networking
@@ -35,33 +31,27 @@ internal class ProgressTracker
             CFRunLoopTimerCreateWithHandler(
                     kCFAllocatorDefault,
                     CFAbsoluteTimeGetCurrent(),
-                    reportingInterval, 0, 0)
-                { [weak self] _ in self?.updateProgress() }
+                    reportingInterval, 0, 0) { [weak self] _ in self?.updateProgress() }
         CFRunLoopAddTimer(CFRunLoopGetCurrent(), progressUpdateTimer, CFRunLoopMode.commonModes)
         }
 
-    deinit
-        {
+    deinit {
         progressUpdateTimer?.invalidate()
         }
 
-    private func updateProgress()
-        {
-        guard let networking = networking else
-            { return }
+    private func updateProgress() {
+        guard let networking = networking else { return }
 
         progressComputation.update(from: networking.transferMetrics)
 
         let progress = self.progress
-        if lastProgressBroadcast != progress
-            {
+        if lastProgressBroadcast != progress {
             lastProgressBroadcast = progress
             callbacks.notify(progress)
             }
         }
 
-    func complete()
-        {
+    func complete() {
         progressUpdateTimer?.invalidate()
         progressComputation.complete()
         callbacks.notifyOfCompletion(1)

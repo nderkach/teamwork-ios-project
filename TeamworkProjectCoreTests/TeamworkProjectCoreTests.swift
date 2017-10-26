@@ -14,7 +14,7 @@ class TeamworkProjectCoreTests: XCTestCase {
 
     var taskManager: TaskManager?
     var createdTaskIds: [Int] = []
-    
+
     override func setUp() {
         super.setUp()
 
@@ -30,7 +30,7 @@ class TeamworkProjectCoreTests: XCTestCase {
 
         waitForExpectations(timeout: 5, handler: nil)
     }
-    
+
     func testAddSingleTask() {
         let promise = expectation(description: "Wait for adding task")
         taskManager?.addTask(withName: "Oranges") { (success, taskId) in
@@ -45,7 +45,7 @@ class TeamworkProjectCoreTests: XCTestCase {
 
     func testMarkTaskAsCompleted() {
         let promise = expectation(description: "Wait for adding task")
-        taskManager?.finishTask(withName: "Apple") { (success, taskName) in
+        taskManager?.finishTask(withName: "Apple") { (_, taskName) in
             XCTAssertEqual(taskName, "Apples")
             promise.fulfill()
         }

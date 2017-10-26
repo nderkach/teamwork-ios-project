@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 /**
   A sequence of transformation and cache operations that Siesta applies to server responses. A raw response comes in the
   pipeline, and the appropriate data structure for your app comes out the other end. Apps may optionally cache responses
@@ -37,9 +36,8 @@ import Foundation
 
   Services do not have any persistent caching by default.
 */
-public struct Pipeline
-    {
-    private var stages: [PipelineStageKey:PipelineStage] = [:]
+public struct Pipeline {
+    private var stages: [PipelineStageKey: PipelineStage] = [:]
 
     /**
       The order in which the pipeline’s stages run. The default order is:
@@ -56,10 +54,8 @@ public struct Pipeline
       - Note: Stages **must** be unique. Adding a duplicate stage key will cause a precondition failure.
       - Note: Any stage not present in the order will not run, even if it has transformers and/or cache configured.
     */
-    public var order: [PipelineStageKey] = [.rawData, .decoding, .parsing, .model, .cleanup]
-        {
-        willSet
-            {
+    public var order: [PipelineStageKey] = [.rawData, .decoding, .parsing, .model, .cleanup] {
+        willSet {
             precondition(
                 newValue.count == Set(newValue).count,
                 "Pipeline.order contains duplicates: \(newValue)")
@@ -68,30 +64,25 @@ public struct Pipeline
                 .filter { _, stage in !stage.isEmpty }
                 .map { key, _ in key }
             let missingStages = Set(nonEmptyStages).subtracting(newValue)
-            if !missingStages.isEmpty
-                { debugLog(.pipeline, ["WARNING: Stages", missingStages, "configured but not present in custom pipeline order, will be ignored:", newValue]) }
+            if !missingStages.isEmpty { debugLog(.pipeline, ["WARNING: Stages", missingStages, "configured but not present in custom pipeline order, will be ignored:", newValue]) }
             }
         }
 
     /**
       Retrieves the stage for the given key, or an empty one if none yet exists.
     */
-    public subscript(key: PipelineStageKey) -> PipelineStage
-        {
+    public subscript(key: PipelineStageKey) -> PipelineStage {
         get { return stages[key] ?? PipelineStage() }
         set { stages[key] = newValue }
         }
 
-    internal var containsCaches: Bool
-        { return stages.any { $1.cacheBox != nil } }
+    internal var containsCaches: Bool { return stages.any { $1.cacheBox != nil } }
 
     /**
       Removes all transformers from all stages in the pipeline. Leaves caches intact.
     */
-    public mutating func removeAllTransformers()
-        {
-        for key in stages.keys
-            { stages[key]?.removeTransformers() }
+    public mutating func removeAllTransformers() {
+        for key in stages.keys { stages[key]?.removeTransformers() }
         }
 
     /**
@@ -103,17 +94,14 @@ public struct Pipeline
             $0.pipeline.removeAllCaches()
           }
     */
-    public mutating func removeAllCaches()
-        {
-        for key in stages.keys
-            { stages[key]?.doNotCache() }
+    public mutating func removeAllCaches() {
+        for key in stages.keys { stages[key]?.doNotCache() }
         }
 
     /**
       Removes all transformers and caches from all stages in the pipeline.
     */
-    public mutating func clear()
-        {
+    public mutating func clear() {
         removeAllTransformers()
         removeAllCaches()
         }
@@ -131,16 +119,14 @@ public struct Pipeline
 
   - See: `Pipeline`
 */
-public struct PipelineStage
-    {
+public struct PipelineStage {
     internal private(set) var transformers: [ResponseTransformer] = []
     internal var cacheBox: CacheBox?
 
     /**
       Appends the given transformer to this stage.
     */
-    public mutating func add(_ transformer: ResponseTransformer)
-        { transformers.append(transformer) }
+    public mutating func add(_ transformer: ResponseTransformer) { transformers.append(transformer) }
 
     /**
       Appends the given transformer to this stage, applying it only if the server’s `Content-type` header matches any of
@@ -156,8 +142,7 @@ public struct PipelineStage
     */
     public mutating func add(
             _ transformer: ResponseTransformer,
-            contentTypes: [String])
-        {
+            contentTypes: [String]) {
         add(ContentTypeMatchTransformer(
             transformer, contentTypes: contentTypes))
         }
@@ -170,16 +155,12 @@ public struct PipelineStage
             $0.pipeline[.parsing].removeTransformers()
           }
     */
-    public mutating func removeTransformers()
-        { transformers.removeAll() }
+    public mutating func removeTransformers() { transformers.removeAll() }
 
-    fileprivate var isEmpty: Bool
-        { return cacheBox == nil && transformers.isEmpty }
+    fileprivate var isEmpty: Bool { return cacheBox == nil && transformers.isEmpty }
 
-    internal func process(_ response: Response) -> Response
-        {
-        return transformers.reduce(response)
-            { $1.process($0) }
+    internal func process(_ response: Response) -> Response {
+        return transformers.reduce(response) { $1.process($0) }
         }
 
     /**
@@ -194,23 +175,19 @@ public struct PipelineStage
       - Note: Siesta may ask your cache for content before any load requests run. This means that your observer may
               initially see an empty resources and then get a `newData(Cache)` event — even if you never call `load()`.
     */
-    public mutating func cacheUsing<T: EntityCache>(_ cache: T)
-        { cacheBox = CacheBox(cache: cache) }
+    public mutating func cacheUsing<T: EntityCache>(_ cache: T) { cacheBox = CacheBox(cache: cache) }
 
     /**
       Removes any caching that had been configured at this stage.
     */
-    public mutating func doNotCache()
-        { cacheBox = nil}
+    public mutating func doNotCache() { cacheBox = nil}
     }
 
-extension PipelineStage
-    {
+extension PipelineStage {
     /**
       Ways of modifying a stage’s transformers. Used by `Service.configureTransformer(...)`.
     */
-    public enum MutationAction
-        {
+    public enum MutationAction {
         /// Remove all existing transformers and add the new one.
         case replaceExisting
 
@@ -241,19 +218,16 @@ extension PipelineStage
           $0.pipeline.order = [.rawData, .munging, .twiddling, .cleanup]
       }
 */
-public final class PipelineStageKey: _OpenEnum, CustomStringConvertible
-    {
+public final class PipelineStageKey: _OpenEnum, CustomStringConvertible {
     /// A human-readable name for this key. Does not affect uniqueness, or any other logical behavior.
     public let description: String
 
     /// Creates a custom pipeline stage.
-    public init(description: String)
-        { self.description = description }
+    public init(description: String) { self.description = description }
     }
 
 // MARK: Default Stages
-public extension PipelineStageKey
-    {
+public extension PipelineStageKey {
     /// Response data still unprocessed. The stage typically contains no transformers.
     public static let rawData = PipelineStageKey(description: "rawData")
 

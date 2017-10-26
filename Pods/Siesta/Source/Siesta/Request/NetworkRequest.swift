@@ -8,13 +8,11 @@
 
 import Foundation
 
-internal final class NetworkRequest: RequestWithDefaultCallbacks, CustomDebugStringConvertible
-    {
+internal final class NetworkRequest: RequestWithDefaultCallbacks, CustomDebugStringConvertible {
     // Basic metadata
     private let resource: Resource
     private let requestDescription: String
-    internal var config: Configuration
-        { return resource.configuration(for: underlyingRequest) }
+    internal var config: Configuration { return resource.configuration(for: underlyingRequest) }
 
     // Networking
     private let requestBuilder: () -> URLRequest
@@ -24,22 +22,19 @@ internal final class NetworkRequest: RequestWithDefaultCallbacks, CustomDebugStr
 
     // Progress
     private var progressTracker: ProgressTracker
-    var progress: Double
-        { return progressTracker.progress }
+    var progress: Double { return progressTracker.progress }
 
     // Result
     private var responseCallbacks = CallbackGroup<ResponseInfo>()
     private var wasCancelled: Bool = false
-    var isCompleted: Bool
-        {
+    var isCompleted: Bool {
         DispatchQueue.mainThreadPrecondition()
         return responseCallbacks.completedValue != nil
         }
 
     // MARK: Managing request
 
-    init(resource: Resource, requestBuilder: @escaping () -> URLRequest)
-        {
+    init(resource: Resource, requestBuilder: @escaping () -> URLRequest) {
         self.resource = resource
         self.requestBuilder = requestBuilder  // for repeated()
         self.underlyingRequest = requestBuilder()
@@ -51,18 +46,15 @@ internal final class NetworkRequest: RequestWithDefaultCallbacks, CustomDebugStr
         progressTracker = ProgressTracker(isGet: underlyingRequest.httpMethod == "GET")  // URLRequest automatically uppercases method
         }
 
-    func start() -> Self
-        {
+    func start() -> Self {
         DispatchQueue.mainThreadPrecondition()
 
-        guard self.networking == nil else
-            {
+        guard self.networking == nil else {
             debugLog(.networkDetails, [requestDescription, "already started"])
             return self
             }
 
-        guard !wasCancelled else
-            {
+        guard !wasCancelled else {
             debugLog(.network, [requestDescription, "will not start because it was already cancelled"])
             underlyingNetworkRequestCompleted = true
             return self
@@ -70,11 +62,9 @@ internal final class NetworkRequest: RequestWithDefaultCallbacks, CustomDebugStr
 
         debugLog(.network, [requestDescription])
 
-        let networking = resource.service.networkingProvider.startRequest(underlyingRequest)
-            {
+        let networking = resource.service.networkingProvider.startRequest(underlyingRequest) {
             res, data, err in
-            DispatchQueue.main.async
-                { self.responseReceived(underlyingResponse: res, body: data, error: err) }
+            DispatchQueue.main.async { self.responseReceived(underlyingResponse: res, body: data, error: err) }
             }
         self.networking = networking
 
@@ -85,12 +75,10 @@ internal final class NetworkRequest: RequestWithDefaultCallbacks, CustomDebugStr
         return self
         }
 
-    func cancel()
-        {
+    func cancel() {
         DispatchQueue.mainThreadPrecondition()
 
-        guard !isCompleted else
-            {
+        guard !isCompleted else {
             debugLog(.network, ["cancel() called but request already completed:", requestDescription])
             return
             }
@@ -105,21 +93,18 @@ internal final class NetworkRequest: RequestWithDefaultCallbacks, CustomDebugStr
         broadcastResponse(ResponseInfo.cancellation)
         }
 
-    func repeated() -> Request
-        {
+    func repeated() -> Request {
         return NetworkRequest(resource: resource, requestBuilder: requestBuilder)
         }
 
     // MARK: Callbacks
 
-    internal func addResponseCallback(_ callback: @escaping ResponseCallback) -> Self
-        {
+    internal func addResponseCallback(_ callback: @escaping ResponseCallback) -> Self {
         responseCallbacks.addCallback(callback)
         return self
         }
 
-    func onProgress(_ callback: @escaping (Double) -> Void) -> Self
-        {
+    func onProgress(_ callback: @escaping (Double) -> Void) -> Self {
         progressTracker.callbacks.addCallback(callback)
         return self
         }
@@ -127,8 +112,7 @@ internal final class NetworkRequest: RequestWithDefaultCallbacks, CustomDebugStr
     // MARK: Response handling
 
     // Entry point for response handling. Triggered by RequestNetworking completion callback.
-    private func responseReceived(underlyingResponse: HTTPURLResponse?, body: Data?, error: Error?)
-        {
+    private func responseReceived(underlyingResponse: HTTPURLResponse?, body: Data?, error: Error?) {
         DispatchQueue.mainThreadPrecondition()
 
         underlyingNetworkRequestCompleted = true
@@ -139,16 +123,13 @@ internal final class NetworkRequest: RequestWithDefaultCallbacks, CustomDebugStr
 
         let responseInfo = interpretResponse(underlyingResponse, body, error)
 
-        if shouldIgnoreResponse(responseInfo.response)
-            { return }
+        if shouldIgnoreResponse(responseInfo.response) { return }
 
         transformResponse(responseInfo, then: broadcastResponse)
         }
 
-    private func isError(httpStatusCode: Int?) -> Bool
-        {
-        guard let httpStatusCode = httpStatusCode else
-            { return false }
+    private func isError(httpStatusCode: Int?) -> Bool {
+        guard let httpStatusCode = httpStatusCode else { return false }
         return httpStatusCode >= 400
         }
 
@@ -156,72 +137,55 @@ internal final class NetworkRequest: RequestWithDefaultCallbacks, CustomDebugStr
             _ underlyingResponse: HTTPURLResponse?,
             _ body: Data?,
             _ error: Error?)
-        -> ResponseInfo
-        {
-        if isError(httpStatusCode: underlyingResponse?.statusCode) || error != nil
-            {
+        -> ResponseInfo {
+        if isError(httpStatusCode: underlyingResponse?.statusCode) || error != nil {
             return ResponseInfo(
                 response: .failure(RequestError(response: underlyingResponse, content: body, cause: error)))
-            }
-        else if underlyingResponse?.statusCode == 304
-            {
-            if let entity = resource.latestData
-                {
+            } else if underlyingResponse?.statusCode == 304 {
+            if let entity = resource.latestData {
                 return ResponseInfo(response: .success(entity), isNew: false)
-                }
-            else
-                {
+                } else {
                 return ResponseInfo(
                     response: .failure(RequestError(
                         userMessage: NSLocalizedString("No data available", comment: "userMessage"),
                         cause: RequestError.Cause.NoLocalDataFor304())))
                 }
-            }
-        else
-            {
+            } else {
             return ResponseInfo(response: .success(Entity<Any>(response: underlyingResponse, content: body ?? Data())))
             }
         }
 
     private func transformResponse(
             _ rawInfo: ResponseInfo,
-            then afterTransformation: @escaping (ResponseInfo) -> Void)
-        {
+            then afterTransformation: @escaping (ResponseInfo) -> Void) {
         let processor = config.pipeline.makeProcessor(rawInfo.response, resource: resource)
 
-        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async
-            {
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async {
             let processedInfo =
                 rawInfo.isNew
                     ? ResponseInfo(response: processor(), isNew: true)
                     : rawInfo
 
-            DispatchQueue.main.async
-                { afterTransformation(processedInfo) }
+            DispatchQueue.main.async { afterTransformation(processedInfo) }
             }
         }
 
-    private func broadcastResponse(_ newInfo: ResponseInfo)
-        {
+    private func broadcastResponse(_ newInfo: ResponseInfo) {
         DispatchQueue.mainThreadPrecondition()
 
-        if shouldIgnoreResponse(newInfo.response)
-            { return }
+        if shouldIgnoreResponse(newInfo.response) { return }
 
         progressTracker.complete()
 
         responseCallbacks.notifyOfCompletion(newInfo)
         }
 
-    private func shouldIgnoreResponse(_ newResponse: Response) -> Bool
-        {
-        guard let existingResponse = responseCallbacks.completedValue?.response else
-            { return false }
+    private func shouldIgnoreResponse(_ newResponse: Response) -> Bool {
+        guard let existingResponse = responseCallbacks.completedValue?.response else { return false }
 
         // We already received a response; don't broadcast another one.
 
-        if !existingResponse.isCancellation
-            {
+        if !existingResponse.isCancellation {
             debugLog(.network,
                 [
                 "WARNING: Received response for request that was already completed:", requestDescription,
@@ -230,9 +194,7 @@ internal final class NetworkRequest: RequestWithDefaultCallbacks, CustomDebugStr
                 "\n    Previously received:", existingResponse,
                 "\n    New response:", newResponse
                 ])
-            }
-        else if !newResponse.isCancellation
-            {
+            } else if !newResponse.isCancellation {
             // Sometimes the network layer sends a cancellation error. That’s not of interest if we already knew
             // we were cancelled. If we received any other response after cancellation, log that we ignored it.
 
@@ -248,8 +210,7 @@ internal final class NetworkRequest: RequestWithDefaultCallbacks, CustomDebugStr
 
     // MARK: Debug
 
-    var debugDescription: String
-        {
+    var debugDescription: String {
         return "Request:"
             + String(UInt(bitPattern: ObjectIdentifier(self)), radix: 16)
             + "("

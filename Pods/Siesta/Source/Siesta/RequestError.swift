@@ -26,8 +26,7 @@ import Foundation
 
   The one ironclad guarantee that `RequestError` makes is the presence of a `userMessage`.
 */
-public struct RequestError: Error
-    {
+public struct RequestError: Error {
     /**
       A description of this error suitable for showing to the user. Typically messages are brief and in plain language,
       e.g. “Not found,” “Invalid username or password,” or “The internet connection is offline.”
@@ -61,22 +60,13 @@ public struct RequestError: Error
             response: HTTPURLResponse?,
             content: Any?,
             cause: Error?,
-            userMessage: String? = nil)
-        {
+            userMessage: String? = nil) {
         self.httpStatusCode = response?.statusCode
         self.cause = cause
 
-        if let content = content
-            { self.entity = Entity<Any>(response: response, content: content) }
+        if let content = content { self.entity = Entity<Any>(response: response, content: content) }
 
-        if let message = userMessage
-            { self.userMessage = message }
-        else if let message = cause?.localizedDescription
-            { self.userMessage = message }
-        else if let code = self.httpStatusCode
-            { self.userMessage = HTTPURLResponse.localizedString(forStatusCode: code).capitalized }
-        else
-            { self.userMessage = NSLocalizedString("Request failed", comment: "userMessage") }   // Is this reachable?
+        if let message = userMessage { self.userMessage = message } else if let message = cause?.localizedDescription { self.userMessage = message } else if let code = self.httpStatusCode { self.userMessage = HTTPURLResponse.localizedString(forStatusCode: code).capitalized } else { self.userMessage = NSLocalizedString("Request failed", comment: "userMessage") }   // Is this reachable?
         }
 
     /**
@@ -85,16 +75,14 @@ public struct RequestError: Error
     public init(
             userMessage: String,
             cause: Error,
-            entity: Entity<Any>? = nil)
-        {
+            entity: Entity<Any>? = nil) {
         self.userMessage = userMessage
         self.cause = cause
         self.entity = entity
         }
     }
 
-public extension RequestError
-    {
+public extension RequestError {
     /**
       Underlying causes of errors reported by Siesta. You will find these on the `RequestError.cause` property.
       (Note that `cause` may also contain errors from the underlying network library that do not appear here.)
@@ -130,19 +118,16 @@ public extension RequestError
             }
           }
     */
-    public enum Cause
-        {
+    public enum Cause {
         // MARK: Request Errors
 
         /// Resource’s URL is nil or syntactically invalid.
-        public struct InvalidURL: Error
-            {
+        public struct InvalidURL: Error {
             public let urlSource: URLConvertible?
             }
 
         /// Unable to create a text request with the requested character encoding.
-        public struct UnencodableText: Error
-            {
+        public struct UnencodableText: Error {
             public let encoding: String.Encoding
             public let text: String
             }
@@ -151,16 +136,14 @@ public extension RequestError
         public struct InvalidJSONObject: Error { }
 
         /// Unable to create a URL-encoded request, probably due to unpaired Unicode surrogate chars.
-        public struct NotURLEncodable: Error
-            {
+        public struct NotURLEncodable: Error {
             public let offendingString: String
             }
 
         // MARK: Network Errors
 
         /// Underlying network request was cancelled before response arrived.
-        public struct RequestCancelled: Error
-            {
+        public struct RequestCancelled: Error {
             public let networkError: Error?
             }
 
@@ -172,21 +155,18 @@ public extension RequestError
         public struct NoLocalDataFor304: Error { }
 
         /// The server sent a text encoding name that the OS does not recognize.
-        public struct InvalidTextEncoding: Error
-            {
+        public struct InvalidTextEncoding: Error {
             public let encodingName: String
             }
 
         /// The server’s response could not be decoded using the text encoding it specified.
-        public struct UndecodableText: Error
-            {
+        public struct UndecodableText: Error {
             public let encoding: String.Encoding
             }
 
         /// Siesta’s default JSON parser accepts only dictionaries and arrays, but the server
         /// sent a response containing a bare JSON primitive.
-        public struct JSONResponseIsNotDictionaryOrArray: Error
-            {
+        public struct JSONResponseIsNotDictionaryOrArray: Error {
             public let actualType: Any.Type
             }
 
@@ -196,15 +176,13 @@ public extension RequestError
         /// A response transformer received entity content of a type it doesn’t know how to process. This error means
         /// that the upstream transformations may have succeeded, but did not return a value of the type the next
         /// transformer expected.
-        public struct WrongInputTypeInTranformerPipeline: Error
-            {
+        public struct WrongInputTypeInTranformerPipeline: Error {
             public let expectedType, actualType: Any.Type
             public let transformer: ResponseTransformer
             }
 
         /// A `ResponseContentTransformer` or a closure passed to `Service.configureTransformer(...)` returned nil.
-        public struct TransformerReturnedNil: Error
-            {
+        public struct TransformerReturnedNil: Error {
             public let transformer: ResponseTransformer
             }
         }

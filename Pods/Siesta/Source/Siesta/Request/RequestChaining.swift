@@ -8,8 +8,7 @@
 
 import Foundation
 
-extension Request
-    {
+extension Request {
     /**
       Gathers multiple requests into a **request chain**, a wrapper that appears from the outside to be a single
       request. You can use this to add behavior to a request in a way that is transparent to outside observers. For
@@ -53,8 +52,7 @@ extension Request
 
       - SeeAlso: `Configuration.decorateRequests(...)`
     */
-    public func chained(whenCompleted callback: @escaping (ResponseInfo) -> RequestChainAction) -> Request
-        { return RequestChain(wrapping: self, whenCompleted: callback) }
+    public func chained(whenCompleted callback: @escaping (ResponseInfo) -> RequestChainAction) -> Request { return RequestChain(wrapping: self, whenCompleted: callback) }
     }
 
 /**
@@ -62,8 +60,7 @@ extension Request
 
   - See: `Request.chained(...)`
 */
-public enum RequestChainAction
-    {
+public enum RequestChainAction {
     /// The chain will wait for the given request, and its response will become the chain’s response.
     case passTo(Request)
 
@@ -74,36 +71,30 @@ public enum RequestChainAction
     case useThisResponse
     }
 
-internal final class RequestChain: RequestWithDefaultCallbacks
-    {
+internal final class RequestChain: RequestWithDefaultCallbacks {
     private let wrappedRequest: Request
     private let determineAction: ActionCallback
     private var responseCallbacks = CallbackGroup<ResponseInfo>()
     private var isCancelled = false
 
-    init(wrapping request: Request, whenCompleted determineAction: @escaping ActionCallback)
-        {
+    init(wrapping request: Request, whenCompleted determineAction: @escaping ActionCallback) {
         self.wrappedRequest = request
         self.determineAction = determineAction
         request.onCompletion(self.processResponse)
         }
 
-    func addResponseCallback(_ callback: @escaping ResponseCallback) -> Self
-        {
+    func addResponseCallback(_ callback: @escaping ResponseCallback) -> Self {
         responseCallbacks.addCallback(callback)
         return self
         }
 
-    func processResponse(_ responseInfo: ResponseInfo)
-        {
-        guard !isCancelled else
-            {
+    func processResponse(_ responseInfo: ResponseInfo) {
+        guard !isCancelled else {
             return responseCallbacks.notifyOfCompletion(
                 ResponseInfo.cancellation)
             }
 
-        switch determineAction(responseInfo)
-            {
+        switch determineAction(responseInfo) {
             case .useThisResponse:
                 responseCallbacks.notifyOfCompletion(responseInfo)
 
@@ -112,33 +103,28 @@ internal final class RequestChain: RequestWithDefaultCallbacks
 
             case .passTo(let request):
                 request.start()  // Necessary if we are passing to deferred original request
-                request.onCompletion
-                    { self.responseCallbacks.notifyOfCompletion($0) }
+                request.onCompletion { self.responseCallbacks.notifyOfCompletion($0) }
             }
         }
 
     typealias ActionCallback = (ResponseInfo) -> RequestChainAction
 
-    func start() -> Self
-        {
+    func start() -> Self {
         wrappedRequest.start()
         return self
         }
 
-    var isCompleted: Bool
-        {
+    var isCompleted: Bool {
         DispatchQueue.mainThreadPrecondition()
         return responseCallbacks.completedValue != nil
         }
 
-    func cancel()
-        {
+    func cancel() {
         isCancelled = true
         wrappedRequest.cancel()
         }
 
-    func repeated() -> Request
-        {
+    func repeated() -> Request {
         return wrappedRequest.repeated().chained(whenCompleted: determineAction)
         }
 
@@ -146,6 +132,5 @@ internal final class RequestChain: RequestWithDefaultCallbacks
 
     var progress: Double { return 0 }
 
-    func onProgress(_ callback: @escaping (Double) -> Void) -> Self
-        { return self }
+    func onProgress(_ callback: @escaping (Double) -> Void) -> Self { return self }
     }

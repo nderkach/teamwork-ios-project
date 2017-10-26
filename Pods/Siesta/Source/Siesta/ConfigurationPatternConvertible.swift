@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 /**
   A type that can serve as a URL matcher for service configuration.
 
@@ -19,8 +18,7 @@ import Foundation
   - SeeAlso: `String.configurationPattern(for:)`
   - SeeAlso: `Resource.configurationPattern(for:)`
 */
-public protocol ConfigurationPatternConvertible
-    {
+public protocol ConfigurationPatternConvertible {
     /// Turns the receiver into a predicate that matches URLs.
     func configurationPattern(for service: Service) -> (URL) -> Bool
 
@@ -31,8 +29,7 @@ public protocol ConfigurationPatternConvertible
 /**
   Support for passing URL patterns with wildcards to `Service.configure(...)`.
 */
-extension String: ConfigurationPatternConvertible
-    {
+extension String: ConfigurationPatternConvertible {
     /**
       Matches URLs using shell-like wildcards / globs.
 
@@ -55,25 +52,21 @@ extension String: ConfigurationPatternConvertible
 
       The pattern ignores the resource’s query string.
     */
-    public func configurationPattern(for service: Service) -> (URL) -> Bool
-        {
+    public func configurationPattern(for service: Service) -> (URL) -> Bool {
         // If the pattern has a URL protocol (e.g. "http:"), interpret it as absolute.
         // If the service has no baseURL, interpret the pattern as absolute.
         // Otherwise, interpret pattern as relative to baseURL.
 
         let resolvedPattern: String
-        if !contains(regex: "^[a-z]+:"), let prefix = service.baseURL?.absoluteString
-            { resolvedPattern = prefix + strippingPrefix("/") }
-        else
-            { resolvedPattern = self }
+        if !contains(regex: "^[a-z]+:"), let prefix = service.baseURL?.absoluteString { resolvedPattern = prefix + strippingPrefix("/") } else { resolvedPattern = self }
 
         let pattern = try! NSRegularExpression(pattern:
             "^"
             + NSRegularExpression.escapedPattern(for: resolvedPattern)
                 .replacingOccurrences(of: "\\*\\*\\/", with: "([^?]*/|)")
-                .replacingOccurrences(of: "\\*\\*",    with: "[^?]*")
-                .replacingOccurrences(of: "\\*",       with: "[^/?]*")
-                .replacingOccurrences(of: "\\?",       with: "[^/?]")
+                .replacingOccurrences(of: "\\*\\*", with: "[^?]*")
+                .replacingOccurrences(of: "\\*", with: "[^/?]*")
+                .replacingOccurrences(of: "\\?", with: "[^/?]")
             + "($|\\?)")
         debugLog(.configuration, ["URL pattern", self, "compiles to regex", pattern.pattern])
 
@@ -81,15 +74,13 @@ extension String: ConfigurationPatternConvertible
         }
 
     /// :nodoc:
-    public var configurationPatternDescription: String
-        { return self }
+    public var configurationPatternDescription: String { return self }
     }
 
 /**
   Support for passing regular expressions to `Service.configure(...)`.
 */
-extension NSRegularExpression: ConfigurationPatternConvertible
-    {
+extension NSRegularExpression: ConfigurationPatternConvertible {
     /**
       Matches URLs if this regular expression matches any substring of the URL’s full, absolute form.
 
@@ -100,31 +91,26 @@ extension NSRegularExpression: ConfigurationPatternConvertible
       Note also that this implementation matches substrings. Include `^` and `$` if you want your pattern to match
       against the entire URL.
     */
-    public func configurationPattern(for service: Service) -> (URL) -> Bool
-        {
+    public func configurationPattern(for service: Service) -> (URL) -> Bool {
         return { self.matches($0.absoluteString) }
         }
 
     /// :nodoc:
-    public var configurationPatternDescription: String
-        { return pattern }
+    public var configurationPatternDescription: String { return pattern }
     }
 
 /**
   Support for passing a specific `Resource` to `Service.configure(...)`.
 */
-extension Resource: ConfigurationPatternConvertible
-    {
+extension Resource: ConfigurationPatternConvertible {
     /**
       Matches this specific resource when passed as a pattern to `Service.configure(...)`.
     */
-    public func configurationPattern(for service: Service) -> (URL) -> Bool
-        {
+    public func configurationPattern(for service: Service) -> (URL) -> Bool {
         let resourceURL = url  // prevent resource capture in closure
         return { $0 == resourceURL }
         }
 
     /// :nodoc:
-    public var configurationPatternDescription: String
-        { return url.absoluteString }
+    public var configurationPatternDescription: String { return url.absoluteString }
     }

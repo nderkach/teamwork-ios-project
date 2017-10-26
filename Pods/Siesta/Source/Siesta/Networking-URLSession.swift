@@ -13,71 +13,57 @@ import Foundation
 
   This is Siesta’s default networking provider.
 */
-public struct URLSessionProvider: NetworkingProvider
-    {
+public struct URLSessionProvider: NetworkingProvider {
     /// Session which will create `URLSessionDataTask`s.
     public let session: URLSession
 
     /// :nodoc:
-    public init(session: URLSession)
-        { self.session = session }
+    public init(session: URLSession) { self.session = session }
 
     /// :nodoc:
     public func startRequest(
             _ request: URLRequest,
             completion: @escaping RequestNetworkingCompletionCallback)
-        -> RequestNetworking
-        {
-        let task = self.session.dataTask(with: request)
-            { completion($1 as? HTTPURLResponse, $0, $2) }
+        -> RequestNetworking {
+        let task = self.session.dataTask(with: request) { completion($1 as? HTTPURLResponse, $0, $2) }
         return URLSessionRequestNetworking(task: task)
         }
     }
 
-private struct URLSessionRequestNetworking: RequestNetworking, SessionTaskContainer
-    {
+private struct URLSessionRequestNetworking: RequestNetworking, SessionTaskContainer {
     var task: URLSessionTask
 
-    fileprivate init(task: URLSessionDataTask)
-        {
+    fileprivate init(task: URLSessionDataTask) {
         self.task = task
         task.resume()
         }
 
-    func cancel()
-        { task.cancel() }
+    func cancel() { task.cancel() }
     }
 
-extension URLSession: NetworkingProviderConvertible
-    {
+extension URLSession: NetworkingProviderConvertible {
     /// You can pass an `URLSession` when creating a `Service`.
-    public var siestaNetworkingProvider: NetworkingProvider
-        { return URLSessionProvider(session: self) }
+    public var siestaNetworkingProvider: NetworkingProvider { return URLSessionProvider(session: self) }
     }
 
-extension URLSessionConfiguration: NetworkingProviderConvertible
-    {
+extension URLSessionConfiguration: NetworkingProviderConvertible {
     /// You can pass an `URLSessionConfiguration` when creating a `Service`.
-    public var siestaNetworkingProvider: NetworkingProvider
-        { return URLSession(configuration: self).siestaNetworkingProvider }
+    public var siestaNetworkingProvider: NetworkingProvider { return URLSession(configuration: self).siestaNetworkingProvider }
     }
 
 /// Convenience for `NetworkingProvider` implementations that ultimate rely on an `URLSessionTask`.
-public protocol SessionTaskContainer
-    {
+public protocol SessionTaskContainer {
     /// Underlying networking task that can report request progress.
     var task: URLSessionTask { get }
     }
 
-public extension SessionTaskContainer
-    {
+public extension SessionTaskContainer {
     /// Extracts transfer metrics using bytes counts from `URLSessionTask`.
-    var transferMetrics: RequestTransferMetrics
-        {
+    var transferMetrics: RequestTransferMetrics {
         return RequestTransferMetrics(
-            requestBytesSent:      task.countOfBytesSent,
-            requestBytesTotal:     task.countOfBytesExpectedToSend,
+            requestBytesSent: task.countOfBytesSent,
+            requestBytesTotal: task.countOfBytesExpectedToSend,
             responseBytesReceived: task.countOfBytesReceived,
-            responseBytesTotal:    task.countOfBytesExpectedToReceive)
+            responseBytesTotal: task.countOfBytesExpectedToReceive)
         }
     }

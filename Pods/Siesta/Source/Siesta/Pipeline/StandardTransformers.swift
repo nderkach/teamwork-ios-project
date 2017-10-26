@@ -12,8 +12,7 @@
 
   - SeeAlso: `Service.init(...)`’s `standardTransformers:` parameter
 */
-public struct StandardTransformer
-    {
+public struct StandardTransformer {
     // Hello, reader of source code! Do you find yourself wanting these properties to be public, so that you can create
     // your own standard transformer + content type + pipeline stage groupings for easy reuse? I am hesitant to expose
     // all of this as public API, but if you have a problem it would solve, please open a GitHub issue and talk me
@@ -25,8 +24,7 @@ public struct StandardTransformer
     internal let stage: PipelineStageKey
     }
 
-extension StandardTransformer
-    {
+extension StandardTransformer {
     /**
       Uses Foundation’s `JSONSerialization` to transform responses
       - with content type of `*​/json` or `*​/​*+json`
@@ -70,14 +68,12 @@ extension StandardTransformer
             name: "image", transformer: ImageResponseTransformer(), contentTypes: ["image/*"], stage: .parsing)
     }
 
-extension Pipeline
-    {
+extension Pipeline {
     /**
       Adds one of Siesta’s standard tranformers to a pipeline. Useful if you omitted one of the standard transformers
       in `Service.init(...)`, but still want to configure it for certain resources.
     */
-    public mutating func add(_ transformer: StandardTransformer)
-        {
+    public mutating func add(_ transformer: StandardTransformer) {
         self[transformer.stage].add(transformer.transformer, contentTypes: transformer.contentTypes)
         }
     }

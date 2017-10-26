@@ -14,8 +14,7 @@ import Foundation
 
   See `URLSessionProvider` and `Extensions/Alamofire/Networking-Alamofire.swift` for implementation examples.
 */
-public protocol NetworkingProvider: NetworkingProviderConvertible
-    {
+public protocol NetworkingProvider: NetworkingProviderConvertible {
     /**
       Start the given request asynchronously, and return a `RequestNetworking` to control the request.
 
@@ -43,8 +42,7 @@ public protocol NetworkingProvider: NetworkingProviderConvertible
   * call the closure passed to `NetworkingProvider.startRequest(...)` when the request is complete, and
   * optionally support cancelling requests in progress.
 */
-public protocol RequestNetworking
-    {
+public protocol RequestNetworking {
     /// Cancel this request, if possible.
     func cancel()
 
@@ -53,8 +51,7 @@ public protocol RequestNetworking
     }
 
 /// Used by `NetworkingProvider` implementations to report request progress.
-public struct RequestTransferMetrics
-    {
+public struct RequestTransferMetrics {
     /// Bytes of HTTP request body sent.
     public var requestBytesSent: Int64
 
@@ -78,8 +75,7 @@ public struct RequestTransferMetrics
             requestBytesSent: Int64,
             requestBytesTotal: Int64?,
             responseBytesReceived: Int64,
-            responseBytesTotal: Int64?)
-        {
+            responseBytesTotal: Int64?) {
         self.requestBytesSent = requestBytesSent
         self.requestBytesTotal = requestBytesTotal
         self.responseBytesReceived = responseBytesReceived
@@ -114,17 +110,14 @@ public typealias RequestNetworkingCompletionCallback = (HTTPURLResponse?, Data?,
 
   …and you can add to the list by writing an extension to implement `NetworkingProviderConvertible`.
 */
-public protocol NetworkingProviderConvertible
-    {
+public protocol NetworkingProviderConvertible {
     /// Returns a `NetworkingProvider` appropriate to the receipient.
     var siestaNetworkingProvider: NetworkingProvider { get }
     }
 
 //:nodoc:
-extension NetworkingProvider
-    {
+extension NetworkingProvider {
     /// You can pass a `NetworkingProvider` when creating a `Service` to override the default networking behavior.
     /// - SeeAlso: NetworkingProviderConvertible
-    public var siestaNetworkingProvider: NetworkingProvider
-        { return self }
+    public var siestaNetworkingProvider: NetworkingProvider { return self }
     }

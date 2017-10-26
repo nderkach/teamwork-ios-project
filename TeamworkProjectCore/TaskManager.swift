@@ -11,7 +11,6 @@ import Siesta
 public class TaskManager {
 
     public static let sharedInstance = TaskManager()
-    var taskResource: Resource?
 
     public func addTask(withName taskName: String, completion: @escaping (Bool, Int?) -> Swift.Void) {
         DispatchQueue.main.async {
@@ -29,11 +28,5 @@ public class TaskManager {
         DispatchQueue.main.async {
             TeamworkAPI.removeTask(withId: taskId, completion: completion)
         }
-    }
-}
-
-extension TaskManager: ResourceObserver {
-    public func resourceChanged(_ resource: Resource, event: ResourceEvent) {
-
     }
 }

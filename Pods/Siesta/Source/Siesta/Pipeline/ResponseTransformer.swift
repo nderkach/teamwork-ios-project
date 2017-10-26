@@ -40,15 +40,12 @@ public protocol ResponseTransformer: CustomDebugStringConvertible
     func process(_ response: Response) -> Response
     }
 
-public extension ResponseTransformer
-    {
+public extension ResponseTransformer {
     /// Prints the name of the transformer’s Swift type.
-    public var debugDescription: String
-        { return String(describing: type(of: self)) }
+    public var debugDescription: String { return String(describing: type(of: self)) }
 
     /// Helper to log a transformation. Call this in your custom transformer.
-    public func logTransformation(_ result: Response) -> Response
-        {
+    public func logTransformation(_ result: Response) -> Response {
         debugLog(.pipeline, ["  ├╴Applied transformer:", self, "\n  │ ↳", result.summary()])
         return result
         }
@@ -56,31 +53,26 @@ public extension ResponseTransformer
 
 // MARK: Wrapper types
 
-internal struct ContentTypeMatchTransformer: ResponseTransformer
-    {
+internal struct ContentTypeMatchTransformer: ResponseTransformer {
     let contentTypes: [String]  // for logging
     let contentTypeMatcher: NSRegularExpression
     let delegate: ResponseTransformer
 
-    init(_ delegate: ResponseTransformer, contentTypes: [String])
-        {
+    init(_ delegate: ResponseTransformer, contentTypes: [String]) {
         self.delegate = delegate
         self.contentTypes = contentTypes
 
-        let contentTypeRegexps = contentTypes.map
-            {
+        let contentTypeRegexps = contentTypes.map {
             NSRegularExpression.escapedPattern(for: $0)
-                .replacingOccurrences(of: "\\*", with:"[^/+]+")
+                .replacingOccurrences(of: "\\*", with: "[^/+]+")
             }
         let pattern = "^" + contentTypeRegexps.joined(separator: "|") + "($|;)"
         self.contentTypeMatcher = try! NSRegularExpression(pattern: pattern)
         }
 
-    func process(_ response: Response) -> Response
-        {
+    func process(_ response: Response) -> Response {
         let contentType: String?
-        switch response
-            {
+        switch response {
             case .success(let entity):
                 contentType = entity.contentType
 
@@ -89,17 +81,13 @@ internal struct ContentTypeMatchTransformer: ResponseTransformer
             }
 
         if let contentType = contentType,
-           contentTypeMatcher.matches(contentType)
-            {
+           contentTypeMatcher.matches(contentType) {
             debugLog(.pipeline, ["  ├╴Transformer", self, "matches content type", debugStr(contentType)])
             return delegate.process(response)
-            }
-        else
-            { return response }
+            } else { return response }
         }
 
-    var debugDescription: String
-        {
+    var debugDescription: String {
         return "⟨\(contentTypes.joined(separator: " "))⟩ \(delegate)"
         }
     }
@@ -112,8 +100,7 @@ internal struct ContentTypeMatchTransformer: ResponseTransformer
 
   If the input entity’s content does not match the `InputContentType`, the response is an error.
 */
-public struct ResponseContentTransformer<InputContentType, OutputContentType>: ResponseTransformer
-    {
+public struct ResponseContentTransformer<InputContentType, OutputContentType>: ResponseTransformer {
     /**
       A closure that both processes the content and describes the required input and output types.
 
@@ -144,18 +131,15 @@ public struct ResponseContentTransformer<InputContentType, OutputContentType>: R
     public init(
             onInputTypeMismatch mismatchAction: InputTypeMismatchAction = .error,
             transformErrors: Bool = false,
-            processor: @escaping Processor)
-        {
+            processor: @escaping Processor) {
         self.mismatchAction = mismatchAction
         self.transformErrors = transformErrors
         self.processor = processor
         }
 
     /// :nodoc:
-    public func process(_ response: Response) -> Response
-        {
-        switch response
-            {
+    public func process(_ response: Response) -> Response {
+        switch response {
             case .success(let entity):
                 return processEntity(entity)
 
@@ -164,12 +148,9 @@ public struct ResponseContentTransformer<InputContentType, OutputContentType>: R
             }
         }
 
-    private func processEntity(_ entity: Entity<Any>) -> Response
-        {
-        guard let typedEntity = entity.withContentRetyped() as Entity<InputContentType>? else
-            {
-            switch mismatchAction
-                {
+    private func processEntity(_ entity: Entity<Any>) -> Response {
+        guard let typedEntity = entity.withContentRetyped() as Entity<InputContentType>? else {
+            switch mismatchAction {
                 case .skip,
                      .skipIfOutputTypeMatches where entity.content is OutputContentType:
 
@@ -183,15 +164,12 @@ public struct ResponseContentTransformer<InputContentType, OutputContentType>: R
                 }
             }
 
-        do  {
-            guard let result = try processor(typedEntity) else
-                { throw RequestError.Cause.TransformerReturnedNil(transformer: self) }
+        do {
+            guard let result = try processor(typedEntity) else { throw RequestError.Cause.TransformerReturnedNil(transformer: self) }
             var entity = entity
             entity.content = result
             return logTransformation(.success(entity))
-            }
-        catch
-            {
+            } catch {
             let siestaError =
                 error as? RequestError
                 ?? RequestError(
@@ -201,8 +179,7 @@ public struct ResponseContentTransformer<InputContentType, OutputContentType>: R
             }
         }
 
-    private func contentTypeMismatchError(_ entityFromUpstream: Entity<Any>) -> Response
-        {
+    private func contentTypeMismatchError(_ entityFromUpstream: Entity<Any>) -> Response {
         return .failure(RequestError(
             userMessage: NSLocalizedString("Cannot parse server response", comment: "userMessage"),
             cause: RequestError.Cause.WrongInputTypeInTranformerPipeline(
@@ -211,12 +188,9 @@ public struct ResponseContentTransformer<InputContentType, OutputContentType>: R
                 transformer: self)))
         }
 
-    private func processError(_ error: RequestError) -> Response
-        {
-        if transformErrors, let errorData = error.entity
-            {
-            switch processEntity(errorData)
-                {
+    private func processError(_ error: RequestError) -> Response {
+        if transformErrors, let errorData = error.entity {
+            switch processEntity(errorData) {
                 case .success(let errorDataTransformed):
                     var error = error
                     error.entity = errorDataTransformed
@@ -229,17 +203,13 @@ public struct ResponseContentTransformer<InputContentType, OutputContentType>: R
         return .failure(error)
         }
 
-    public var debugDescription: String
-        {
+    public var debugDescription: String {
         var result = "\(InputContentType.self) → \(OutputContentType.self)"
 
         var options: [String] = []
-        if mismatchAction != .error
-            { options.append("mismatchAction: \(mismatchAction)") }
-        if transformErrors
-            { options.append("transformErrors: \(transformErrors)") }
-        if !options.isEmpty
-            { result += "  [\(options.joined(separator: ", "))]" }
+        if mismatchAction != .error { options.append("mismatchAction: \(mismatchAction)") }
+        if transformErrors { options.append("transformErrors: \(transformErrors)") }
+        if !options.isEmpty { result += "  [\(options.joined(separator: ", "))]" }
 
         return result
         }
@@ -251,8 +221,7 @@ public struct ResponseContentTransformer<InputContentType, OutputContentType>: R
   - See: `ResponseContentTransformer.init(...)`
   - See: `Service.configureTransformer(...)`
 */
-public enum InputTypeMismatchAction
-    {
+public enum InputTypeMismatchAction {
     /// Output `RequestError.Cause.WrongInputTypeInTranformerPipeline`.
     case error
 
@@ -263,50 +232,39 @@ public enum InputTypeMismatchAction
     case skipIfOutputTypeMatches
     }
 
-
 // MARK: Transformers for standard types
 
 /// Parses `Data` content as text, using the encoding specified in the content type, or ISO-8859-1 by default.
-public func TextResponseTransformer(_ transformErrors: Bool = true) -> ResponseTransformer
-    {
-    return ResponseContentTransformer<Data, String>(transformErrors: transformErrors)
-        {
+public func TextResponseTransformer(_ transformErrors: Bool = true) -> ResponseTransformer {
+    return ResponseContentTransformer<Data, String>(transformErrors: transformErrors) {
         let charsetName = $0.charset ?? "ISO-8859-1"
         let encodingID = CFStringConvertEncodingToNSStringEncoding(
             CFStringConvertIANACharSetNameToEncoding(charsetName as CFString))
 
-        guard encodingID != UInt(kCFStringEncodingInvalidId) else
-            { throw RequestError.Cause.InvalidTextEncoding(encodingName: charsetName) }
+        guard encodingID != UInt(kCFStringEncodingInvalidId) else { throw RequestError.Cause.InvalidTextEncoding(encodingName: charsetName) }
 
         let encoding = String.Encoding(rawValue: encodingID)
-        guard let string = String(data: $0.content, encoding: encoding) else
-            { throw RequestError.Cause.UndecodableText(encoding: encoding) }
+        guard let string = String(data: $0.content, encoding: encoding) else { throw RequestError.Cause.UndecodableText(encoding: encoding) }
 
         return string
         }
     }
 
 /// Parses `Data` content as JSON using JSONSerialization, outputting either a dictionary or an array.
-public func JSONResponseTransformer(_ transformErrors: Bool = true) -> ResponseTransformer
-    {
-    return ResponseContentTransformer<Data, JSONConvertible>(transformErrors: transformErrors)
-        {
+public func JSONResponseTransformer(_ transformErrors: Bool = true) -> ResponseTransformer {
+    return ResponseContentTransformer<Data, JSONConvertible>(transformErrors: transformErrors) {
         let rawObj = try JSONSerialization.jsonObject(with: $0.content, options: [.allowFragments])
 
-        guard let jsonObj = rawObj as? JSONConvertible else
-            { throw RequestError.Cause.JSONResponseIsNotDictionaryOrArray(actualType: type(of: rawObj)) }
+        guard let jsonObj = rawObj as? JSONConvertible else { throw RequestError.Cause.JSONResponseIsNotDictionaryOrArray(actualType: type(of: rawObj)) }
 
         return jsonObj
         }
     }
 
 /// Parses `Data` content as an image, yielding a `UIImage`.
-public func ImageResponseTransformer(_ transformErrors: Bool = false) -> ResponseTransformer
-    {
-    return ResponseContentTransformer<Data, Image>(transformErrors: transformErrors)
-        {
-        guard let image = Image(data: $0.content) else
-            { throw RequestError.Cause.UnparsableImage() }
+public func ImageResponseTransformer(_ transformErrors: Bool = false) -> ResponseTransformer {
+    return ResponseContentTransformer<Data, Image>(transformErrors: transformErrors) {
+        guard let image = Image(data: $0.content) else { throw RequestError.Cause.UnparsableImage() }
 
         return image
         }

@@ -15,8 +15,7 @@ import Foundation
   Any code that wants to display or process a resource’s content should register itself as an observer using
   `Resource.addObserver(...)`.
 */
-public protocol ResourceObserver
-    {
+public protocol ResourceObserver {
     /**
       Called when anything happens that might change the value of the reosurce’s `latestData`, `latestError`, or
       `isLoading` flag. The `event` explains the reason for the notification.
@@ -55,28 +54,23 @@ public protocol ResourceObserver
     var observerIdentity: AnyHashable { get }
     }
 
-struct UniqueObserverIdentity: Hashable
-    {
+struct UniqueObserverIdentity: Hashable {
     private static var idSeq = 0
     private let id: Int
 
-    init()
-        {
+    init() {
         id = UniqueObserverIdentity.idSeq
         UniqueObserverIdentity.idSeq += 1
         }
 
-    static func == (lhs: UniqueObserverIdentity, rhs: UniqueObserverIdentity) -> Bool
-        {
+    static func == (lhs: UniqueObserverIdentity, rhs: UniqueObserverIdentity) -> Bool {
         return lhs.id == rhs.id
         }
 
-    var hashValue: Int
-        { return id }
+    var hashValue: Int { return id }
     }
 
-public extension ResourceObserver
-    {
+public extension ResourceObserver {
     /// Does nothing.
     func resourceRequestProgress(for resource: Resource, progress: Double) { }
 
@@ -84,12 +78,8 @@ public extension ResourceObserver
     func stoppedObserving(resource: Resource) { }
 
     /// True iff self and other are (1) both objects and (2) are the _same_ object.
-    var observerIdentity: AnyHashable
-        {
-        if isObject(self)
-            { return AnyHashable(ObjectIdentifier(self as AnyObject)) }
-        else
-            { return UniqueObserverIdentity() }
+    var observerIdentity: AnyHashable {
+        if isObject(self) { return AnyHashable(ObjectIdentifier(self as AnyObject)) } else { return UniqueObserverIdentity() }
         }
     }
 
@@ -98,15 +88,14 @@ public extension ResourceObserver
 
   See `Resource.addObserver(owner:file:line:closure:)`.
 */
-public typealias ResourceObserverClosure = (Resource, ResourceEvent) -> ()
+public typealias ResourceObserverClosure = (Resource, ResourceEvent) -> Void
 
 /**
   The possible causes of a call to `ResourceObserver.resourceChanged(_:event:)`.
 
   - SeeAlso: `Resource.load()`
 */
-public enum ResourceEvent
-    {
+public enum ResourceEvent {
     /**
       Immediately sent to a new observer when it first starts observing a resource. This event allows you to gather
       all of your “update UI from resource state” code in one place, and have that code be called both when the UI first
@@ -134,8 +123,7 @@ public enum ResourceEvent
     case error
 
     /// Possible sources of `ResourceEvent.newData`.
-    public enum NewDataSource: String, CustomStringConvertible
-        {
+    public enum NewDataSource: String, CustomStringConvertible {
         /// The new value of `latestData` comes from a successful network request.
         case network
 
@@ -148,13 +136,11 @@ public enum ResourceEvent
         /// The resource was wiped, and `latestData` is now nil.
         case wipe
 
-        public var description: String
-            { return rawValue }
+        public var description: String { return rawValue }
         }
     }
 
-public extension Resource
-    {
+public extension Resource {
     // MARK: - Observing Resources
 
     /**
@@ -170,8 +156,7 @@ public extension Resource
               _not_ necessarily true of other flavors of `addObserver`, which accept observers that are not objects.
     */
     @discardableResult
-    public func addObserver(_ observerAndOwner: ResourceObserver & AnyObject) -> Self
-        {
+    public func addObserver(_ observerAndOwner: ResourceObserver & AnyObject) -> Self {
         return addObserver(observerAndOwner, owner: observerAndOwner)
         }
 
@@ -190,8 +175,7 @@ public extension Resource
               passing a struct.
     */
     @discardableResult
-    public func addObserver(_ observer: ResourceObserver, owner: AnyObject) -> Self
-        {
+    public func addObserver(_ observer: ResourceObserver, owner: AnyObject) -> Self {
         let identity = observer.observerIdentity
 
         // An existing observer may be a false positive, already removed but
@@ -200,8 +184,7 @@ public extension Resource
 
         cleanDefunctObservers(force: observers[identity] != nil)
 
-        if let existingEntry = observers[identity]
-            {
+        if let existingEntry = observers[identity] {
             existingEntry.addOwner(owner)
             observersChanged()
             return self
@@ -232,8 +215,7 @@ public extension Resource
             file: String = #file,
             line: Int = #line,
             closure: @escaping ResourceObserverClosure)
-        -> Self
-        {
+        -> Self {
         return addObserver(
             ClosureObserver(
                 closure: closure,
@@ -245,45 +227,36 @@ public extension Resource
       Removes all observers owned by the given object.
     */
     @objc(removeObserversOwnedBy:)
-    public func removeObservers(ownedBy owner: AnyObject?)
-        {
-        guard let owner = owner else
-            { return }
+    public func removeObservers(ownedBy owner: AnyObject?) {
+        guard let owner = owner else { return }
 
-        for observer in observers.values
-            { observer.removeOwner(owner) }
+        for observer in observers.values { observer.removeOwner(owner) }
 
         cleanDefunctObservers()
         }
 
-    internal var beingObserved: Bool
-        {
+    internal var beingObserved: Bool {
         cleanDefunctObservers(force: true)
         return !observers.isEmpty
         }
 
-    internal func notifyObservers(_ event: ResourceEvent)
-        {
+    internal func notifyObservers(_ event: ResourceEvent) {
         cleanDefunctObservers(force: true)
 
         debugLog(.observers, [self, "sending", event, "event to", observers.count, "observer" + (observers.count == 1 ? "" : "s")])
-        for entry in observers.values
-            {
+        for entry in observers.values {
             debugLog(.observers, ["  ↳", event, "→", entry.observer])
             entry.observer?.resourceChanged(self, event: event)
             }
         }
 
-    internal func notifyObservers(progress: Double)
-        {
-        for entry in observers.values
-            {
+    internal func notifyObservers(progress: Double) {
+        for entry in observers.values {
             entry.observer?.resourceRequestProgress(for: self, progress: progress)
             }
         }
 
-    fileprivate func cleanDefunctObservers(force: Bool = false)
-        {
+    fileprivate func cleanDefunctObservers(force: Bool = false) {
         // There’s a tradeoff between the cost of touching all the weak owner refs of all
         // the observers and the cost of letting the observer list grow. As a compromise,
         // for operations that may modify the observer list but don’t need it to be fully
@@ -291,28 +264,22 @@ public extension Resource
         // thread task — unless we’re seeing a _lot_ of churn, in which case we force the
         // check to keep the list from growing.
 
-        if !force && delayDefunctObserverCheck()
-            { return }
+        if !force && delayDefunctObserverCheck() { return }
         defunctObserverCheckCounter = 0
 
-        for observer in observers.values
-            { observer.cleanUp() }
+        for observer in observers.values { observer.cleanUp() }
 
-        if observers.removeValues(matching: { $0.isDefunct })
-            { observersChanged() }
+        if observers.removeValues(matching: { $0.isDefunct }) { observersChanged() }
         }
 
     private func delayDefunctObserverCheck() -> Bool  // false means do it now!
         {
-        guard defunctObserverCheckCounter < 12 else
-            { return false }
+        guard defunctObserverCheckCounter < 12 else { return false }
         defunctObserverCheckCounter += 1
 
-        if !defunctObserverCheckScheduled
-            {
+        if !defunctObserverCheckScheduled {
             defunctObserverCheckScheduled = true
-            DispatchQueue.main.async
-                {
+            DispatchQueue.main.async {
                 self.defunctObserverCheckScheduled = false
                 self.cleanDefunctObservers(force: true)
                 }
@@ -322,102 +289,76 @@ public extension Resource
         }
     }
 
-
 // MARK: - Internals
 
-internal class ObserverEntry: CustomStringConvertible
-    {
+internal class ObserverEntry: CustomStringConvertible {
     private let resource: Resource  // keeps resource around as long as it has observers
 
     private var observerRef: StrongOrWeakRef<ResourceObserver>  // strong iff there are external owners
-    var observer: ResourceObserver?
-        { return observerRef.value }
+    var observer: ResourceObserver? { return observerRef.value }
 
     private var externalOwners = Set<WeakRef<AnyObject>>()
     private var observerIsOwner: Bool = false
 
-    init(observer: ResourceObserver, resource: Resource)
-        {
+    init(observer: ResourceObserver, resource: Resource) {
         self.observerRef = StrongOrWeakRef<ResourceObserver>(observer)
         self.resource = resource
-        if LogCategory.enabled.contains(.observers)
-            { originalObserverDescription = debugStr(observer) }  // So we know what was deallocated if it gets logged
+        if LogCategory.enabled.contains(.observers) { originalObserverDescription = debugStr(observer) }  // So we know what was deallocated if it gets logged
         }
 
-    deinit
-        {
+    deinit {
         debugLog(.observers, ["removing observer of", resource, "whose owners are all gone:", self])
         observer?.stoppedObserving(resource: resource)
         }
 
-    func addOwner(_ owner: AnyObject)
-        {
+    func addOwner(_ owner: AnyObject) {
         withOwner(owner,
-            ifObserver:
-                { observerIsOwner = true },
-            else:
-                { externalOwners.insert(WeakRef(owner)) })
+            ifObserver: { observerIsOwner = true },
+            else: { externalOwners.insert(WeakRef(owner)) })
         }
 
-    func removeOwner(_ owner: AnyObject)
-        {
+    func removeOwner(_ owner: AnyObject) {
         withOwner(owner,
-            ifObserver:
-                { observerIsOwner = false },
-            else:
-                { externalOwners.remove(WeakRef(owner)) })
+            ifObserver: { observerIsOwner = false },
+            else: { externalOwners.remove(WeakRef(owner)) })
         }
 
     private func withOwner(
             _ owner: AnyObject,
             ifObserver selfOwnerAction: () -> Void,
-            else externalOwnerAction: () -> Void)
-        {
+            else externalOwnerAction: () -> Void) {
         // TODO: see if isObject() check improves perf here once https://bugs.swift.org/browse/SR-2867 is fixed
-        if owner === (observer as AnyObject?)
-            { selfOwnerAction() }
-        else
-            { externalOwnerAction() }
+        if owner === (observer as AnyObject?) { selfOwnerAction() } else { externalOwnerAction() }
         cleanUp()
         }
 
-    func cleanUp()
-        {
+    func cleanUp() {
         // Look for weak refs which refer to objects that are now gone
         externalOwners.filterInPlace { $0.value != nil }
 
         observerRef.strong = !observerIsOwner || !externalOwners.isEmpty
         }
 
-    var isDefunct: Bool
-        {
+    var isDefunct: Bool {
         return observer == nil
             || (!observerIsOwner && externalOwners.isEmpty)
         }
 
     private var originalObserverDescription: String?
-    var description: String
-        {
-        if let observer = observer
-            { return debugStr(observer) }
-        else
-            { return "<deallocated: \(originalObserverDescription ?? "–")>" }
+    var description: String {
+        if let observer = observer { return debugStr(observer) } else { return "<deallocated: \(originalObserverDescription ?? "–")>" }
         }
     }
 
-private struct ClosureObserver: ResourceObserver, CustomDebugStringConvertible
-    {
+private struct ClosureObserver: ResourceObserver, CustomDebugStringConvertible {
     let closure: ResourceObserverClosure
     let debugDescription: String
 
-    func resourceChanged(_ resource: Resource, event: ResourceEvent)
-        {
+    func resourceChanged(_ resource: Resource, event: ResourceEvent) {
         closure(resource, event)
         }
     }
 
-extension Resource: WeakCacheValue
-    {
-    func allowRemovalFromCache()
-        { cleanDefunctObservers() }
+extension Resource: WeakCacheValue {
+    func allowRemovalFromCache() { cleanDefunctObservers() }
     }

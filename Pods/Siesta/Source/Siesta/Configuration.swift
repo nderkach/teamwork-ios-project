@@ -13,8 +13,7 @@ import Foundation
 
   - SeeAlso: `Service.configure(...)`
 */
-public struct Configuration
-    {
+public struct Configuration {
     // MARK: General Resource Behavior
 
     /**
@@ -47,7 +46,7 @@ public struct Configuration
         depends on the initially requested, _pre-mutation_ method of a request. All other configuration properties
         will depend on the _post-mutation_ request method.
     */
-    public var headers: [String:String] = [:]
+    public var headers: [String: String] = [:]
 
     /**
       Adds a closure that can modify HTTP headers, body, etc. before a `Request` is created. Use this to configure
@@ -62,8 +61,7 @@ public struct Configuration
           Siesta will use the HTTP method of the pre-mutation request to determine what configuration to use for _all_
           mutations, and then use the post-mutation HTTP method for any further configuration.
     */
-    public mutating func mutateRequests(with mutation: @escaping Resource.RequestMutation)
-        { requestMutations.append(mutation) }
+    public mutating func mutateRequests(with mutation: @escaping Resource.RequestMutation) { requestMutations.append(mutation) }
 
     internal var requestMutations: [Resource.RequestMutation] = []
 
@@ -82,8 +80,7 @@ public struct Configuration
 
       - SeeAlso: `Request.chained(...)`
     */
-    public mutating func decorateRequests(with decorator: @escaping (Resource, Request) -> Request)
-        { requestDecorators.append(decorator) }
+    public mutating func decorateRequests(with decorator: @escaping (Resource, Request) -> Request) { requestDecorators.append(decorator) }
 
     internal var requestDecorators: [(Resource, Request) -> Request] = []
 

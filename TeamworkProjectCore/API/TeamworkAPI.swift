@@ -12,7 +12,7 @@ import Fuse
 let baseURL = "https://yat.teamwork.com"
 let apiKey = "twp_TEbBXGCnvl2HfvXWfkLUlzx92e3T"
 
-// TODO: add option to add task to arbitary task lists
+// TODO: add option to add tasks to arbitary task lists
 let taskListId = 1413042
 
 let TeamworkAPI = _TeamworkAPI()
@@ -92,7 +92,7 @@ class _TeamworkAPI {
         return service
             .resource("/tasklists/\(id)/tasks.json")
     }
-    
+
     func addTaskToTaskList(withId taskListId: Int, content taskContent: String, completion: @escaping (Bool, Int?) -> Swift.Void) {
         let json = [
             "todo-item": [
@@ -100,7 +100,7 @@ class _TeamworkAPI {
             ]
         ]
 
-        self.service.resource("/tasklists/\(taskListId)/tasks.json").request(.post, json: json).onSuccess() { entity in
+        self.service.resource("/tasklists/\(taskListId)/tasks.json").request(.post, json: json).onSuccess { entity in
                 guard let result: TaskCreateResponse = entity.typedContent() else {
                     return
                 }
@@ -111,7 +111,7 @@ class _TeamworkAPI {
     }
 
     func removeTask(withId taskId: Int, completion: @escaping (Bool) -> Swift.Void) {
-        self.service.resource("/tasks/\(taskId).json").request(.delete).onSuccess() { _ in
+        self.service.resource("/tasks/\(taskId).json").request(.delete).onSuccess { _ in
                 completion(true)
             }.onFailure({ _ in
                 completion(false)
@@ -120,7 +120,7 @@ class _TeamworkAPI {
 
     func finishTask(withName spokenTaskName: String, completion: @escaping (Bool, String?) -> Swift.Void) {
 
-            service.resource("/tasklists/\(taskListId)/tasks.json").request(.get).onSuccess() { entity in
+            service.resource("/tasklists/\(taskListId)/tasks.json").request(.get).onSuccess { entity in
 
                 guard let result: TaskResult = entity.typedContent() else {
                     return
@@ -135,12 +135,11 @@ class _TeamworkAPI {
                     return completion(false, nil)
                 }
 
-                self.service.resource("/tasks/\(task.id)/complete.json").request(.put).onSuccess() { _ in
+                self.service.resource("/tasks/\(task.id)/complete.json").request(.put).onSuccess { _ in
                     completion(true, taskName)
                     }.onFailure { _ in
                         completion(false, nil)
                 }
             }
     }
-
 }

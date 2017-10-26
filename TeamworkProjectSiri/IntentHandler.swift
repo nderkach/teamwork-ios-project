@@ -35,7 +35,7 @@ class IntentHandler: INExtension {
     }
 }
 
-extension IntentHandler : INAddTasksIntentHandling {
+extension IntentHandler: INAddTasksIntentHandling {
 
     public func handle(intent: INAddTasksIntent,
                        completion: @escaping (INAddTasksIntentResponse) -> Swift.Void) {
@@ -53,7 +53,7 @@ extension IntentHandler : INAddTasksIntentHandling {
             tasks = createTasks(fromTitles: taskTitlesStrings)
             for task in tasks {
                 dispatchGroup.enter()
-                TaskManager.sharedInstance.addTask (withName: task.title.spokenPhrase) { (success, taskId) in
+                TaskManager.sharedInstance.addTask (withName: task.title.spokenPhrase) { (success, _) in
                     if success {
                         addedTasks.append(task)
                     }
@@ -63,14 +63,14 @@ extension IntentHandler : INAddTasksIntentHandling {
         }
 
         dispatchGroup.notify(queue: .main) {
-            let response = INAddTasksIntentResponse(code: addedTasks.isEmpty ? .failure : .success , userActivity: nil)
+            let response = INAddTasksIntentResponse(code: addedTasks.isEmpty ? .failure : .success, userActivity: nil)
             response.addedTasks = addedTasks
             completion(response)
         }
     }
 }
 
-extension IntentHandler : INSetTaskAttributeIntentHandling {
+extension IntentHandler: INSetTaskAttributeIntentHandling {
 
     public func handle(intent: INSetTaskAttributeIntent,
                        completion: @escaping (INSetTaskAttributeIntentResponse) -> Swift.Void) {

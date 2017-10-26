@@ -13,8 +13,7 @@ import Foundation
   This tests whether the argument is really a subtype of AnyObject, restoring the
   behavior of “is AnyObject” in Swift 2.
 */
-internal func isObject(_ val: Any) -> Bool
-    {
+internal func isObject(_ val: Any) -> Bool {
     return type(of: val) is AnyObject.Type
     }
 
@@ -29,15 +28,12 @@ internal func isObject(_ val: Any) -> Bool
     - ...if strong == true, then StrongOrWeakRef holds the structure.
     - ...if strong == false, then StrongOrWeakRef immediately discards the structure.
 */
-internal struct StrongOrWeakRef<T>
-    {
+internal struct StrongOrWeakRef<T> {
     private var strongRef: T?
     private weak var weakRef: AnyObject?
-    var value: T?
-        { return strongRef ?? (weakRef as? T) }
+    var value: T? { return strongRef ?? (weakRef as? T) }
 
-    init(_ value: T)
-        {
+    init(_ value: T) {
         strongRef = value
         weakRef = value as AnyObject
         // More performant version of previous line, once
@@ -47,8 +43,7 @@ internal struct StrongOrWeakRef<T>
 //            : nil
         }
 
-    var strong: Bool
-        {
+    var strong: Bool {
         get { return strongRef != nil }
         set { strongRef = newValue ? value : nil }
         }
@@ -58,25 +53,21 @@ internal struct StrongOrWeakRef<T>
   A weak ref suitable for use in collections. This struct maintains stable behavior for == and hashValue even
   after the referenced object has been deallocated, making it suitable for use as a Set member and a Dictionary key.
 */
-internal struct WeakRef<T: AnyObject>: Hashable
-    {
+internal struct WeakRef<T: AnyObject>: Hashable {
     private(set) weak var value: T?
     private let originalIdentity: UInt
     private let originalHash: Int
 
-    init(_ value: T)
-        {
+    init(_ value: T) {
         self.value = value
         let ident = ObjectIdentifier(value)
         self.originalIdentity = UInt(bitPattern: ident)
         self.originalHash = ident.hashValue
         }
 
-    var hashValue: Int
-        { return originalHash }
+    var hashValue: Int { return originalHash }
 
-    internal static func == <T>(lhs: WeakRef<T>, rhs: WeakRef<T>) -> Bool
-        {
+    internal static func == <T>(lhs: WeakRef<T>, rhs: WeakRef<T>) -> Bool {
         return lhs.originalIdentity == rhs.originalIdentity
         }
     }

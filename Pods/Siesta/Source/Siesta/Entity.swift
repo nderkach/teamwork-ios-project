@@ -14,8 +14,7 @@ import Foundation
 
   Typically extracted from an HTTP message body.
 */
-public struct Entity<ContentType>
-    {
+public struct Entity<ContentType> {
     /**
       The data itself. When constructed from an HTTP response, it begins its life as `Data`, but may become any type
       of object after running though the service’s `ResponseTransformer` chain.
@@ -43,8 +42,7 @@ public struct Entity<ContentType>
       This property may include MIME parameters, so beware of using exact string matches. For a plain text response,
       for example, you might see “`text/plain`”, “`text/plain; charset=utf-8`”, or even “`text/foo+plain`”.
     */
-    public var contentType: String
-        { return headers["content-type"] ?? "application/octet-stream" }
+    public var contentType: String { return headers["content-type"] ?? "application/octet-stream" }
 
     /**
       The charset given with the content type, if any.
@@ -54,8 +52,7 @@ public struct Entity<ContentType>
     /**
       The etag of this data. If non-nil, Siesta will send an `If-None-Match` header with subsequent loads.
     */
-    public var etag: String?
-        { return header(forKey: "etag") }
+    public var etag: String? { return header(forKey: "etag") }
 
     /**
       Returns the value of the HTTP header with the given key. The key is case insensitive.
@@ -64,8 +61,7 @@ public struct Entity<ContentType>
 
       - Parameter key: The case-insensitive header name.
     */
-    public func header(forKey key: String) -> String?
-        { return headers[key.lowercased()] }
+    public func header(forKey key: String) -> String? { return headers[key.lowercased()] }
 
     /**
       All HTTP headers sent with this entity. The keys are in lower case (and will be converted to lowercase if you
@@ -73,16 +69,14 @@ public struct Entity<ContentType>
 
       - See also: `header(forKey:)`
     */
-    public var headers: [String:String]
-        {
+    public var headers: [String: String] {
         get { return headersNormalized }
         set {
-            headersNormalized = newValue.mapDict
-                { ($0.lowercased(), $1) }
+            headersNormalized = newValue.mapDict { ($0.lowercased(), $1) }
             }
         }
 
-    private var headersNormalized: [String:String] = [:]
+    private var headersNormalized: [String: String] = [:]
 
     /// The time at which this data was last known to be valid.
     public var timestamp: TimeInterval
@@ -90,8 +84,7 @@ public struct Entity<ContentType>
     /**
       Extracts data from a network response.
     */
-    public init(response: HTTPURLResponse?, content: ContentType)
-        {
+    public init(response: HTTPURLResponse?, content: ContentType) {
         let headers = (response?.allHeaderFields ?? [:])
             .flatMapDict { ($0 as? String, $1 as? String) }
 
@@ -110,8 +103,7 @@ public struct Entity<ContentType>
             content: ContentType,
             contentType: String,
             charset: String? = nil,
-            headers: [String:String] = [:])
-        {
+            headers: [String: String] = [:]) {
         var headers = headers
         headers["Content-Type"] = contentType
 
@@ -124,16 +116,12 @@ public struct Entity<ContentType>
     public init(
             content: ContentType,
             charset: String? = nil,
-            headers: [String:String],
-            timestamp: TimeInterval? = nil)
-        {
+            headers: [String: String],
+            timestamp: TimeInterval? = nil) {
         self.content = content
         self.charset = charset
 
-        if let timestamp = timestamp
-            { self.timestamp = timestamp }
-        else
-            {
+        if let timestamp = timestamp { self.timestamp = timestamp } else {
             self.timestamp = 0
             self.touch()
             }
@@ -142,19 +130,15 @@ public struct Entity<ContentType>
         }
 
     /// Updates `timestamp` to the current time.
-    public mutating func touch()
-        { timestamp = now() }
+    public mutating func touch() { timestamp = now() }
 
     /// Returns an identical `Entity` with `content` cast to `NewType` if the type is convertible, nil otherwise.
-    public func withContentRetyped<NewType>() -> Entity<NewType>?
-        {
-        guard let retypedContent = content as? NewType else
-            { return nil }
+    public func withContentRetyped<NewType>() -> Entity<NewType>? {
+        guard let retypedContent = content as? NewType else { return nil }
 
         return Entity<NewType>(content: retypedContent, charset: charset, headers: headers, timestamp: timestamp)
         }
     }
-
 
 /**
   Mixin that provides convenience accessors for the content of an optional contained entity.
@@ -181,8 +165,7 @@ public struct Entity<ContentType>
   `UIDoorknob`, but does not do any parsing to put a `UIDoorknob` there in the first place. You’d need to pair this with
   a custom `ResponseTransformer` that converts raw doorknob responses to `UIDoorknob`s.
 */
-public protocol TypedContentAccessors
-    {
+public protocol TypedContentAccessors {
     /// The type of entity content the implementing type provides. Often `Any`.
     associatedtype ContentType
 
@@ -190,8 +173,7 @@ public protocol TypedContentAccessors
     var entityForTypedContentAccessors: Entity<ContentType>? { get }
     }
 
-public extension TypedContentAccessors
-    {
+public extension TypedContentAccessors {
     /**
       A convenience for retrieving the content in this container when you expect it to be of a specific type.
       For example, if you expect the content to be a UIImage:
@@ -204,14 +186,12 @@ public extension TypedContentAccessors
       - SeeAlso: `typedContent()`
       - SeeAlso: `ResponseTransformer`
     */
-    public func typedContent<T>(ifNone defaultContent: @autoclosure () -> T) -> T
-        {
+    public func typedContent<T>(ifNone defaultContent: @autoclosure () -> T) -> T {
         return (entityForTypedContentAccessors?.content as? T) ?? defaultContent()
         }
 
     /// Variant of `typedContent(ifNone:)` with optional input & output.
-    public func typedContent<T>(ifNone defaultContent: @autoclosure () -> T?) -> T?
-        {
+    public func typedContent<T>(ifNone defaultContent: @autoclosure () -> T?) -> T? {
         return (entityForTypedContentAccessors?.content as? T) ?? defaultContent()
         }
 
@@ -225,35 +205,31 @@ public extension TypedContentAccessors
 
           showUser(resource.typedContent())  // Infers that desired type is User
     */
-    public func typedContent<T>() -> T?
-        {
+    public func typedContent<T>() -> T? {
         return typedContent(ifNone: nil)
         }
 
     /// Returns content if it is a dictionary with string keys; otherwise returns an empty dictionary.
-    public var jsonDict: [String:Any] { return typedContent(ifNone: [:]) }
+    public var jsonDict: [String: Any] { return typedContent(ifNone: [:]) }
 
     /// Returns content if it is an array; otherwise returns an empty array.
-    public var jsonArray: [Any]       { return typedContent(ifNone: []) }
+    public var jsonArray: [Any] { return typedContent(ifNone: []) }
 
     /// Returns content if it is a string; otherwise returns an empty string.
-    public var text: String           { return typedContent(ifNone: "") }
+    public var text: String { return typedContent(ifNone: "") }
     }
 
-extension Entity: TypedContentAccessors
-    {
+extension Entity: TypedContentAccessors {
     /// Typed content accessors such as `.text` and `.jsonDict` apply to this entity’s content.
     public var entityForTypedContentAccessors: Entity<ContentType>? { return self }
     }
 
-extension Resource: TypedContentAccessors
-    {
+extension Resource: TypedContentAccessors {
     /// Typed content accessors such as `.text` and `.jsonDict` apply to `latestData?.content`.
     public var entityForTypedContentAccessors: Entity<Any>? { return latestData }
     }
 
-extension RequestError: TypedContentAccessors
-    {
+extension RequestError: TypedContentAccessors {
     /// Typed content accessors such as `.text` and `.jsonDict` apply to `entity?.content`.
     public var entityForTypedContentAccessors: Entity<Any>? { return entity }
     }

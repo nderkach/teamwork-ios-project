@@ -17,4 +17,3 @@ struct TaskCreateResponse: Decodable {
         case status = "STATUS"
     }
 }
-

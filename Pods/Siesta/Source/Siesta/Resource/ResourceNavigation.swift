@@ -8,8 +8,7 @@
 
 import Foundation
 
-extension Resource
-    {
+extension Resource {
     // MARK: URL navigation
 
     /**
@@ -32,8 +31,7 @@ extension Resource
       - SeeAlso: `relative(_:)`
     */
     @objc
-    public func child(_ subpath: String) -> Resource
-        {
+    public func child(_ subpath: String) -> Resource {
         return service.resource(absoluteURL: url.appendingPathComponent(subpath))
         }
 
@@ -50,8 +48,7 @@ extension Resource
         - `child(_:)`
     */
     @objc
-    public func relative(_ href: String) -> Resource
-        {
+    public func relative(_ href: String) -> Resource {
         return service.resource(absoluteURL: URL(string: href, relativeTo: url))
         }
 
@@ -66,12 +63,8 @@ extension Resource
           }
     */
     @objc
-    public func optionalRelative(_ href: String?) -> Resource?
-        {
-        if let href = href
-            { return relative(href) }
-        else
-            { return nil }
+    public func optionalRelative(_ href: String?) -> Resource? {
+        if let href = href { return relative(href) } else { return nil }
         }
 
     /**
@@ -92,10 +85,8 @@ extension Resource
       up to you to canonicalize your parameter order.
     */
     @objc(withParam:value:)
-    public func withParam(_ name: String, _ value: String?) -> Resource
-        {
+    public func withParam(_ name: String, _ value: String?) -> Resource {
         return service.resource(absoluteURL:
-            url.alterQuery
-                { $0[name] = value })
+            url.alterQuery { $0[name] = value })
         }
     }
